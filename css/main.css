@@ -381,6 +381,10 @@ html, body {
   padding: 0 15px;
 }
 
+.none {
+  display: none;
+}
+
 @font-face {
   font-family: 'Gilroy Regular';
   src: url("../../fonts/Gilroy-Regular.eot");
@@ -411,6 +415,12 @@ html, body {
 }
 .header {
   color: #fff;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #403c3b;
+  z-index: 2;
 }
 .header__container {
   padding: 24px;
@@ -526,4 +536,23 @@ html, body {
   font-size: 12px;
   color: #403C3B;
   line-height: 1;
+}
+
+.main {
+  height: 100vh;
+  background-color: #211F20;
+  background-image: linear-gradient(90deg, #211f20 0%, rgba(68, 64, 63, 0) 70%), url("../img/main-bg.jpg");
+  background-position: right top;
+  background-repeat: no-repeat;
+  background-size: 80%;
+}
+.main__container {
+  position: relative;
+  height: 100vh;
+}
+.main__title {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
 }
