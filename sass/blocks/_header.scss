@@ -12,21 +12,6 @@
     align-items: center;
   }
 
-  &__logo {
-    margin-right: 72px;
-
-    font-family: 'Gilroy Bold';
-    font-size: 25px;
-    line-height: 25px;
-    letter-spacing: 0.15em;
-
-    transition: color .2s linear;
-
-    &:hover {
-      color: $secondary-text-color;
-    }
-  }
-
   &__search {
     margin-right: 30px;
     padding: 16px 18px;
