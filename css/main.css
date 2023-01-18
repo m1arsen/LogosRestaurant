@@ -761,7 +761,11 @@ html, body {
 
 .our-cafe {
   margin-top: 40px;
-  margin-bottom: 100px;
+  box-shadow: 0px 100px 100px -50px rgba(0, 0, 0, 0.75);
+  max-width: 1395px;
+  margin: 40px auto 0;
+  position: relative;
+  z-index: 2;
 }
 .our-cafe__container {
   padding: 70px;
@@ -813,7 +817,7 @@ html, body {
 .our-cafe__benefit {
   width: 227px;
   height: 227px;
-  background: rgba(80, 75, 74, 0.9);
+  background: rgba(80, 75, 74, 0.7);
   backdrop-filter: blur(5px);
   display: flex;
   justify-content: center;
@@ -849,22 +853,129 @@ html, body {
   transition: color .2s linear;
 }
 
-.nav {
+.location {
+  margin-top: -150px;
+  box-shadow: 0px 40px 40px rgba(43, 40, 40, 0.6);
+}
+.location__container {
+  position: relative;
+}
+.location__contacts {
+  padding: 25px 0;
   width: 100%;
-  max-width: 641px;
+  max-width: 526px;
+  background-color: #2E2B2C;
+  border-radius: 15px;
+  box-shadow: 0px 0px 70px black;
+  position: absolute;
+  top: 210px;
+  left: 67px;
+}
+.location__title {
+  padding: 0 0 26px 43px;
+  font-family: 'Gilroy Bold';
+  font-size: 30px;
+  line-height: 36px;
+  text-transform: uppercase;
+}
+.location__text-info {
+  padding: 15px 48px 28px 87px;
+  border-top: 1px solid transparent;
+  border-bottom: 1px solid transparent;
+  border-image: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0) 100%);
+  border-image-slice: 1;
+}
+.location__adress-section-title, .location__mail-section-title {
+  margin-bottom: 3px;
+  font-family: 'Gilroy Regular';
+  font-size: 14px;
+  line-height: 16px;
+  color: #CFCFCF;
+}
+.location__adress-section-adress, .location__mail-section-mail {
+  font-family: 'Gilroy Semibold';
+  font-size: 16px;
+  line-height: 19px;
+}
+.location__adress-section {
+  margin-bottom: 20px;
+  position: relative;
+}
+.location__adress-section::before {
+  content: '';
+  position: absolute;
+  top: 3px;
+  left: -30.7px;
+  width: 15.36px;
+  height: 18.27px;
+  background: url("../img/location/location-icon.svg") center no-repeat;
+  background-size: cover;
+}
+.location__mail-section {
+  position: relative;
+}
+.location__mail-section::before {
+  content: '';
+  position: absolute;
+  top: 3px;
+  left: -33px;
+  width: 19.23px;
+  height: 17.12px;
+  background: url("../img/location/mail-icon.svg") center no-repeat;
+  background-size: cover;
+}
+.location__btns {
+  padding: 17px 42px 30px 52px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  column-gap: 33px;
 }
-.nav__link {
-  font-family: 'Gilroy Medium';
-  font-size: 20px;
-  line-height: 24px;
+.location__btns-book {
+  padding: 22px 30px;
+  font-family: 'Gilroy Bold';
+  font-size: 13px;
+  line-height: 16px;
   color: #FFFFFF;
-  transition: color .2s linear;
+  text-transform: uppercase;
+  background: linear-gradient(114.93deg, #618967 5.11%, #72A479 94%);
+  border-radius: 10px;
+  transition: .2s linear;
 }
-.nav__link:hover {
-  color: rgba(255, 255, 255, 0.8);
+.location__btns-book:hover {
+  box-shadow: 0px 5px 10px rgba(114, 163, 121, 0.3);
+}
+.location__number p {
+  font-family: 'Gilroy Regular';
+  font-size: 13px;
+  line-height: 15px;
+  color: #CFCFCF;
+}
+.location__num {
+  font-family: 'Gilroy Bold';
+  font-size: 23px;
+  line-height: 28px;
+}
+.location__socials {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 26px;
+}
+.location__socials p {
+  font-family: 'Gilroy Semibold';
+  font-size: 16px;
+  line-height: 19px;
+}
+.location__links {
+  display: flex;
+  column-gap: 10px;
+}
+.location__links svg {
+  transition: .2s linear;
+}
+.location__links-facebook:hover svg, .location__links-vk:hover svg, .location__links-youtube:hover svg, .location__links-instagram:hover svg {
+  opacity: 0.5;
 }
 
 .footer__container {
@@ -877,7 +988,7 @@ html, body {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  left: 0;
+  left: 20px;
   width: 64px;
   height: 64px;
   border-radius: 50%;
@@ -913,4 +1024,22 @@ html, body {
 .footer__link:hover {
   color: rgba(255, 255, 255, 0.8);
   border-bottom: 1px solid rgba(255, 255, 255, 0);
+}
+
+.nav {
+  width: 100%;
+  max-width: 641px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.nav__link {
+  font-family: 'Gilroy Medium';
+  font-size: 20px;
+  line-height: 24px;
+  color: #FFFFFF;
+  transition: color .2s linear;
+}
+.nav__link:hover {
+  color: rgba(255, 255, 255, 0.8);
 }
