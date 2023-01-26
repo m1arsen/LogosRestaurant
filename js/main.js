@@ -12,7 +12,6 @@ const swiper = new Swiper('.swiper', {
   //   prevEl: '.swiper-button-prev',
   // },
   // allowTouchMove: true,
-  // autoHeight: true,
-  // grabCursor: true,
+  // adasd
 
 });
