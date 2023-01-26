@@ -49,15 +49,15 @@
     &:hover:after {
       opacity: 1;
     }
-  }
 
-  &__pos-section {
-    padding: 50px 0;
+    &-container {
+      padding: 0;
+    }
   }
 
   &__pos-title {
     padding-left: 50px;
-    margin-bottom: 50px;
+    margin: 50px 0 25px;
     font-family: 'Gilroy Bold';
     font-size: 32px;
     line-height: 39px;
@@ -76,10 +76,8 @@
     }
   }
 
-  // &__pos-items {
-  //   display: flex;
-  //   column-gap: 20px;
-  // }
+
+
 
 }
 

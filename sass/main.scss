@@ -4,12 +4,16 @@
 @import "./base/base";
 @import "./base/fonts";
 
+
+// @import "../node_modules/swiper/swiper-bundle.css";
+
 // Blocks
 
 @import "./blocks/header";
 @import "./blocks/logo";
 @import "./blocks/main";
 @import "./blocks/menu";
+@import "./blocks/swiper";
 @import "./blocks/item-card";
 @import "./blocks/our-cafe";
 @import "./blocks/location";

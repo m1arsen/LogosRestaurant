@@ -1,17 +1,13 @@
-// import Swiper bundle with all modules installed
-import Swiper from 'swiper/bundle';
+// import Swiper from 'swiper/swiper-bundle.js';
 
-// import styles bundle
-import 'swiper/css/bundle';
-
-const swiper = new Swiper('.swiper', {
+const swiper = new Swiper('.swiper-container', {
   loop: true,
-  slidesPerView: 1,
-  // navigation: {
-  //   nextEl: '.swiper-button-next',
-  //   prevEl: '.swiper-button-prev',
-  // },
-  // allowTouchMove: true,
-  // adasd
-
+  slidesPerView: 4,
+  spaceBetween: 20,
+  speed: 1000,
+  autoplay: {
+    delay: 7000,
+    disableOnInteraction: false,
+    pauseOnMouseEnter: true
+  }
 });

@@ -540,7 +540,7 @@ html, body {
 }
 
 .main {
-  height: 100vh;
+  height: 90vh;
   background-color: #211F20;
   background-image: linear-gradient(90deg, #211f20 0%, rgba(68, 64, 63, 0) 70%), url("../img/main-bg.jpg");
   background-position: right top;
@@ -599,12 +599,12 @@ html, body {
 .menu__pos:hover:after {
   opacity: 1;
 }
-.menu__pos-section {
-  padding: 50px 0;
+.menu__pos-container {
+  padding: 0;
 }
 .menu__pos-title {
   padding-left: 50px;
-  margin-bottom: 50px;
+  margin: 50px 0 25px;
   font-family: 'Gilroy Bold';
   font-size: 32px;
   line-height: 39px;
@@ -619,6 +619,15 @@ html, body {
   height: 100%;
   width: 4px;
   background-color: #618967;
+}
+
+.swiper {
+  padding: 0 50px;
+}
+
+.swiper-wrapper {
+  padding: 25px 0 70px;
+  height: 376.42px;
 }
 
 .item-card {
@@ -760,10 +769,9 @@ html, body {
 }
 
 .our-cafe {
-  margin-top: 40px;
   box-shadow: 0px 100px 100px -50px rgba(0, 0, 0, 0.75);
   max-width: 1395px;
-  margin: 40px auto 0;
+  margin: 10px auto 0;
   position: relative;
   z-index: 2;
 }
