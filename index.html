@@ -5,6 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./css/main.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
   <title>Logos</title>
 </head>
 <body>
@@ -63,11 +64,11 @@
     </div>
     <div class="menu__pos-container container">
 
-      <div class="menu__pos-section">
-        <h1 class="menu__pos-title">Холодные закуски</h1>
-        <div class="menu__pos-items">
+      <div class="menu__pos-section swiper">
+        <!-- <h1 class="menu__pos-title">Холодные закуски</h1> -->
+        <div class="menu__pos-items swiper-wrapper">
 
-          <div class="item-card">
+          <div class="item-card swiper-slide">
 
             <div class="item-card__img-container">
               <img src="./img/item_cards/cold_snacks/01.jpg" alt="item photo" class="item-card__img">
@@ -75,8 +76,10 @@
 
             <div class="item-card__info">
               <div class="item-card__info-block">
-                <h2 class="item-card__title">Ягненок</h2>
-                <p class="item-card__weight">Вес: 225г</p>
+                <div class="item-card__info-block-container">
+                  <h2 class="item-card__title">Ягненок</h2>
+                  <p class="item-card__weight">Вес: 225г</p>
+                </div>
                 <p class="item-card__descr">Фаршированный гречневой кашей, курагой, апельсином и зеленым яблоком</p>
               </div>
 
@@ -103,7 +106,7 @@
 
           </div>
 
-          <div class="item-card">
+          <div class="item-card swiper-slide">
 
             <div class="item-card__img-container">
               <img src="./img/item_cards/cold_snacks/02.jpg" alt="item photo" class="item-card__img">
@@ -111,8 +114,10 @@
 
             <div class="item-card__info">
               <div class="item-card__info-block">
-                <h2 class="item-card__title">Индейка</h2>
-                <p class="item-card__weight">Вес: 225г</p>
+                <div class="item-card__info-block-container">
+                  <h2 class="item-card__title">Индейка</h2>
+                  <p class="item-card__weight">Вес: 225г</p>
+                </div>
                 <p class="item-card__descr">Фаршированный гречневой кашей, курагой, апельсином и зеленым яблоком</p>
               </div>
 
@@ -138,7 +143,7 @@
 
           </div>
 
-          <div class="item-card">
+          <div class="item-card swiper-slide">
 
             <div class="item-card__img-container">
               <img src="./img/item_cards/cold_snacks/03.jpg" alt="item photo" class="item-card__img">
@@ -146,8 +151,10 @@
 
             <div class="item-card__info">
               <div class="item-card__info-block">
-                <h2 class="item-card__title">Гусь</h2>
-                <p class="item-card__weight">Вес: 225г</p>
+                <div class="item-card__info-block-container">
+                  <h2 class="item-card__title">Гусь</h2>
+                  <p class="item-card__weight">Вес: 225г</p>
+                </div>
                 <p class="item-card__descr">Фаршированный яблоками</p>
               </div>
 
@@ -173,7 +180,7 @@
 
           </div>
 
-          <div class="item-card">
+          <div class="item-card swiper-slide">
 
             <div class="item-card__img-container">
               <img src="./img/item_cards/cold_snacks/04.jpg" alt="item photo" class="item-card__img">
@@ -181,8 +188,10 @@
 
             <div class="item-card__info">
               <div class="item-card__info-block">
-                <h2 class="item-card__title">Утка</h2>
-                <p class="item-card__weight">Вес: 225г</p>
+                <div class="item-card__info-block-container">
+                  <h2 class="item-card__title">Утка</h2>
+                  <p class="item-card__weight">Вес: 225г</p>
+                </div>
                 <p class="item-card__descr">Фаршированная рисом, курагой и айвой</p>
               </div>
 
@@ -209,6 +218,9 @@
           </div>
 
         </div>
+
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
       </div>
 
     </div>
@@ -368,5 +380,6 @@
   </footer>
 
   <script src="./js/main.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
 </body>
 </html>

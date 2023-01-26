@@ -620,10 +620,6 @@ html, body {
   width: 4px;
   background-color: #618967;
 }
-.menu__pos-items {
-  display: flex;
-  column-gap: 20px;
-}
 
 .item-card {
   max-width: 330px;
@@ -651,17 +647,22 @@ html, body {
 }
 .item-card__info {
   padding: 18px 20px;
-  max-height: 175px;
+  max-height: 158px;
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  border-radius: 10px;
+  background: linear-gradient(90deg, #494544 0%, #504B4A 100%);
 }
 .item-card__info-block {
+  width: 100%;
+}
+.item-card__info-block-container {
+  margin-bottom: 5px;
   display: flex;
-  flex-wrap: wrap;
+  justify-content: space-around;
   align-items: center;
-  row-gap: 5px;
 }
 .item-card__title {
   font-family: 'Gilroy Bold';
@@ -696,7 +697,6 @@ html, body {
   opacity: 1;
 }
 .item-card__btns {
-  margin-top: 18px;
   width: 100%;
   display: flex;
   align-items: center;
