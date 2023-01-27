@@ -66,28 +66,6 @@
   &__pos-title {
     padding-left: 50px;
     margin: 50px 0 25px;
-    font-family: 'Gilroy Bold';
-    font-size: 32px;
-    line-height: 39px;
-    text-transform: uppercase;
-
-    position: relative;
-
-    &::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 30px;
-      height: 100%;
-      width: 4px;
-      background-color: $green;
-    }
-
-
   }
-
-
-
-
 }
 

@@ -9,7 +9,7 @@
   <title>Logos</title>
 </head>
 <body>
-  <header class="header">
+  <header class="header none">
     <div class="header__container container">
       <a href="#!" class="logo">LOGOS</a>
 
@@ -43,16 +43,15 @@
     </div>
   </header>
 
-  <main class="main">
+  <main class="main none">
     <div class="main__container container">
       <img src="./img/main-title.svg" alt="title" class="main__title">
     </div>
   </main>
 
-  <section class="menu">
+  <section class="menu none">
     <div class="menu__top">
-      <div class="menu__top-container container">
-      </div>
+      <div class="menu__top-container container"></div>
     </div>
 
     <div class="menu__pos-container container">
@@ -61,7 +60,7 @@
 
   </section>
 
-  <section class="our-cafe">
+  <section class="our-cafe none">
     <div class="our-cafe__container">
 
       <div class="our-cafe__info">
@@ -118,7 +117,7 @@
     </div>
   </section>
 
-  <section class="location">
+  <section class="location none">
     <div class="location__container container">
       <div class="location__contacts">
 
@@ -182,7 +181,7 @@
 
   </section>
 
-  <footer class="footer">
+  <footer class="footer none">
     <div class="footer__container container">
 
       <a href="" class="footer__up-btn">
@@ -213,6 +212,33 @@
 
     </div>
   </footer>
+
+  <section class="order">
+    <div class="order__container">
+      <a href="#!" class="order__link">в корзину</a>
+      <h1 class="order__title title">Оформление заказа</h1>
+      <form action="" class="order__form">
+        <fieldset class="order__fieldset">
+          <h2 class="order__subtitle">1. Контактная информация</h2>
+          <input type="text" required="required">
+          <input type="tel" required="required">
+        </fieldset>
+        <fieldset class="order__fieldset">
+          <h2 class="order__subtitle">2. Доставка</h2>
+        </fieldset>
+        <fieldset class="order__fieldset">
+          <h2 class="order__subtitle">3. Оплатить</h2>
+        </fieldset>
+        <fieldset class="order__fieldset">
+          <h2 class="order__subtitle">4. Когда доставить</h2>
+        </fieldset>
+        <fieldset class="order__fieldset">
+          <input type="checkbox" checked>
+        </fieldset>
+
+      </form>
+    </div>
+  </section>
 
   <script src="./node_modules/swiper/swiper-bundle.min.js"></script>
   <script src="./js/main.js"></script>

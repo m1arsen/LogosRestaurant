@@ -368,7 +368,7 @@ a {
 }
 
 html, body {
-  background: linear-gradient(360deg, #211F20 0%, #44403F 100%);
+  background: #211F20;
   color: #fff;
 }
 
@@ -415,12 +415,7 @@ html, body {
   font-style: normal;
 }
 .header {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
   background-color: #403c3b;
-  z-index: 2;
 }
 .header__container {
   padding: 24px;
@@ -540,16 +535,17 @@ html, body {
 }
 
 .main {
-  height: 90vh;
+  height: 70vh;
   background-color: #211F20;
   background-image: linear-gradient(90deg, #211f20 0%, rgba(68, 64, 63, 0) 70%), url("../img/main-bg.jpg");
-  background-position: right top;
+  background-position: right center;
   background-repeat: no-repeat;
-  background-size: 80%;
+  background-size: 75%;
+  overflow: hidden;
 }
 .main__container {
   position: relative;
-  height: 100vh;
+  height: 100%;
 }
 .main__title {
   position: absolute;
@@ -611,13 +607,17 @@ html, body {
 .menu__pos-title {
   padding-left: 50px;
   margin: 50px 0 25px;
+}
+
+.title {
+  padding-left: 50px;
   font-family: 'Gilroy Bold';
   font-size: 32px;
   line-height: 39px;
   text-transform: uppercase;
   position: relative;
 }
-.menu__pos-title::before {
+.title::before {
   content: '';
   position: absolute;
   top: 0;

@@ -10,12 +10,19 @@ class MenuCard{
     this.alt = alt;
     this.parent = document.querySelector(parentSelector);
     this.priceConvert();
+    this.descrConvert();
   }
 
   priceConvert() {
     this.price = this.price.toString();
     if(this.price.length > 3) {
       this.price = this.price.slice(0, -3) + " " + this.price.slice(-3);
+    }
+  }
+
+  descrConvert() {
+    if(this.descr.length >= 72) {
+      this.descr = this.descr.slice(0, 69) + ' ...';
     }
   }
 
@@ -72,7 +79,7 @@ class MenuPos{
     pos.classList.add('menu__pos-section');
 
     pos.innerHTML = `
-      <h1 class="menu__pos-title">${this.posName}</h1>
+      <h1 class="menu__pos-title title">${this.posName}</h1>
       <div class="swiper-container swiper">
         <div class="menu__pos-items swiper-wrapper">
 
