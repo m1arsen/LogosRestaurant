@@ -53,6 +53,14 @@
     &-container {
       padding: 0;
     }
+
+    &-section {
+      display: none;
+
+      &.active {
+        display: block;
+      }
+    }
   }
 
   &__pos-title {
@@ -74,6 +82,8 @@
       width: 4px;
       background-color: $green;
     }
+
+
   }
 
 

@@ -67,7 +67,7 @@ class MenuPos{
     this.posName = posName;
   }
 
-  render() {
+  render(i) {
     const pos = document.createElement('div');
     pos.classList.add('menu__pos-section');
 
@@ -80,20 +80,68 @@ class MenuPos{
       </div>
     `;
 
+    pos.setAttribute('id', `tab_${i}`);
+
     document.querySelector('.menu__pos-container').append(pos);
+  }
+}
+
+class MenuTab{
+  constructor(tabName) {
+    this.tabName = tabName;
+  }
+
+  render(i) {
+    const tab = document.createElement('div');
+    tab.classList.add('menu__pos');
+    tab.textContent = this.tabName;
+    tab.setAttribute('data-tab', `#tab_${i}`);
+
+    document.querySelector('.menu__top-container').append(tab);
   }
 }
 
 fetch('http://localhost:3000/menu')
   .then(data => data.json())
   .then(data => {
+    let i = 1;
     for(let key in data) {
-      new MenuPos(key).render();
+      new MenuTab(key).render(i);
+      new MenuPos(key).render(i);
+      i++;
 
       data[key].forEach(({name, weight, description, price, src, alt}) => {
         new MenuCard(name, weight, description, price, src, alt, '.menu__pos-items').render();
       });
     }
+  })
+  .then(() => {
+    const tabs = document.querySelectorAll('.menu__pos');
+    const tabsItems = document.querySelectorAll('.menu__pos-section');
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+
+        let currentBtn = tab;
+        let tabId = currentBtn.getAttribute("data-tab");
+        let currentTab = document.querySelector(tabId);
+
+        if(!currentBtn.classList.contains('active')) {
+          tabs.forEach(tab => {
+            tab.classList.remove('active');
+          });
+
+          tabsItems.forEach(tab => {
+            tab.classList.remove('active');
+          });
+
+          currentBtn.classList.add('active');
+          currentTab.classList.add('active');
+        }
+      });
+    });
+
+    document.querySelector('.menu__pos').click();
   })
   .then(() => {
     const swiper = new Swiper('.swiper-container', {
@@ -108,6 +156,3 @@ fetch('http://localhost:3000/menu')
       }
     });
   });
-
-
-

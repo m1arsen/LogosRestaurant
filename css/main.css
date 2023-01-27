@@ -602,6 +602,12 @@ html, body {
 .menu__pos-container {
   padding: 0;
 }
+.menu__pos-section {
+  display: none;
+}
+.menu__pos-section.active {
+  display: block;
+}
 .menu__pos-title {
   padding-left: 50px;
   margin: 50px 0 25px;
