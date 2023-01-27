@@ -605,26 +605,18 @@ html, body {
   display: block;
 }
 .menu__pos-title {
-  padding-left: 50px;
   margin: 50px 0 25px;
+  margin-left: 30px;
 }
 
 .title {
-  padding-left: 50px;
+  padding-left: 20px;
   font-family: 'Gilroy Bold';
   font-size: 32px;
   line-height: 39px;
   text-transform: uppercase;
   position: relative;
-}
-.title::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 30px;
-  height: 100%;
-  width: 4px;
-  background-color: #618967;
+  border-left: 4px solid #618967;
 }
 
 .swiper {
@@ -772,6 +764,55 @@ html, body {
   z-index: 1;
   top: -25px;
   right: -25px;
+}
+
+.order__container {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 800px;
+}
+.order__link {
+  margin-bottom: 35px;
+  padding-left: 12px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  font-size: 16px;
+  line-height: 1;
+  font-family: 'Gilroy Bold';
+}
+.order__link img {
+  position: absolute;
+  left: 0;
+  top: 58%;
+  transform: translateY(-50%);
+}
+.order__title {
+  margin-bottom: 54px;
+}
+.order__fieldset {
+  padding: 30px;
+  background: linear-gradient(90deg, #494544 0%, #504B4A 100%);
+  border-radius: 10px;
+}
+.order__fieldset input {
+  padding: 20px 30px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: unset;
+  color: #fff;
+  font-size: 16px;
+  line-height: 19px;
+  font-family: 'Gilroy Regular';
+}
+.order__fieldset + .order__fieldset {
+  margin-top: 22px;
+}
+.order__subtitle {
+  margin-bottom: 31px;
+  font-size: 18px;
+  line-height: 22px;
+  font-family: 'Gilroy Bold';
 }
 
 .our-cafe {

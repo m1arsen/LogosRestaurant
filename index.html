@@ -49,7 +49,7 @@
     </div>
   </main>
 
-  <section class="menu none">
+  <section class="menu">
     <div class="menu__top">
       <div class="menu__top-container container"></div>
     </div>
@@ -215,28 +215,57 @@
 
   <section class="order">
     <div class="order__container">
-      <a href="#!" class="order__link">в корзину</a>
+      <a href="#!" class="order__link">
+        <img src="./img/order/backtocart-icon.svg" alt="back">
+        в корзину
+      </a>
       <h1 class="order__title title">Оформление заказа</h1>
+
       <form action="" class="order__form">
+
         <fieldset class="order__fieldset">
           <h2 class="order__subtitle">1. Контактная информация</h2>
-          <input type="text" required="required">
-          <input type="tel" required="required">
+          <input type="text" required="required" placeholder="Имя*">
+          <input type="tel" required="required" placeholder="Телефон*">
         </fieldset>
+
         <fieldset class="order__fieldset">
           <h2 class="order__subtitle">2. Доставка</h2>
+          <input type="button" value="Доставка">
+          <input type="button" value="Самовывоз">
+          <p>Доставим через  1 час 30 минут</p>
+
+          <h3>Адрес доставки</h3>
+          <div class="order__adress-container">
+            <input type="text" required="required" placeholder="Укажите улицу*">
+            <input type="text" required="required" placeholder="Номер дома*">
+            <input type="text" required="required" placeholder="№ квартиры/офиса">
+            <input type="text" required="required" placeholder="Подъезд">
+            <input type="text" required="required" placeholder="Этаж">
+            <input type="text" required="required" placeholder="Комментарий">
+          </div>
         </fieldset>
+
         <fieldset class="order__fieldset">
           <h2 class="order__subtitle">3. Оплатить</h2>
+
+          <input type="button" value="Оплата онлайн">
+          <input type="button" value="Курьеру картой">
+          <input type="button" value="Наличными">
+
+          <input type="text" value="Сдача с ">
         </fieldset>
+
         <fieldset class="order__fieldset">
           <h2 class="order__subtitle">4. Когда доставить</h2>
         </fieldset>
+
         <fieldset class="order__fieldset">
           <input type="checkbox" checked>
         </fieldset>
 
       </form>
+
     </div>
   </section>
 
