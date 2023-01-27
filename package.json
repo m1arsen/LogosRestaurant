@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/m1arsen/LogosRestaurant#readme",
   "dependencies": {
+    "json-server": "^0.17.1",
     "swiper": "^8.4.6"
   }
 }
