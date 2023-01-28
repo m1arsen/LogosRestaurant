@@ -231,9 +231,15 @@
 
         <fieldset class="order__fieldset">
           <h2 class="order__subtitle">2. Доставка</h2>
-          <input type="button" value="Доставка">
-          <input type="button" value="Самовывоз">
-          <p>Доставим через  1 час 30 минут</p>
+
+          <div class="order__fieldset-delivery-btns">
+            <div class="order__fieldset-delivery-btns-section">
+              <input type="button" value="Доставка" class="active">
+              <input type="button" value="Самовывоз">
+            </div>
+
+            <p>Доставим через  1 час 30 минут</p>
+          </div>
 
           <h3>Адрес доставки</h3>
           <div class="order__adress-container">
@@ -249,15 +255,41 @@
         <fieldset class="order__fieldset">
           <h2 class="order__subtitle">3. Оплатить</h2>
 
-          <input type="button" value="Оплата онлайн">
-          <input type="button" value="Курьеру картой">
-          <input type="button" value="Наличными">
+          <div class="order__fieldset-pay-btns">
+            <input type="button" value="Оплата онлайн">
+            <input type="button" value="Курьеру картой">
+            <input type="button" value="Наличными" class="active">
+          </div>
 
-          <input type="text" value="Сдача с ">
+          <input type="text" value="Сдача с " class="order__fieldset-pay-change">
         </fieldset>
 
         <fieldset class="order__fieldset">
           <h2 class="order__subtitle">4. Когда доставить</h2>
+
+          <div class="order__fieldset-time-btns">
+            <input type="button" value="В ближайшее время">
+            <input type="button" value="Ко времени" class="active">
+            <input type="time" placeholder="Укажите время">
+          </div>
+
+          <input type="number" placeholder="Кол-во персон">
+
+          <h3>Хотите мы позвоним?</h3>
+
+          <div class="order__fieldset-call-btns">
+            <div>
+              <input type="radio" id="dontneed" name="call" checked>
+              <label for="dontneed">Не перезванивать</label>
+            </div>
+
+            <div>
+              <input type="radio" id="need" name="call">
+              <label for="need">Потребуется звонок оператора</label>
+            </div>
+
+          </div>
+
         </fieldset>
 
         <fieldset class="order__fieldset">

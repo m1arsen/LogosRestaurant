@@ -1,4 +1,9 @@
 .order {
+
+  font-size: 16px;
+  line-height: 19px;
+  font-family: 'Gilroy Regular';
+
   &__container {
     margin: 0 auto;
 
@@ -12,6 +17,7 @@
 
     display: flex;
     align-items: center;
+    font-family: 'Gilroy Bold';
 
     position: relative;
 
@@ -21,12 +27,6 @@
       top: 58%;
       transform: translateY(-50%);
     }
-
-
-    font-size: 16px;
-    line-height: 1;
-    font-family: 'Gilroy Bold';
-
   }
 
   &__title {
@@ -48,12 +48,179 @@
       font-size: 16px;
       line-height: 19px;
       font-family: 'Gilroy Regular';
+
+      &::placeholder {
+        color: #fff;
+      }
     }
+
+    &-delivery-btns {
+      margin-bottom: 30px;
+
+      display: flex;
+      align-items: center;
+      column-gap: 46px;
+
+      &-section {
+        input {
+          width: 180px;
+          border: 1px solid #72A479;
+
+          transition: background .2s ease-in;
+
+          &.active {
+            background: linear-gradient(114.93deg, #618967 5.11%, #72A479 94%);
+          }
+        }
+
+        input:first-child{
+          border-radius: 10px 0 0 10px;
+          border-right: 0;
+        }
+
+        input:last-child{
+          margin-left: -4px;
+          border-radius: 0 10px 10px 0;
+          border-left: 0;
+        }
+      }
+
+      p {
+        position: relative;
+
+        &::before {
+          content: '';
+          position: absolute;
+          top: 50%;
+          left: -26px;
+          transform: translateY(-50%);
+
+          width: 16px;
+          height: 16px;
+          background: url('../img/order/clock-icon.svg');
+        }
+      }
+
+    }
+
+    &-pay-btns {
+      margin-bottom: 15px;
+
+      input {
+        border: 1px solid #72A479;
+
+        transition: background 0.2s ease-in;
+
+        &.active {
+          background: linear-gradient(114.93deg, #618967 5.11%, #72A479 94%);
+        }
+      }
+
+      input:nth-child(1) {
+        border-radius: 10px 0 0 10px;
+        border-right: 0;
+      }
+
+      input:nth-child(2) {
+        border-radius: 0;
+        margin-left: -4px;
+      }
+
+      input:nth-child(3) {
+        border-radius: 0 10px 10px 0;
+        border-left: 0;
+        margin-left: -4px;
+      }
+
+    }
+
+    &-call-btns {
+      display: flex;
+      flex-direction: column;
+      row-gap: 20px;
+
+      div {
+        display: flex;
+        align-items: center;
+        column-gap: 9px;
+      }
+    }
+
+    &-time-btns {
+      margin-bottom: 20px;
+
+      input {
+        width: 184px;
+        padding-left: 0;
+        padding-right: 0;
+      }
+
+      input:nth-child(1),
+      input:nth-child(2) {
+        &.active {
+          background: linear-gradient(114.93deg, #618967 5.11%, #72A479 94%);
+          font-family: 'Gilroy Bold';
+        }
+      }
+
+      input:nth-child(1) {
+        border: 1px solid #72A479;
+        border-radius: 10px 0 0 10px;
+        border-right: 0;
+
+        transition: background 0.2s ease-in, font-family 0.2s ease-in;
+      }
+
+      input:nth-child(2) {
+        border: 1px solid #72A479;
+        border-radius: 0 10px 10px 0;
+        margin-left: -4px;
+        margin-right: 15px;
+
+        transition: background 0.2s ease-in, font-family 0.2s ease-in;
+      }
+
+    }
+
   }
 
   &__fieldset + &__fieldset {
     margin-top: 22px;
   }
+
+  &__fieldset:nth-child(1) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 15px;
+
+    h2 {
+      grid-column: span 2;
+    }
+
+  }
+
+  &__fieldset:nth-child(2) {
+
+    h3 {
+      margin-bottom: 22px;
+      font-family: 'Gilroy Bold';
+    }
+  }
+
+  &__adress-container {
+    display: grid;
+    grid-template-columns: repeat(3, 190px);
+    gap: 15px;
+
+    input:first-child {
+      grid-column: span 2;
+    }
+
+    input:last-child {
+      grid-column: span 3;
+    }
+  }
+
 
   &__subtitle {
     margin-bottom: 31px;
@@ -61,5 +228,18 @@
     line-height: 22px;
     font-family: 'Gilroy Bold';
   }
-  &__adress-container {}
+
+  &__fieldset:nth-child(3) {
+    input {
+      width: 184px;
+    }
+  }
+
+  &__fieldset:nth-child(4) {
+    h3 {
+      margin: 20px 0;
+      font-family: 'Gilroy Bold';
+    }
+  }
+
 }

@@ -766,6 +766,11 @@ html, body {
   right: -25px;
 }
 
+.order {
+  font-size: 16px;
+  line-height: 19px;
+  font-family: 'Gilroy Regular';
+}
 .order__container {
   margin: 0 auto;
   width: 100%;
@@ -776,10 +781,8 @@ html, body {
   padding-left: 12px;
   display: flex;
   align-items: center;
-  position: relative;
-  font-size: 16px;
-  line-height: 1;
   font-family: 'Gilroy Bold';
+  position: relative;
 }
 .order__link img {
   position: absolute;
@@ -805,13 +808,141 @@ html, body {
   line-height: 19px;
   font-family: 'Gilroy Regular';
 }
+.order__fieldset input::placeholder {
+  color: #fff;
+}
+.order__fieldset-delivery-btns {
+  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  column-gap: 46px;
+}
+.order__fieldset-delivery-btns-section input {
+  width: 180px;
+  border: 1px solid #72A479;
+  transition: background .2s ease-in;
+}
+.order__fieldset-delivery-btns-section input.active {
+  background: linear-gradient(114.93deg, #618967 5.11%, #72A479 94%);
+}
+.order__fieldset-delivery-btns-section input:first-child {
+  border-radius: 10px 0 0 10px;
+  border-right: 0;
+}
+.order__fieldset-delivery-btns-section input:last-child {
+  margin-left: -4px;
+  border-radius: 0 10px 10px 0;
+  border-left: 0;
+}
+.order__fieldset-delivery-btns p {
+  position: relative;
+}
+.order__fieldset-delivery-btns p::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: -26px;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  background: url("../img/order/clock-icon.svg");
+}
+.order__fieldset-pay-btns {
+  margin-bottom: 15px;
+}
+.order__fieldset-pay-btns input {
+  border: 1px solid #72A479;
+  transition: background 0.2s ease-in;
+}
+.order__fieldset-pay-btns input.active {
+  background: linear-gradient(114.93deg, #618967 5.11%, #72A479 94%);
+}
+.order__fieldset-pay-btns input:nth-child(1) {
+  border-radius: 10px 0 0 10px;
+  border-right: 0;
+}
+.order__fieldset-pay-btns input:nth-child(2) {
+  border-radius: 0;
+  margin-left: -4px;
+}
+.order__fieldset-pay-btns input:nth-child(3) {
+  border-radius: 0 10px 10px 0;
+  border-left: 0;
+  margin-left: -4px;
+}
+.order__fieldset-call-btns {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+}
+.order__fieldset-call-btns div {
+  display: flex;
+  align-items: center;
+  column-gap: 9px;
+}
+.order__fieldset-time-btns {
+  margin-bottom: 20px;
+}
+.order__fieldset-time-btns input {
+  width: 184px;
+  padding-left: 0;
+  padding-right: 0;
+}
+.order__fieldset-time-btns input:nth-child(1).active,
+.order__fieldset-time-btns input:nth-child(2).active {
+  background: linear-gradient(114.93deg, #618967 5.11%, #72A479 94%);
+  font-family: 'Gilroy Bold';
+}
+.order__fieldset-time-btns input:nth-child(1) {
+  border: 1px solid #72A479;
+  border-radius: 10px 0 0 10px;
+  border-right: 0;
+  transition: background 0.2s ease-in, font-family 0.2s ease-in;
+}
+.order__fieldset-time-btns input:nth-child(2) {
+  border: 1px solid #72A479;
+  border-radius: 0 10px 10px 0;
+  margin-left: -4px;
+  margin-right: 15px;
+  transition: background 0.2s ease-in, font-family 0.2s ease-in;
+}
 .order__fieldset + .order__fieldset {
   margin-top: 22px;
+}
+.order__fieldset:nth-child(1) {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 15px;
+}
+.order__fieldset:nth-child(1) h2 {
+  grid-column: span 2;
+}
+.order__fieldset:nth-child(2) h3 {
+  margin-bottom: 22px;
+  font-family: 'Gilroy Bold';
+}
+.order__adress-container {
+  display: grid;
+  grid-template-columns: repeat(3, 190px);
+  gap: 15px;
+}
+.order__adress-container input:first-child {
+  grid-column: span 2;
+}
+.order__adress-container input:last-child {
+  grid-column: span 3;
 }
 .order__subtitle {
   margin-bottom: 31px;
   font-size: 18px;
   line-height: 22px;
+  font-family: 'Gilroy Bold';
+}
+.order__fieldset:nth-child(3) input {
+  width: 184px;
+}
+.order__fieldset:nth-child(4) h3 {
+  margin: 20px 0;
   font-family: 'Gilroy Bold';
 }
 
