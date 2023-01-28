@@ -223,61 +223,86 @@
 
       <form action="" class="order__form">
 
-        <fieldset class="order__fieldset">
+        <fieldset class="order__fieldset-contacts">
+
           <h2 class="order__subtitle">1. Контактная информация</h2>
-          <input type="text" required="required" placeholder="Имя*">
-          <input type="tel" required="required" placeholder="Телефон*">
+
+          <div class="order__fieldset-contacts-container">
+            <input class="order__fieldset-contacts-name" type="text" required="required" placeholder="Имя*">
+            <label class="order__fieldset-contacts-placeholder">Имя<span>*</span></label>
+          </div>
+
+          <div class="order__fieldset-contacts-container">
+            <input class="order__fieldset-contacts-lastname" type="tel" required="required" placeholder="Телефон*">
+            <label class="order__fieldset-contacts-placeholder">Телефон<span>*</span></label>
+          </div>
+
         </fieldset>
 
-        <fieldset class="order__fieldset">
+        <fieldset class="order__fieldset-delivery">
           <h2 class="order__subtitle">2. Доставка</h2>
 
           <div class="order__fieldset-delivery-btns">
+
             <div class="order__fieldset-delivery-btns-section">
-              <input type="button" value="Доставка" class="active">
-              <input type="button" value="Самовывоз">
+              <input class="order__fieldset-delivery-delivery active" type="button" value="Доставка">
+              <input class="order__fieldset-delivery-pickup" type="button" value="Самовывоз">
             </div>
 
             <p>Доставим через  1 час 30 минут</p>
           </div>
 
           <h3>Адрес доставки</h3>
-          <div class="order__adress-container">
-            <input type="text" required="required" placeholder="Укажите улицу*">
-            <input type="text" required="required" placeholder="Номер дома*">
-            <input type="text" required="required" placeholder="№ квартиры/офиса">
-            <input type="text" required="required" placeholder="Подъезд">
-            <input type="text" required="required" placeholder="Этаж">
-            <input type="text" required="required" placeholder="Комментарий">
+
+          <div class="order__adress">
+
+            <div class="order__adress-container">
+              <input class="order__adress-street" type="text" required="required" placeholder="Укажите улицу*">
+              <label class="order__adress-street-placeholder">Укажите улицу<span>*</span></label>
+            </div>
+
+            <div class="order__adress-container">
+              <input class="order__adress-home" type="text" required="required" placeholder="Номер дома*">
+              <label class="order__adress-home-placeholder">Номер дома<span>*</span></label>
+            </div>
+
+            <input type="text" placeholder="№ кв/офиса">
+            <input type="text" placeholder="Подъезд">
+            <input type="text" placeholder="Этаж">
+            <input type="text" placeholder="Комментарий">
           </div>
         </fieldset>
 
-        <fieldset class="order__fieldset">
+        <fieldset class="order__fieldset-pay">
           <h2 class="order__subtitle">3. Оплатить</h2>
 
           <div class="order__fieldset-pay-btns">
-            <input type="button" value="Оплата онлайн">
-            <input type="button" value="Курьеру картой">
-            <input type="button" value="Наличными" class="active">
+            <input class="order__fieldset-pay-btn" type="button" value="Оплата онлайн">
+            <input class="order__fieldset-pay-btn" type="button" value="Курьеру картой">
+            <input class="order__fieldset-pay-btn active" type="button" value="Наличными">
           </div>
 
-          <input type="text" value="Сдача с " class="order__fieldset-pay-change">
+          <div class="order__fieldset-pay-change">
+            <input type="text" value="Сдача с " class="order__fieldset-pay-change-placeholder" readonly>
+            <input type="number" class="order__fieldset-pay-change-sum" max="100000">
+          </div>
+
         </fieldset>
 
-        <fieldset class="order__fieldset">
+        <fieldset class="order__fieldset-times">
           <h2 class="order__subtitle">4. Когда доставить</h2>
 
-          <div class="order__fieldset-time-btns">
+          <div class="order__fieldset-times-time-btns">
             <input type="button" value="В ближайшее время">
             <input type="button" value="Ко времени" class="active">
-            <input type="time" placeholder="Укажите время">
+            <input type="text" placeholder="Укажите время">
           </div>
 
           <input type="number" placeholder="Кол-во персон">
 
           <h3>Хотите мы позвоним?</h3>
 
-          <div class="order__fieldset-call-btns">
+          <div class="order__fieldset-times-call-btns">
             <div>
               <input type="radio" id="dontneed" name="call" checked>
               <label for="dontneed">Не перезванивать</label>
@@ -292,8 +317,11 @@
 
         </fieldset>
 
-        <fieldset class="order__fieldset">
-          <input type="checkbox" checked>
+        <fieldset class="order__fieldset-conditions">
+          <input type="checkbox" id="order__fieldset-conditions-checkbox" checked >
+          <label for="order__fieldset-conditions-checkbox">
+            Я согласен на обработку моих перс. данных в соответствии с <a href="#!">Условиями</a></label>
+          <button class="order__fieldset-conditions-btn">Оформить заказ</button>
         </fieldset>
 
       </form>
