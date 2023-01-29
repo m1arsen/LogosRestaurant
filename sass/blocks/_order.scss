@@ -33,6 +33,39 @@
     }
   }
 
+  &__stop-list {
+    width: 100%;
+    padding: 43px 30px;
+    margin-bottom: 20px;
+
+    background: #2B2829;
+    border-radius: 10px;
+
+    position: relative;
+
+    &-title {
+      margin-bottom: 20px;
+
+      font-size: 22px;
+      line-height: 27px;
+      font-family: 'Gilroy Bold';
+    }
+
+    &-subtitle {
+      font-size: 18px;
+      line-height: 21px;
+    }
+
+    &-img {
+      width: 154.72px;
+      height: 131.5px;
+
+      position: absolute;
+      bottom: 0;
+      right: 55px;
+    }
+  }
+
   &__title {
     margin-bottom: 54px;
   }

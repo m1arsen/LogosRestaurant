@@ -223,6 +223,16 @@
 
       <form action="" class="order__form">
 
+        <div class="order__stop-list">
+
+          <div class="order__stop-list-info">
+            <h2 class="order__stop-list-title">Сегодня мы уже не доставляем.</h2>
+            <p class="order__stop-list-subtitle">Заказы принимаем до 20:50, доставляем с 8:30 до 21:30</p>
+          </div>
+
+          <img src="./img/order/night-window.svg" alt="night-pic" class="order__stop-list-img">
+        </div>
+
         <fieldset class="order__fieldset-contacts">
 
           <h2 class="order__subtitle">1. Контактная информация</h2>
@@ -318,7 +328,7 @@
         </fieldset>
 
         <fieldset class="order__fieldset-conditions">
-          <input type="checkbox" id="order__fieldset-conditions-checkbox" checked >
+          <input type="checkbox" id="order__fieldset-conditions-checkbox" checked required>
           <label for="order__fieldset-conditions-checkbox">
             Я согласен на обработку моих перс. данных в соответствии с <a href="#!">Условиями</a></label>
           <button class="order__fieldset-conditions-btn">Оформить заказ</button>

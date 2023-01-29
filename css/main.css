@@ -793,6 +793,31 @@ html, body {
   top: 58%;
   transform: translateY(-50%);
 }
+.order__stop-list {
+  width: 100%;
+  padding: 43px 30px;
+  margin-bottom: 20px;
+  background: #2B2829;
+  border-radius: 10px;
+  position: relative;
+}
+.order__stop-list-title {
+  margin-bottom: 20px;
+  font-size: 22px;
+  line-height: 27px;
+  font-family: 'Gilroy Bold';
+}
+.order__stop-list-subtitle {
+  font-size: 18px;
+  line-height: 21px;
+}
+.order__stop-list-img {
+  width: 154.72px;
+  height: 131.5px;
+  position: absolute;
+  bottom: 0;
+  right: 55px;
+}
 .order__title {
   margin-bottom: 54px;
 }
