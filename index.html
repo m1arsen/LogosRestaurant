@@ -255,32 +255,54 @@
           <div class="order__fieldset-delivery-btns">
 
             <div class="order__fieldset-delivery-btns-section">
-              <input class="order__fieldset-delivery-delivery active" type="button" value="Доставка">
-              <input class="order__fieldset-delivery-pickup" type="button" value="Самовывоз">
+              <input class="order__fieldset-delivery-btn active" data-tab="#delivery-tab_1" type="button" value="Доставка">
+              <input class="order__fieldset-delivery-btn" data-tab="#delivery-tab_2" type="button" value="Самовывоз">
             </div>
 
             <p>Доставим через  1 час 30 минут</p>
           </div>
 
-          <h3>Адрес доставки</h3>
+          <div class="order__delivery-tab" id="delivery-tab_1">
+            <h3>Адрес доставки</h3>
 
-          <div class="order__adress">
+            <div class="order__adress active">
 
-            <div class="order__adress-container">
-              <input class="order__adress-street" type="text" required="required" placeholder="Укажите улицу*">
-              <label class="order__adress-street-placeholder">Укажите улицу<span>*</span></label>
+              <div class="order__adress-container">
+                <input class="order__adress-street" type="text" required="required" placeholder="Укажите улицу*">
+                <label class="order__adress-street-placeholder">Укажите улицу<span>*</span></label>
+              </div>
+
+              <div class="order__adress-container">
+                <input class="order__adress-home" type="text" required="required" placeholder="Номер дома*">
+                <label class="order__adress-home-placeholder">Номер дома<span>*</span></label>
+              </div>
+
+              <input type="text" placeholder="№ кв/офиса">
+              <input type="text" placeholder="Подъезд">
+              <input type="text" placeholder="Этаж">
+              <input type="text" placeholder="Комментарий">
             </div>
-
-            <div class="order__adress-container">
-              <input class="order__adress-home" type="text" required="required" placeholder="Номер дома*">
-              <label class="order__adress-home-placeholder">Номер дома<span>*</span></label>
-            </div>
-
-            <input type="text" placeholder="№ кв/офиса">
-            <input type="text" placeholder="Подъезд">
-            <input type="text" placeholder="Этаж">
-            <input type="text" placeholder="Комментарий">
           </div>
+
+          <div class="order__delivery-tab" id="delivery-tab_2">
+            <h3>Выберите ресторан</h3>
+
+            <div class="order__pickup">
+
+              <div class="order__pickup-header">
+                <span class="order__pickup-current">Ресторан №1</span>
+                <img class="order__pickup-icon" src="./img/delivery/dropdown-icon.svg">
+              </div>
+
+              <div class="order__pickup-body select__body">
+                <div class="order__pickup-item">Ресторан №1</div>
+                <div class="order__pickup-item">Ресторан №3</div>
+                <div class="order__pickup-item">Ресторан №2</div>
+              </div>
+
+            </div>
+          </div>
+
         </fieldset>
 
         <fieldset class="order__fieldset-pay">

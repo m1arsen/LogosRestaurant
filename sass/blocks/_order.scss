@@ -77,7 +77,6 @@
     font-family: 'Gilroy Bold';
   }
 
-  &__fieldset,
   &__fieldset-contacts,
   &__fieldset-delivery,
   &__fieldset-pay,
@@ -104,58 +103,78 @@
         color: #fff;
       }
     }
+  }
 
-    &-delivery {
+  &__pickup {
+    width: 360px;
 
-      &-btns {
-        margin-bottom: 30px;
+    position: relative;
 
-        display: flex;
-        align-items: center;
-        column-gap: 46px;
-
-        input {
-          width: 180px;
-          border: 1px solid #72A479;
-
-          transition: background .2s ease-in;
-
-          &.active {
-            background: linear-gradient(114.93deg, #618967 5.11%, #72A479 94%);
-            font-family: 'Gilroy Bold';
-          }
-        }
-
-        input:first-child{
-          border-radius: 10px 0 0 10px;
-          border-right: 0;
-        }
-
-        input:last-child{
-          margin-left: -4px;
-          border-radius: 0 10px 10px 0;
-          border-left: 0;
-        }
-
-
-        p {
-          position: relative;
-
-          &::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: -26px;
-            transform: translateY(-50%);
-
-            width: 16px;
-            height: 16px;
-            background: url('../img/order/clock-icon.svg');
-          }
-        }
-      }
-
+    &.open &-body{
+      display: block;
     }
+
+    .open &-header {
+      border-radius: 10px 10px 0 0;
+    }
+
+    .open &-icon {
+      transform: rotate(180deg);
+    }
+
+    &-header {
+      padding: 20px 30px;
+
+      display: flex;
+      align-items: center;
+
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      cursor: pointer;
+    }
+
+    &-icon {
+      width: 13px;
+      height: 9px;
+      margin-left: auto;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      flex-shrink: 0;
+
+      transition: transform .3s ease-in-out;
+    }
+
+    &-body {
+      display: none;
+
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 100%;
+
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 0 0 10px 10px;
+      border-top: 0;
+      background: #494544;
+      overflow: hidden;
+    }
+
+    &-item {
+      padding: 10px 30px;
+
+      cursor: pointer;
+      font-size: 16px;
+      line-height: 24px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+
+      &:hover {
+        background-color: #403c3c;
+      }
+    }
+
   }
 
   &__fieldset-contacts {
@@ -207,6 +226,62 @@
     h3 {
       margin-bottom: 22px;
       font-family: 'Gilroy Bold';
+    }
+
+    &-btns {
+      margin-bottom: 30px;
+
+      display: flex;
+      align-items: center;
+      column-gap: 46px;
+
+      input {
+        width: 180px;
+        border: 1px solid #72A479;
+
+        transition: background .2s ease-in;
+
+        &.active {
+          background: linear-gradient(114.93deg, #618967 5.11%, #72A479 94%);
+          font-family: 'Gilroy Bold';
+        }
+      }
+
+      input:first-child{
+        border-radius: 10px 0 0 10px;
+        border-right: 0;
+      }
+
+      input:last-child{
+        margin-left: -4px;
+        border-radius: 0 10px 10px 0;
+        border-left: 0;
+      }
+
+
+      p {
+        position: relative;
+
+        &::before {
+          content: '';
+          position: absolute;
+          top: 50%;
+          left: -26px;
+          transform: translateY(-50%);
+
+          width: 16px;
+          height: 16px;
+          background: url('../img/order/clock-icon.svg');
+        }
+      }
+    }
+  }
+
+  &__delivery-tab {
+    display: none;
+
+    &.active {
+      display: block;
     }
   }
 

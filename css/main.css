@@ -827,13 +827,13 @@ html, body {
   line-height: 22px;
   font-family: 'Gilroy Bold';
 }
-.order__fieldset, .order__fieldset-contacts, .order__fieldset-delivery, .order__fieldset-pay, .order__fieldset-times, .order__fieldset-conditions {
+.order__fieldset-contacts, .order__fieldset-delivery, .order__fieldset-pay, .order__fieldset-times, .order__fieldset-conditions {
   margin-bottom: 22px;
   padding: 30px;
   background: linear-gradient(90deg, #494544 0%, #504B4A 100%);
   border-radius: 10px;
 }
-.order__fieldset input, .order__fieldset-contacts input, .order__fieldset-delivery input, .order__fieldset-pay input, .order__fieldset-times input, .order__fieldset-conditions input {
+.order__fieldset-contacts input, .order__fieldset-delivery input, .order__fieldset-pay input, .order__fieldset-times input, .order__fieldset-conditions input {
   padding: 20px 30px;
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -843,45 +843,62 @@ html, body {
   line-height: 19px;
   font-family: 'Gilroy Regular';
 }
-.order__fieldset input::placeholder, .order__fieldset-contacts input::placeholder, .order__fieldset-delivery input::placeholder, .order__fieldset-pay input::placeholder, .order__fieldset-times input::placeholder, .order__fieldset-conditions input::placeholder {
+.order__fieldset-contacts input::placeholder, .order__fieldset-delivery input::placeholder, .order__fieldset-pay input::placeholder, .order__fieldset-times input::placeholder, .order__fieldset-conditions input::placeholder {
   color: #fff;
 }
-.order__fieldset-delivery-btns, .order__fieldset-contacts-delivery-btns, .order__fieldset-delivery-delivery-btns, .order__fieldset-pay-delivery-btns, .order__fieldset-times-delivery-btns, .order__fieldset-conditions-delivery-btns {
-  margin-bottom: 30px;
-  display: flex;
-  align-items: center;
-  column-gap: 46px;
-}
-.order__fieldset-delivery-btns input, .order__fieldset-contacts-delivery-btns input, .order__fieldset-delivery-delivery-btns input, .order__fieldset-pay-delivery-btns input, .order__fieldset-times-delivery-btns input, .order__fieldset-conditions-delivery-btns input {
-  width: 180px;
-  border: 1px solid #72A479;
-  transition: background .2s ease-in;
-}
-.order__fieldset-delivery-btns input.active, .order__fieldset-contacts-delivery-btns input.active, .order__fieldset-delivery-delivery-btns input.active, .order__fieldset-pay-delivery-btns input.active, .order__fieldset-times-delivery-btns input.active, .order__fieldset-conditions-delivery-btns input.active {
-  background: linear-gradient(114.93deg, #618967 5.11%, #72A479 94%);
-  font-family: 'Gilroy Bold';
-}
-.order__fieldset-delivery-btns input:first-child, .order__fieldset-contacts-delivery-btns input:first-child, .order__fieldset-delivery-delivery-btns input:first-child, .order__fieldset-pay-delivery-btns input:first-child, .order__fieldset-times-delivery-btns input:first-child, .order__fieldset-conditions-delivery-btns input:first-child {
-  border-radius: 10px 0 0 10px;
-  border-right: 0;
-}
-.order__fieldset-delivery-btns input:last-child, .order__fieldset-contacts-delivery-btns input:last-child, .order__fieldset-delivery-delivery-btns input:last-child, .order__fieldset-pay-delivery-btns input:last-child, .order__fieldset-times-delivery-btns input:last-child, .order__fieldset-conditions-delivery-btns input:last-child {
-  margin-left: -4px;
-  border-radius: 0 10px 10px 0;
-  border-left: 0;
-}
-.order__fieldset-delivery-btns p, .order__fieldset-contacts-delivery-btns p, .order__fieldset-delivery-delivery-btns p, .order__fieldset-pay-delivery-btns p, .order__fieldset-times-delivery-btns p, .order__fieldset-conditions-delivery-btns p {
+.order__pickup {
+  width: 360px;
   position: relative;
 }
-.order__fieldset-delivery-btns p::before, .order__fieldset-contacts-delivery-btns p::before, .order__fieldset-delivery-delivery-btns p::before, .order__fieldset-pay-delivery-btns p::before, .order__fieldset-times-delivery-btns p::before, .order__fieldset-conditions-delivery-btns p::before {
-  content: '';
+.order__pickup.open .order__pickup-body {
+  display: block;
+}
+.open .order__pickup-header {
+  border-radius: 10px 10px 0 0;
+}
+.open .order__pickup-icon {
+  transform: rotate(180deg);
+}
+.order__pickup-header {
+  padding: 20px 30px;
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+}
+.order__pickup-icon {
+  width: 13px;
+  height: 9px;
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  flex-shrink: 0;
+  transition: transform .3s ease-in-out;
+}
+.order__pickup-body {
+  display: none;
   position: absolute;
-  top: 50%;
-  left: -26px;
-  transform: translateY(-50%);
-  width: 16px;
-  height: 16px;
-  background: url("../img/order/clock-icon.svg");
+  left: 0;
+  right: 0;
+  top: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0 0 10px 10px;
+  border-top: 0;
+  background: #494544;
+  overflow: hidden;
+}
+.order__pickup-item {
+  padding: 10px 30px;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+.order__pickup-item:hover {
+  background-color: #403c3c;
 }
 .order__fieldset-contacts {
   display: grid;
@@ -920,6 +937,49 @@ input:not(:placeholder-shown) + .order__fieldset-contacts-placeholder {
 .order__fieldset-delivery h3 {
   margin-bottom: 22px;
   font-family: 'Gilroy Bold';
+}
+.order__fieldset-delivery-btns {
+  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  column-gap: 46px;
+}
+.order__fieldset-delivery-btns input {
+  width: 180px;
+  border: 1px solid #72A479;
+  transition: background .2s ease-in;
+}
+.order__fieldset-delivery-btns input.active {
+  background: linear-gradient(114.93deg, #618967 5.11%, #72A479 94%);
+  font-family: 'Gilroy Bold';
+}
+.order__fieldset-delivery-btns input:first-child {
+  border-radius: 10px 0 0 10px;
+  border-right: 0;
+}
+.order__fieldset-delivery-btns input:last-child {
+  margin-left: -4px;
+  border-radius: 0 10px 10px 0;
+  border-left: 0;
+}
+.order__fieldset-delivery-btns p {
+  position: relative;
+}
+.order__fieldset-delivery-btns p::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: -26px;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  background: url("../img/order/clock-icon.svg");
+}
+.order__delivery-tab {
+  display: none;
+}
+.order__delivery-tab.active {
+  display: block;
 }
 .order__adress {
   display: grid;

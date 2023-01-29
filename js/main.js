@@ -163,3 +163,68 @@ fetch('http://localhost:3000/menu')
       }
     });
   });
+
+
+// Доставка - самовывоз
+
+const deliveryBtns = document.querySelectorAll('.order__fieldset-delivery-btn');
+const deliveryTabs = document.querySelectorAll('.order__delivery-tab');
+
+
+deliveryBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+
+    let currentBtn = btn;
+    let tabId = currentBtn.getAttribute("data-tab");
+    let currentTab = document.querySelector(tabId);
+
+    if(!currentBtn.classList.contains('active')) {
+      deliveryBtns.forEach(btn => {
+        btn.classList.remove('active');
+      });
+
+      deliveryTabs.forEach(btn => {
+        btn.classList.remove('active');
+      });
+
+      currentBtn.classList.add('active');
+      currentTab.classList.add('active');
+    }
+
+
+
+    btn.classList.add('active');
+
+  });
+});
+
+// Реализация dropdown
+
+let select = function () {
+  let selectHeader = document.querySelectorAll('.order__pickup-header');
+  let selectItem = document.querySelectorAll('.order__pickup-item');
+
+  selectHeader.forEach(item => {
+      item.addEventListener('click', selectToggle);
+  });
+
+  selectItem.forEach(item => {
+      item.addEventListener('click', selectChoose);
+  });
+
+  function selectToggle() {
+      this.parentElement.classList.toggle('open');
+  }
+
+  function selectChoose() {
+      let text = this.innerText,
+          select = this.closest('.order__pickup'),
+          currentText = select.querySelector('.order__pickup-current');
+      currentText.innerText = text;
+      select.classList.remove('open');
+
+  }
+
+};
+
+select();
