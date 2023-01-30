@@ -348,24 +348,31 @@
           <h3>Хотите мы позвоним?</h3>
 
           <div class="order__fieldset-times-call-btns">
-            <div>
-              <input type="radio" id="dontneed" name="call" checked>
-              <label for="dontneed">Не перезванивать</label>
-            </div>
 
-            <div>
-              <input type="radio" id="need" name="call">
-              <label for="need">Потребуется звонок оператора</label>
-            </div>
+              <label>
+                <input class="order__fieldset-times-call-btns-radio" type="radio" name="call" checked>
+                <span class="order__fieldset-times-call-btns-radio-design"></span>
+                <p>Не перезванивать</p>
+              </label>
+
+              <label>
+                <input class="order__fieldset-times-call-btns-radio" type="radio" name="call">
+                <span class="order__fieldset-times-call-btns-radio-design"></span>
+                <p>Потребуется звонок оператора</p>
+              </label>
 
           </div>
 
         </fieldset>
 
         <fieldset class="order__fieldset-conditions">
-          <input type="checkbox" id="order__fieldset-conditions-checkbox" checked required>
-          <label for="order__fieldset-conditions-checkbox">
-            Я согласен на обработку моих перс. данных в соответствии с <a href="#!">Условиями</a></label>
+
+          <label>
+            <input type="checkbox" class="order__fieldset-conditions-checkbox" checked required>
+            <span class="order__fieldset-conditions-checkbox_design"></span>
+            <p>Я согласен на обработку моих перс. данных в соответствии с <a href="#!">Условиями</a></p>
+          </label>
+
           <button class="order__fieldset-conditions-btn">Оформить заказ</button>
         </fieldset>
 

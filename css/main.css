@@ -1080,10 +1080,45 @@ input:not(:placeholder-shown) + .order__adress-street-placeholder, input:not(:pl
   flex-direction: column;
   row-gap: 20px;
 }
-.order__fieldset-times-call-btns div {
+.order__fieldset-times-call-btns-radio {
+  display: none;
+}
+.order__fieldset-times-call-btns-radio-design {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1px solid #fff;
+  transition: .1s linear;
+  position: relative;
+}
+.order__fieldset-times-call-btns-radio-design::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  width: 14px;
+  height: 14px;
+  background: #72A479;
+  opacity: 0;
+  transition: .2s linear;
+}
+.order__fieldset-times-call-btns-radio:checked + .order__fieldset-times-call-btns-radio-design::after {
+  opacity: 1;
+}
+.order__fieldset-times-call-btns-radio:checked + .order__fieldset-times-call-btns-radio-design {
+  border: 1px solid #72A479;
+}
+.order__fieldset-times-call-btns label {
   display: flex;
   align-items: center;
   column-gap: 9px;
+  cursor: pointer;
+  user-select: none;
+}
+.order__fieldset-times-call-btns label p {
+  line-height: 1;
 }
 .order__fieldset-times-time-btns {
   margin-bottom: 20px;
@@ -1180,11 +1215,14 @@ input:not(:placeholder-shown) + .order__adress-street-placeholder, input:not(:pl
   align-items: center;
 }
 .order__fieldset-conditions input[type=checkbox] {
-  margin-right: 11px;
-  width: 22px;
-  height: 22px;
+  display: none;
 }
 .order__fieldset-conditions label {
+  display: flex;
+  align-items: center;
+  column-gap: 11px;
+  cursor: pointer;
+  user-select: none;
   font-size: 13px;
   line-height: 15px;
   font-family: 'Gilroy Medium';
@@ -1192,6 +1230,29 @@ input:not(:placeholder-shown) + .order__adress-street-placeholder, input:not(:pl
 .order__fieldset-conditions label a {
   color: #72A479;
   text-decoration: underline;
+}
+.order__fieldset-conditions-checkbox_design {
+  display: inline-block;
+  width: 22px;
+  height: 22px;
+  border-radius: 3px;
+  background: #fff;
+  position: relative;
+}
+.order__fieldset-conditions-checkbox_design::before {
+  content: '';
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-image: url("../img/order/checked-icon.svg");
+  opacity: 0;
+  transition: .1s linear;
+}
+.order__fieldset-conditions-checkbox:checked + .order__fieldset-conditions-checkbox_design::before {
+  opacity: 1;
 }
 .order__fieldset-conditions-btn {
   width: 210px;

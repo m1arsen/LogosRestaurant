@@ -221,11 +221,15 @@ counter.addEventListener('click', (e) => {
   e.preventDefault();
 
   if(e.target.classList.contains('order__fieldset-times-persons-minus')) {
-    counterNums.value -= 1;
+    if(!(counterNums.value <= 1)) {
+      counterNums.value -= 1;
+    }
   }
 
   if(e.target.classList.contains('order__fieldset-times-persons-plus')) {
-    counterNums.value = Number(counterNums.value) + 1;
+    if(!(counterNums.value >= 30)) {
+      counterNums.value = Number(counterNums.value) + 1;
+    }
   }
 
 });

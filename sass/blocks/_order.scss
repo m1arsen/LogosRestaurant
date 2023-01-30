@@ -432,10 +432,56 @@
       flex-direction: column;
       row-gap: 20px;
 
-      div {
+      &-radio {
+        display: none;
+      }
+
+      &-radio-design {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        border: 1px solid #fff;
+
+        transition: .1s linear;
+
+        position: relative;
+
+        &::after {
+          content: '';
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%,-50%);
+          border-radius: 50%;
+          width: 14px;
+          height: 14px;
+          background: #72A479;
+
+          opacity: 0;
+
+          transition: .2s linear;
+        }
+      }
+
+      &-radio:checked + &-radio-design::after {
+        opacity: 1;
+      }
+
+      &-radio:checked + &-radio-design {
+        border: 1px solid #72A479;
+      }
+
+      label {
         display: flex;
         align-items: center;
         column-gap: 9px;
+
+        cursor: pointer;
+        user-select: none;
+
+        p {
+          line-height: 1;
+        }
       }
     }
 
@@ -546,13 +592,7 @@
         background: url('../img/order/plus-icon.svg') center no-repeat;
       }
 
-      &-nums {
 
-
-
-
-
-      }
 
     }
 
@@ -576,12 +616,17 @@
     align-items: center;
 
     input[type=checkbox] {
-      margin-right: 11px;
-      width: 22px;
-      height: 22px;
+      display: none;
     }
 
     label {
+      display: flex;
+      align-items: center;
+      column-gap: 11px;
+
+      cursor: pointer;
+      user-select: none;
+
       font-size: 13px;
       line-height: 15px;
       font-family: 'Gilroy Medium';
@@ -590,6 +635,33 @@
         color: #72A479;
         text-decoration: underline;
       }
+    }
+
+    &-checkbox_design {
+      display: inline-block;
+      width: 22px;
+      height: 22px;
+      border-radius: 3px;
+      background: #fff;
+
+      position: relative;
+
+      &::before {
+        content: '';
+        position: absolute;
+        width: 18px;
+        height: 18px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        background-image: url('../img/order/checked-icon.svg');
+        opacity: 0;
+        transition: .1s linear;
+      }
+    }
+
+    &-checkbox:checked + &-checkbox_design::before {
+      opacity: 1;
     }
 
     &-btn {
