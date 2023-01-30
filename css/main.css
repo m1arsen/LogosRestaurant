@@ -800,6 +800,10 @@ html, body {
   background: #2B2829;
   border-radius: 10px;
   position: relative;
+  display: none;
+}
+.order__stop-list.active {
+  display: block;
 }
 .order__stop-list-title {
   margin-bottom: 20px;
@@ -1048,6 +1052,9 @@ input:not(:placeholder-shown) + .order__adress-street-placeholder, input:not(:pl
 }
 .order__fieldset-pay-change {
   max-width: 180px;
+  display: none;
+}
+.order__fieldset-pay-change.active {
   display: flex;
 }
 .order__fieldset-pay-change input:first-child {
@@ -1089,6 +1096,12 @@ input:not(:placeholder-shown) + .order__adress-street-placeholder, input:not(:pl
   padding-left: 0;
   padding-right: 0;
 }
+.order__fieldset-times-time-btns input[type='text'] {
+  display: none;
+}
+.order__fieldset-times-time-btns input[type='text'].active {
+  display: inline-block;
+}
 .order__fieldset-times-time-btns input:nth-child(1).active,
 .order__fieldset-times-time-btns input:nth-child(2).active {
   background: linear-gradient(114.93deg, #618967 5.11%, #72A479 94%);
@@ -1106,6 +1119,51 @@ input:not(:placeholder-shown) + .order__adress-street-placeholder, input:not(:pl
   margin-left: -4px;
   margin-right: 15px;
   transition: background 0.2s ease-in, font-family 0.2s ease-in;
+}
+.order__fieldset-times-persons {
+  position: relative;
+  width: 260px;
+}
+.order__fieldset-times-persons input {
+  width: 100%;
+}
+.order__fieldset-times-persons input:focus::placeholder {
+  opacity: 1;
+}
+.order__fieldset-times-persons-counter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 70px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 18px;
+}
+.order__fieldset-times-persons-counter input {
+  padding: 0;
+  text-align: center;
+  border: 0;
+  border-radius: 0;
+  font-size: 18px;
+  line-height: 21px;
+  font-family: 'Gilroy Medium';
+}
+.order__fieldset-times-persons-counter input::-webkit-outer-spin-button, .order__fieldset-times-persons-counter input::-webkit-inner-spin-button {
+  display: none;
+  -webkit-appearance: none;
+  margin: 0;
+}
+.order__fieldset-times-persons-minus, .order__fieldset-times-persons-plus {
+  width: 14px;
+  height: 14px;
+  cursor: pointer;
+}
+.order__fieldset-times-persons-minus {
+  background: url("../img/order/minus-icon.svg") center no-repeat;
+}
+.order__fieldset-times-persons-plus {
+  background: url("../img/order/plus-icon.svg") center no-repeat;
 }
 .order__fieldset-times h3 {
   margin: 20px 0;

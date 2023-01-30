@@ -215,15 +215,17 @@
 
   <section class="order">
     <div class="order__container">
+
       <a href="#!" class="order__link">
         <img src="./img/order/backtocart-icon.svg" alt="back">
         в корзину
       </a>
+
       <h1 class="order__title title">Оформление заказа</h1>
 
       <form action="" class="order__form">
 
-        <div class="order__stop-list">
+        <div class="order__stop-list active">
 
           <div class="order__stop-list-info">
             <h2 class="order__stop-list-title">Сегодня мы уже не доставляем.</h2>
@@ -262,7 +264,7 @@
             <p>Доставим через  1 час 30 минут</p>
           </div>
 
-          <div class="order__delivery-tab" id="delivery-tab_1">
+          <div class="order__delivery-tab active" id="delivery-tab_1">
             <h3>Адрес доставки</h3>
 
             <div class="order__adress active">
@@ -290,7 +292,7 @@
             <div class="order__pickup">
 
               <div class="order__pickup-header">
-                <span class="order__pickup-current">Ресторан №1</span>
+                <span class="order__pickup-current">Выберите ресторан</span>
                 <img class="order__pickup-icon" src="./img/delivery/dropdown-icon.svg">
               </div>
 
@@ -311,10 +313,10 @@
           <div class="order__fieldset-pay-btns">
             <input class="order__fieldset-pay-btn" type="button" value="Оплата онлайн">
             <input class="order__fieldset-pay-btn" type="button" value="Курьеру картой">
-            <input class="order__fieldset-pay-btn active" type="button" value="Наличными">
+            <input class="order__fieldset-pay-btn active" data-tab="#pay-tab_3" type="button" value="Наличными">
           </div>
 
-          <div class="order__fieldset-pay-change">
+          <div class="order__fieldset-pay-change active" id="pay-tab_3">
             <input type="text" value="Сдача с " class="order__fieldset-pay-change-placeholder" readonly>
             <input type="number" class="order__fieldset-pay-change-sum" max="100000">
           </div>
@@ -325,12 +327,23 @@
           <h2 class="order__subtitle">4. Когда доставить</h2>
 
           <div class="order__fieldset-times-time-btns">
-            <input type="button" value="В ближайшее время">
-            <input type="button" value="Ко времени" class="active">
-            <input type="text" placeholder="Укажите время">
+            <input class="order__fieldset-times-time-btn" type="button" value="В ближайшее время">
+            <input class="order__fieldset-times-time-btn active" data-tab="#times-tab_2" type="button" value="Ко времени">
+            <input class="order__fieldset-times-time-tab active" id="times-tab_2" type="text" placeholder="Укажите время">
+
           </div>
 
-          <input type="number" placeholder="Кол-во персон">
+          <div class="order__fieldset-times-persons">
+            <input type="number" placeholder="Кол-во персон" readonly>
+
+            <div class="order__fieldset-times-persons-counter">
+              <button class="order__fieldset-times-persons-minus"></button>
+              <input class="order__fieldset-times-persons-nums" type="number" value="1">
+              <button class="order__fieldset-times-persons-plus"></button>
+            </div>
+
+
+          </div>
 
           <h3>Хотите мы позвоним?</h3>
 

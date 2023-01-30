@@ -1,3 +1,43 @@
+// Табы
+
+function tabs(btnsSelector, tabsSelector,) {
+  const btns = document.querySelectorAll(btnsSelector);
+  const tabs = document.querySelectorAll(tabsSelector);
+
+
+  btns.forEach(btn => {
+    btn.addEventListener('click', () => {
+
+      let currentBtn = btn;
+      let tabId = currentBtn.getAttribute("data-tab");
+      let currentTab = document.querySelector(tabId);
+
+      if(!currentBtn.classList.contains('active')) {
+        btns.forEach(btn => {
+          btn.classList.remove('active');
+        });
+
+        tabs.forEach(btn => {
+          btn.classList.remove('active');
+        });
+
+        currentBtn.classList.add('active');
+        currentTab.classList.add('active');
+      }
+
+
+
+      btn.classList.add('active');
+
+    });
+  });
+}
+
+tabs('.order__fieldset-delivery-btn', '.order__delivery-tab'); // Доставка/Самовывоз
+tabs('.order__fieldset-pay-btn', '.order__fieldset-pay-change'); // Оплата - онлайн/картой курьеру/наличными
+tabs('.order__fieldset-times-time-btn', '.order__fieldset-times-time-tab'); // Доставка - в ближайшее время/ко времени
+
+
 // Получение данных по позициям меню и их выгрузка на страницу
 
 class MenuCard{
@@ -123,31 +163,7 @@ fetch('http://localhost:3000/menu')
     }
   })
   .then(() => {
-    const tabs = document.querySelectorAll('.menu__pos');
-    const tabsItems = document.querySelectorAll('.menu__pos-section');
-
-    tabs.forEach(tab => {
-      tab.addEventListener('click', () => {
-
-        let currentBtn = tab;
-        let tabId = currentBtn.getAttribute("data-tab");
-        let currentTab = document.querySelector(tabId);
-
-        if(!currentBtn.classList.contains('active')) {
-          tabs.forEach(tab => {
-            tab.classList.remove('active');
-          });
-
-          tabsItems.forEach(tab => {
-            tab.classList.remove('active');
-          });
-
-          currentBtn.classList.add('active');
-          currentTab.classList.add('active');
-        }
-      });
-    });
-
+    tabs('.menu__pos','.menu__pos-section');
     document.querySelector('.menu__pos').click();
   })
   .then(() => {
@@ -164,41 +180,7 @@ fetch('http://localhost:3000/menu')
     });
   });
 
-
-// Доставка - самовывоз
-
-const deliveryBtns = document.querySelectorAll('.order__fieldset-delivery-btn');
-const deliveryTabs = document.querySelectorAll('.order__delivery-tab');
-
-
-deliveryBtns.forEach(btn => {
-  btn.addEventListener('click', () => {
-
-    let currentBtn = btn;
-    let tabId = currentBtn.getAttribute("data-tab");
-    let currentTab = document.querySelector(tabId);
-
-    if(!currentBtn.classList.contains('active')) {
-      deliveryBtns.forEach(btn => {
-        btn.classList.remove('active');
-      });
-
-      deliveryTabs.forEach(btn => {
-        btn.classList.remove('active');
-      });
-
-      currentBtn.classList.add('active');
-      currentTab.classList.add('active');
-    }
-
-
-
-    btn.classList.add('active');
-
-  });
-});
-
-// Реализация dropdown
+// dropdown
 
 let select = function () {
   let selectHeader = document.querySelectorAll('.order__pickup-header');
@@ -228,3 +210,24 @@ let select = function () {
 };
 
 select();
+
+
+// Counter
+
+const counter = document.querySelector('.order__fieldset-times-persons-counter');
+const counterNums = document.querySelector('.order__fieldset-times-persons-nums');
+
+counter.addEventListener('click', (e) => {
+  e.preventDefault();
+
+  if(e.target.classList.contains('order__fieldset-times-persons-minus')) {
+    counterNums.value -= 1;
+  }
+
+  if(e.target.classList.contains('order__fieldset-times-persons-plus')) {
+    counterNums.value = Number(counterNums.value) + 1;
+  }
+
+});
+
+
