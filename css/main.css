@@ -368,7 +368,7 @@ a {
 }
 
 html, body {
-  background: #211F20;
+  background: linear-gradient(360deg, #211F20 0%, #44403F 100%);
   color: #fff;
 }
 
@@ -416,6 +416,7 @@ html, body {
 }
 .header {
   background-color: #403c3b;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 .header__container {
   padding: 24px;
@@ -689,7 +690,7 @@ html, body {
   color: #CFCFCF;
 }
 .item-card:hover {
-  box-shadow: 0px 30px 45px rgba(43, 40, 40, 0.6);
+  box-shadow: 0px 30px 45px rgba(43, 40, 40, 0.9);
 }
 .item-card:hover .item-card__price {
   position: absolute;
@@ -1266,6 +1267,106 @@ input:not(:placeholder-shown) + .order__adress-street-placeholder, input:not(:pl
   border-radius: 10px;
 }
 
+.delivery-terms__title {
+  margin: 50px 0 42px;
+}
+.delivery-terms__container {
+  margin-bottom: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 20px;
+}
+.delivery-terms__accordion {
+  max-width: 672px;
+  width: 100%;
+}
+.delivery-terms__accordion_item {
+  max-height: 67px;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  transition: .2s linear;
+}
+.delivery-terms__accordion_item.active {
+  max-height: 200px;
+}
+.delivery-terms__accordion_item.active .delivery-terms__accordion_btn {
+  background: linear-gradient(114.93deg, #597e5f 5.11%, #66926b 94%);
+}
+.delivery-terms__accordion_item.active .delivery-terms__accordion_icon {
+  transform: rotateX(180deg);
+}
+.delivery-terms__accordion_item + .delivery-terms__accordion_item {
+  margin-top: 10px;
+}
+.delivery-terms__accordion_btn {
+  padding: 16px 30px;
+  background: linear-gradient(114.93deg, #618967 5.11%, #72A479 94%);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+.delivery-terms__accordion_btn p {
+  font-size: 18px;
+  line-height: 35px;
+  font-family: 'Gilroy Medium';
+}
+.delivery-terms__accordion_icon {
+  transition: .2s linear;
+}
+.delivery-terms__accordion_info {
+  padding: 110px 30px 40px;
+  background: linear-gradient(90deg, #494544 0%, #504B4A 100%);
+  border-radius: 10px;
+  transition: .2s linear;
+}
+.delivery-terms__accordion_info p {
+  font-size: 16px;
+  line-height: 25px;
+  font-family: 'Gilroy Regular';
+}
+.delivery-terms__map {
+  width: 100%;
+  max-width: 672px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.delivery-terms__info {
+  margin-bottom: 40px;
+  display: flex;
+  column-gap: 100px;
+}
+.delivery-terms__info_delivery, .delivery-terms__info_cafe {
+  font-size: 22px;
+  line-height: 35px;
+}
+.delivery-terms__info_delivery h2, .delivery-terms__info_cafe h2 {
+  font-family: 'Gilroy Bold';
+}
+.delivery-terms__info_delivery p, .delivery-terms__info_cafe p {
+  font-family: 'Gilroy Regular';
+  color: #CFCFCF;
+}
+.delivery-terms__order {
+  margin-bottom: 37px;
+  max-width: 700px;
+  font-size: 22px;
+  line-height: 35px;
+}
+.delivery-terms__order h2 {
+  font-family: 'Gilroy Bold';
+}
+.delivery-terms__order p {
+  font-family: 'Gilroy Regular';
+  color: #CFCFCF;
+}
+
 .our-cafe {
   box-shadow: 0px 100px 100px -50px rgba(0, 0, 0, 0.75);
   max-width: 1395px;
@@ -1484,6 +1585,9 @@ input:not(:placeholder-shown) + .order__adress-street-placeholder, input:not(:pl
   opacity: 0.5;
 }
 
+.footer {
+  background: linear-gradient(270.7deg, #44403F 0.4%, #211F20 100%);
+}
 .footer__container {
   padding: 26px 30px 30px 120px;
   display: flex;

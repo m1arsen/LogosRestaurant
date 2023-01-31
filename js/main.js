@@ -36,6 +36,7 @@ function tabs(btnsSelector, tabsSelector,) {
 tabs('.order__fieldset-delivery-btn', '.order__delivery-tab'); // Доставка/Самовывоз
 tabs('.order__fieldset-pay-btn', '.order__fieldset-pay-change'); // Оплата - онлайн/картой курьеру/наличными
 tabs('.order__fieldset-times-time-btn', '.order__fieldset-times-time-tab'); // Доставка - в ближайшее время/ко времени
+tabs('.delivery-terms__accordion_item', '.delivery-terms__accordion_info'); // Аккордион
 
 
 // Получение данных по позициям меню и их выгрузка на страницу
@@ -164,7 +165,7 @@ fetch('http://localhost:3000/menu')
   })
   .then(() => {
     tabs('.menu__pos','.menu__pos-section');
-    document.querySelector('.menu__pos').click();
+    // document.querySelector('.menu__pos').click();
   })
   .then(() => {
     const swiper = new Swiper('.swiper-container', {
