@@ -1272,13 +1272,15 @@ input:not(:placeholder-shown) + .order__adress-street-placeholder, input:not(:pl
 }
 .delivery-terms__container {
   margin-bottom: 30px;
+  max-height: 584px;
   display: flex;
   flex-wrap: wrap;
   column-gap: 20px;
 }
 .delivery-terms__accordion {
-  max-width: 672px;
   width: 100%;
+  max-width: 672px;
+  height: min-content;
 }
 .delivery-terms__accordion_item {
   max-height: 67px;
@@ -1333,6 +1335,7 @@ input:not(:placeholder-shown) + .order__adress-street-placeholder, input:not(:pl
 }
 .delivery-terms__map {
   width: 100%;
+  height: 100%;
   max-width: 672px;
   border-radius: 10px;
   overflow: hidden;
