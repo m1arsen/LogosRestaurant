@@ -1,0 +1,50 @@
+.promo-card {
+  width: 100%;
+  max-width: 440px;
+
+  cursor: pointer;
+  background: linear-gradient(90deg, #494544 0%, #504B4A 100%);
+  border-radius: 10px;
+
+  &:hover &__img img {
+    transform: scale(1.05);
+  }
+
+  &__img {
+    max-height: 180px;
+    border-radius: 10px 10px 0 0;
+    overflow: hidden;
+
+    img {
+      transition: 3s linear;
+    }
+  }
+  &__info {
+    padding: 15px 25px;
+  }
+
+  &__title {
+    margin-bottom: 5px;
+
+    font-size: 18px;
+    line-height: 22px;
+    font-family: 'Gilroy Bold';
+  }
+
+  &__text {
+    margin-bottom: 19px;
+
+    font-size: 14px;
+    line-height: 16px;
+    font-family: 'Gilroy Regular';
+    color: #A6A7AB;
+  }
+
+  &__date {
+    font-size: 14px;
+    line-height: 16px;
+    font-family: 'Gilroy Regular';
+    color: #6FA076;
+  }
+
+}

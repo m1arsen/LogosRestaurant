@@ -1370,10 +1370,68 @@ input:not(:placeholder-shown) + .order__adress-street-placeholder, input:not(:pl
   color: #CFCFCF;
 }
 
+.promotions {
+  margin-bottom: 70px;
+}
+.promotions__title {
+  padding: 50px 0 36px 50px;
+  margin-bottom: 40px;
+  border-image: linear-gradient(90deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%);
+  border-image-slice: 1;
+  border-bottom: 1px solid;
+}
+.promotions__container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 20px;
+  row-gap: 50px;
+}
+
+.promo-card {
+  width: 100%;
+  max-width: 440px;
+  cursor: pointer;
+  background: linear-gradient(90deg, #494544 0%, #504B4A 100%);
+  border-radius: 10px;
+}
+.promo-card:hover .promo-card__img img {
+  transform: scale(1.05);
+}
+.promo-card__img {
+  max-height: 180px;
+  border-radius: 10px 10px 0 0;
+  overflow: hidden;
+}
+.promo-card__img img {
+  transition: 3s linear;
+}
+.promo-card__info {
+  padding: 15px 25px;
+}
+.promo-card__title {
+  margin-bottom: 5px;
+  font-size: 18px;
+  line-height: 22px;
+  font-family: 'Gilroy Bold';
+}
+.promo-card__text {
+  margin-bottom: 19px;
+  font-size: 14px;
+  line-height: 16px;
+  font-family: 'Gilroy Regular';
+  color: #A6A7AB;
+}
+.promo-card__date {
+  font-size: 14px;
+  line-height: 16px;
+  font-family: 'Gilroy Regular';
+  color: #6FA076;
+}
+
 .our-cafe {
   box-shadow: 0px 100px 100px -50px rgba(0, 0, 0, 0.75);
   max-width: 1395px;
-  margin: 10px auto 0;
+  margin: 10px auto -150px;
   position: relative;
   z-index: 2;
 }
@@ -1464,7 +1522,6 @@ input:not(:placeholder-shown) + .order__adress-street-placeholder, input:not(:pl
 }
 
 .location {
-  margin-top: -150px;
   box-shadow: 0px 40px 40px rgba(43, 40, 40, 0.6);
 }
 .location__container {
