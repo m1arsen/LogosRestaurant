@@ -732,17 +732,21 @@ html, body {
   max-width: 18.5px;
 }
 .item-card__add, .item-card__remove {
-  padding: 13px 22px;
+  width: 62px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: absolute;
   bottom: 0;
-  background: linear-gradient(114.93deg, #618967 5.11%, #72A479 94%);
+  background-color: #618967;
   border-radius: 10px;
   transform: translateY(10px);
   opacity: 0;
   transition: .3s linear;
 }
 .item-card__add:hover, .item-card__remove:hover {
-  box-shadow: 0px 5px 10px rgba(114, 163, 121, 0.3);
+  background-color: #72A479;
 }
 .item-card__add {
   right: 0;
@@ -1720,6 +1724,125 @@ input:not(:placeholder-shown) + .order__adress-street-placeholder, input:not(:pl
 }
 .cart__total_btn:hover {
   background: #587d5e;
+}
+
+.product {
+  padding: 40px 0 14px;
+}
+.product__container {
+  margin-bottom: 50px;
+  max-width: 1212px;
+}
+.product__link {
+  margin-bottom: 27px;
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+}
+.product__link img {
+  padding: 7.5px 10px;
+  background: linear-gradient(114.93deg, #618967 5.11%, #72A479 94%);
+  border-radius: 50%;
+}
+.product__link p {
+  font-size: 16px;
+  line-height: 19px;
+  font-family: 'Gilroy Semibold';
+}
+.product__card {
+  display: flex;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.product__card_img {
+  overflow: hidden;
+  flex-shrink: 0.5;
+}
+.product__card_img img {
+  height: 100%;
+}
+.product__info {
+  padding: 35px 50px;
+  flex-basis: 0.5;
+  background: linear-gradient(90deg, #494544 0%, #504B4A 100%);
+}
+.product__title {
+  margin-bottom: 5px;
+  font-size: 25px;
+  line-height: 30px;
+  font-family: 'Gilroy Bold';
+}
+.product__descr {
+  margin-bottom: 150px;
+  font-size: 14px;
+  line-height: 16px;
+  font-family: 'Gilroy Regular';
+  color: #CFCFCF;
+}
+.product__btns {
+  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  column-gap: 30px;
+}
+.product__btns_container {
+  display: flex;
+}
+.product__btns_add, .product__btns_remove {
+  width: 60px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #618967;
+  user-select: none;
+  cursor: pointer;
+}
+.product__btns_add:hover, .product__btns_remove:hover {
+  background-color: #72A479;
+}
+.product__btns_add {
+  border-radius: 0 24px 24px 0;
+}
+.product__btns_remove {
+  border-radius: 24px 0 0 24px;
+}
+.product__btns_price {
+  font-size: 25px;
+  line-height: 30px;
+  font-family: 'Gilroy Semibold';
+}
+.product__table {
+  font-size: 12px;
+  line-height: 14px;
+}
+.product__table tr + tr {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+.product__table tr:last-child {
+  font-family: 'Gilroy Medium';
+}
+.product__table tr:first-child {
+  font-family: 'Gilroy Regular';
+}
+.product__table td {
+  padding: 5px 0;
+  text-align: center;
+}
+.product__table td + td {
+  padding-left: 50px;
+}
+.product__others-container {
+  padding-top: 50px;
+}
+.product__line {
+  border-image: linear-gradient(90deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 100%);
+  border-image-slice: 1;
+  border-top: 1px solid;
+}
+.product__others_title {
+  margin-left: 50px;
+  margin-bottom: 30px;
 }
 
 .our-cafe {

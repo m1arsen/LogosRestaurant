@@ -162,13 +162,33 @@ fetch('http://localhost:3000/menu')
         new MenuCard(name, weight, description, price, src, alt, '.menu__pos-items').render();
       });
     }
+
+    // Генерация карточек в раздел "С эти товаром покупают" - секция product
+
+    data['Холодные закуски'].forEach(({name, weight, description, price, src, alt}) => {
+      new MenuCard(name, weight, description, price, src, alt, '.product__others_wrapper').render();
+    });
+
   })
   .then(() => {
     tabs('.menu__pos','.menu__pos-section');
     // document.querySelector('.menu__pos').click();
   })
   .then(() => {
-    const swiper = new Swiper('.swiper-container', {
+    // свайпер в меню
+    const swiperMenu = new Swiper('.swiper-container',  {
+      loop: true,
+      slidesPerView: 4,
+      spaceBetween: 20,
+      speed: 1000,
+      autoplay: {
+        delay: 7000,
+        disableOnInteraction: false,
+        pauseOnMouseEnter: true
+      }
+    });
+    // свайпер в секции product
+    const swiperProduct = new Swiper('.product__others_cards',  {
       loop: true,
       slidesPerView: 4,
       spaceBetween: 20,
