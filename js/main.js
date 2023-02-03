@@ -172,7 +172,7 @@ fetch('http://localhost:3000/menu')
   })
   .then(() => {
     tabs('.menu__pos','.menu__pos-section');
-    // document.querySelector('.menu__pos').click();
+    document.querySelector('.menu__pos').click();
   })
   .then(() => {
     // свайпер в меню
