@@ -1,6 +1,11 @@
 .location {
   box-shadow: 0px 40px 40px rgba(43, 40, 40, 0.6);
 
+  #map {
+    height: 665px;
+    width: 100%;
+  }
+
   &__container {
     position: relative;
   }
@@ -16,6 +21,7 @@
     box-shadow: 0px 0px 70px rgba(0, 0, 0, 1);
 
     position: absolute;
+    z-index: 5;
     top: 210px;
     left: 67px;
   }
