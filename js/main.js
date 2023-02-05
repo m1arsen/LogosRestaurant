@@ -94,21 +94,25 @@ class MenuCard{
           </a>
 
           <button class="item-card__add">
-            <img src="./img/item_cards/add-icon.svg" alt="add">
+            <img class="item-card__add_btn" src="./img/item_cards/add-icon.svg" alt="add" data-id=${this.name}>
           </button>
 
           <button class="item-card__remove">
-            <img src="./img/item_cards/remove-icon.svg" alt="remove">
+            <img class="item-card__remove_btn" src="./img/item_cards/remove-icon.svg" alt="remove" data-id=${this.name}>
           </button>
 
         </div>
 
       </div>
+
+      <div class="item-card__counter" data-id=${this.name}></div>
     `;
 
     this.parent.append(element);
   }
 }
+
+
 
 class MenuPos{
   constructor(posName) {
@@ -169,6 +173,8 @@ fetch('http://localhost:3000/menu')
       new MenuCard(name, weight, description, price, src, alt, '.product__others_wrapper').render();
     });
 
+    updateCounters();
+
   })
   .then(() => {
     tabs('.menu__pos','.menu__pos-section');
@@ -181,11 +187,11 @@ fetch('http://localhost:3000/menu')
       slidesPerView: 4,
       spaceBetween: 20,
       speed: 1000,
-      autoplay: {
-        delay: 7000,
-        disableOnInteraction: false,
-        pauseOnMouseEnter: true
-      }
+      // autoplay: {
+      //   delay: 7000,
+      //   disableOnInteraction: false,
+      //   pauseOnMouseEnter: true
+      // }
     });
     // свайпер в секции product
     const swiperProduct = new Swiper('.product__others_cards',  {
@@ -200,6 +206,69 @@ fetch('http://localhost:3000/menu')
       }
     });
   });
+
+// Корзина товаров
+
+let cart = {};
+
+document.addEventListener('click', e => {
+
+  if(e.target.classList.contains('item-card__add_btn')) {
+    addFunc(e);
+    updateCounters();
+  }
+  if(e.target.classList.contains('item-card__remove_btn')) {
+    removeFunc(e);
+    updateCounters();
+  }
+});
+
+function addFunc(e) {
+  if(!cart[e.target.dataset.id]) {
+    cart[e.target.dataset.id] = 1;
+  } else {
+    cart[e.target.dataset.id] ++;
+  }
+}
+
+function removeFunc(e) {
+  if(cart[e.target.dataset.id] - 1 <= 0) {
+    delete cart[e.target.dataset.id];
+  }
+
+  if(cart[e.target.dataset.id]) {
+    cart[e.target.dataset.id] --;
+  }
+}
+
+const cartBtn = document.querySelector('.header__cart-counter');
+const cartBtnCounter = document.querySelector('.header__cart-counter-nums');
+const cartImg = document.querySelector('.header__cart-img');
+
+function updateCounters() {
+  // header кнопка "Корзина"
+  if(Object.keys(cart).length > 0) {
+    cartImg.classList.add('none');
+    cartBtn.classList.remove('none');
+    cartBtnCounter.textContent = Object.keys(cart).length;
+  } else {
+    cartImg.classList.remove('none');
+    cartBtn.classList.add('none');
+  }
+
+  // card counter
+  const cardsCounters = document.querySelectorAll('.item-card__counter');
+
+  cardsCounters.forEach(counter => {
+    counter.textContent = cart[counter.dataset.id];
+    if(counter.textContent == '') {
+      counter.style.display = 'none';
+    } else {
+      counter.style.display = 'flex';
+    }
+  });
+
+}
 
 // dropdown
 

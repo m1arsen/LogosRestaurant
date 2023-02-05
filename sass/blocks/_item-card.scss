@@ -136,12 +136,7 @@
 
   &__add,
   &__remove {
-    width: 62px;
-    height: 44px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    padding: 0;
 
     position: absolute;
     bottom: 0;
@@ -161,10 +156,18 @@
 
   &__add {
     right: 0;
+
+    img {
+      padding: 13px 22px;
+    }
   }
 
   &__remove {
     left: 0;
+
+    img {
+      padding: 20px 22px;
+    }
   }
 
   &__counter {

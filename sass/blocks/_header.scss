@@ -108,19 +108,21 @@
 
     &-head {
       font-size: 14px;
-      line-height: 16.7px;
+      // line-height: 16.7px;
+      line-height: 36px;
       color: #fff;
+
+      border-right: 1px solid rgba(255, 255, 255, 0.3);
 
       padding: 0 22px;
     }
 
     &-counter {
-      padding: 6px 13px;
+      padding: 0 13px;
 
       position: relative;
       z-index: 1;
 
-      border-left: 1px solid rgba(255, 255, 255, 0.3);
       position: relative;
 
       &-nums {
@@ -134,6 +136,13 @@
         color: $accent-color;
         line-height: 1;
       }
+    }
+
+    &-img {
+      margin: 0 15.75px;
+
+      width: 18.5px;
+      height: 18.1px;
     }
   }
 }
