@@ -70,6 +70,7 @@ class MenuCard{
   render() {
     const element = document.createElement('div');
     element.classList.add('item-card', 'swiper-slide');
+    element.dataset.id = this.name;
 
     element.innerHTML = `
       <div class="item-card__img-container">
@@ -111,8 +112,6 @@ class MenuCard{
     this.parent.append(element);
   }
 }
-
-
 
 class MenuPos{
   constructor(posName) {
@@ -174,24 +173,25 @@ fetch('http://localhost:3000/menu')
     });
 
     updateCounters();
-
+    return data;
   })
-  .then(() => {
+  .then((data) => {
     tabs('.menu__pos','.menu__pos-section');
     document.querySelector('.menu__pos').click();
+    return data;
   })
-  .then(() => {
+  .then((data) => {
     // свайпер в меню
     const swiperMenu = new Swiper('.swiper-container',  {
       loop: true,
       slidesPerView: 4,
       spaceBetween: 20,
       speed: 1000,
-      // autoplay: {
-      //   delay: 7000,
-      //   disableOnInteraction: false,
-      //   pauseOnMouseEnter: true
-      // }
+      autoplay: {
+        delay: 14000,
+        disableOnInteraction: false,
+        pauseOnMouseEnter: true
+      }
     });
     // свайпер в секции product
     const swiperProduct = new Swiper('.product__others_cards',  {
@@ -200,12 +200,108 @@ fetch('http://localhost:3000/menu')
       spaceBetween: 20,
       speed: 1000,
       autoplay: {
-        delay: 7000,
+        delay: 14000,
         disableOnInteraction: false,
         pauseOnMouseEnter: true
       }
     });
+    return data;
   });
+
+
+// Отрисовка страницы с корзиной товаров
+
+class CartItem{
+  constructor(name, price, descr, src, alt, count){
+    this.name = name;
+    this.price = price;
+    this.descr = descr;
+    this.src = src;
+    this.alt = alt;
+    this.count = count;
+  }
+
+  render(){
+    const element = document.createElement('div');
+    element.classList.add('cart__item');
+    element.dataset.id = this.name;
+
+    element.innerHTML = `
+      <div class="cart__item_img">
+        <img src=${this.src} alt=${this.alt}>
+      </div>
+
+      <div class="cart__item_info">
+        <h3>${this.name}</h3>
+        <p>${this.descr}</p>
+      </div>
+
+      <div class="cart__item_counter">
+
+        <button>
+          <img class="cart__item_minus" src="./img/cart/minus-icon.svg" alt="minus" data-id=${this.name}>
+        </button>
+
+        <input class="cart__item_nums" type="number" value="${this.count}" readonly>
+
+        <button>
+          <img class="cart__item_plus" src="./img/cart/plus-icon.svg" alt="plus" data-id=${this.name}>
+        </button>
+
+      </div>
+
+      <div class="cart__item_price"><span>${this.price}</span> ₽</div>
+
+      <button>
+        <img class="cart__item_delete" src="./img/cart/delete-icon.svg" alt="delete btn" data-id=${this.name}>
+      </button>
+    `;
+
+    document.querySelector('.cart__items').append(element);
+  }
+}
+
+function createCartItem(name) {
+  fetch('http://localhost:3000/menu')
+    .then(data => data.json())
+    .then(data => {
+      // Поиск по name в db.json
+      let obj;
+      for(let key in data) {
+        if(!obj) {
+          obj = data[key].find(item => item.name == name);
+        }
+      }
+      return obj;
+    })
+    .then(obj => {
+      let count = cart[obj.name];
+      let {name, description, price, src, alt} = obj;
+      new CartItem(name, price, description, src, alt, count).render();
+    });
+}
+
+function deleteCartItem(name) {
+  const cartItems = document.querySelectorAll('.cart__item');
+
+  cartItems.forEach(item => {
+    if(item.dataset.id == name) {
+      item.remove();
+    }
+  });
+}
+
+function updateCartItem(name) {
+  const cartItems = document.querySelectorAll('.cart__item');
+
+  cartItems.forEach(item => {
+    if(item.dataset.id == name) {
+      let count = item.querySelector('.cart__item_nums');
+      count.value = cart[name];
+      console.log(cart[name]);
+    }
+  });
+}
 
 // Корзина товаров
 
@@ -216,9 +312,32 @@ document.addEventListener('click', e => {
   if(e.target.classList.contains('item-card__add_btn')) {
     addFunc(e);
     updateCounters();
+    updateCartItem(e.target.dataset.id);
   }
+
   if(e.target.classList.contains('item-card__remove_btn')) {
     removeFunc(e);
+    updateCounters();
+    updateCartItem(e.target.dataset.id);
+  }
+
+  if(e.target.classList.contains('cart__item_minus')) {
+    if(cart[e.target.dataset.id] > 1) {
+      removeFunc(e);
+    }
+    updateCounters();
+    updateCartItem(e.target.dataset.id);
+  }
+
+  if(e.target.classList.contains('cart__item_plus')) {
+    addFunc(e);
+    updateCounters();
+    updateCartItem(e.target.dataset.id);
+  }
+
+  if(e.target.classList.contains('cart__item_delete')) {
+    deleteCartItem(e.target.dataset.id);
+    delete cart[e.target.dataset.id];
     updateCounters();
   }
 });
@@ -226,6 +345,7 @@ document.addEventListener('click', e => {
 function addFunc(e) {
   if(!cart[e.target.dataset.id]) {
     cart[e.target.dataset.id] = 1;
+    createCartItem(e.target.dataset.id);
   } else {
     cart[e.target.dataset.id] ++;
   }
@@ -234,6 +354,7 @@ function addFunc(e) {
 function removeFunc(e) {
   if(cart[e.target.dataset.id] - 1 <= 0) {
     delete cart[e.target.dataset.id];
+    deleteCartItem(e.target.dataset.id);
   }
 
   if(cart[e.target.dataset.id]) {

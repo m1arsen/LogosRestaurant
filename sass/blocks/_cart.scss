@@ -134,36 +134,27 @@
    }
 
    &_minus {
-    img {
-      padding: 11.5px 7.5px;
-      background-color: #72A479;
-      border-radius: 50%;
+    padding: 11.5px 7.5px;
+    background-color: #72A479;
+    border-radius: 50%;
 
-      transition: .1s ease-in-out;
-    }
+    transition: .1s ease-in-out;
 
     &:hover {
-      img {
-        transform: scale(1.05);
-      }
+      background-color: #86bf8d;
     }
    }
 
-   &_nums {}
-
    &_plus {
-    img {
-      padding: 7.5px;
-      background-color: #72A479;
-      border-radius: 50%;
 
-      transition: .1s ease-in-out;
-    }
+    padding: 7.5px;
+    background-color: #72A479;
+    border-radius: 50%;
+
+    transition: .1s ease-in-out;
 
     &:hover {
-      img {
-        transform: scale(1.05);
-      }
+      background-color: #86bf8d;
     }
    }
 
@@ -176,19 +167,15 @@
    }
 
    &_delete {
-    img {
-      padding: 8.5px 9px;
-      background-color: #72A479;
-      border-radius: 50%;
+    padding: 8.5px 9px;
+    background-color: #72A479;
+    border-radius: 50%;
 
-      transition: .2s ease-in-out;
+    transition: .2s ease-in-out;
 
-      &:hover {
-        transform: rotate(90deg);
-      }
+    &:hover {
+      background-color: #86bf8d;
     }
-
-
    }
 
   }
