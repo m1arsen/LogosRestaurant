@@ -1,3 +1,9 @@
+import './styles/main.scss';
+import initRouter from './router';
+
+initRouter();
+
+
 // Табы
 
 function tabs(btnsSelector, tabsSelector,) {
@@ -185,8 +191,10 @@ class CartItemAdd{
   }
 }
 
-fetch('http://localhost:3000/menu')
+// fetch('http://localhost:3000/menu')
+fetch('../db.json')
   .then(data => data.json())
+  .then(data => data.menu)
   .then(data => {
     let i = 1;
     for(let key in data) {
@@ -302,8 +310,9 @@ class CartItem{
 }
 
 function createCartItem(name) {
-  fetch('http://localhost:3000/menu')
+  fetch('../db.json')
     .then(data => data.json())
+    .then(data => data.menu)
     .then(data => {
       // Поиск по name в db.json
       let obj;
@@ -452,8 +461,9 @@ function updateCounters() {
   const cartDeliveryMinSum = document.querySelector('.cart__total_sum');
   const cartTotalBtn = document.querySelector('.cart__total_btn');
 
-  fetch('http://localhost:3000/menu')
+  fetch('../db.json')
     .then(data => data.json())
+    .then(data => data.menu)
     .then(data => {
       let sum = 0;
       for(let product in cart) {
