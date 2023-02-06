@@ -284,6 +284,7 @@
     column-gap: 7px;
 
     cursor: pointer;
+    user-select: none;
 
     p {
       font-size: 12px;
@@ -310,7 +311,7 @@
     }
 
     &:hover img {
-      transform: scale(1.05);
+      background-color: #86bf8d;
     }
 
    }
@@ -388,6 +389,11 @@
     &:hover {
       background: #587d5e;
     }
+   }
+
+   &_btn.disabled {
+    background: #433f3e;
+    cursor: not-allowed;
    }
 
   }

@@ -1670,6 +1670,7 @@ input:not(:placeholder-shown) + .order__adress-street-placeholder, input:not(:pl
   justify-content: center;
   column-gap: 7px;
   cursor: pointer;
+  user-select: none;
 }
 .cart__add_btn p {
   font-size: 12px;
@@ -1690,7 +1691,7 @@ input:not(:placeholder-shown) + .order__adress-street-placeholder, input:not(:pl
   color: #fff;
 }
 .cart__add_btn:hover img {
-  transform: scale(1.05);
+  background-color: #86bf8d;
 }
 .cart__add_price {
   font-size: 12px;
@@ -1745,6 +1746,10 @@ input:not(:placeholder-shown) + .order__adress-street-placeholder, input:not(:pl
 }
 .cart__total_btn:hover {
   background: #587d5e;
+}
+.cart__total_btn.disabled {
+  background: #433f3e;
+  cursor: not-allowed;
 }
 
 .product {

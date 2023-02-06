@@ -152,6 +152,39 @@ class MenuTab{
   }
 }
 
+// Карточки в корзине в разделе 'Добавить к заказу'
+class CartItemAdd{
+  constructor(name, src, alt, price) {
+    this.name = name;
+    this.src = src;
+    this.alt = alt;
+    this.price = price;
+  }
+
+  render() {
+    const element = document.createElement('div');
+    element.classList.add('cart__add_item');
+    element.dataset.id = this.name;
+
+    element.innerHTML = `
+      <div class="cart__add_img">
+        <img src=${this.src} alt=${this.alt}>
+      </div>
+
+      <h3>${this.name}</h3>
+
+      <div class="cart__add_btn">
+        <p class="cart__add_btn_t" data-id=${this.name}>Добавить</p>
+        <img class="cart__add_btn_t" src="./img/cart/plus-icon.svg" alt="plus icon" data-id=${this.name}>
+      </div>
+
+      <div class="cart__add_price">${this.price} ₽</div>
+    `;
+
+    document.querySelector('.cart__add_items').append(element);
+  }
+}
+
 fetch('http://localhost:3000/menu')
   .then(data => data.json())
   .then(data => {
@@ -172,6 +205,14 @@ fetch('http://localhost:3000/menu')
       new MenuCard(name, weight, description, price, src, alt, '.product__others_wrapper').render();
     });
 
+    // Генерация карточек в раздел "Добавить к заказу"
+
+    data['Холодные закуски'].forEach(({name, weight, description, price, src, alt}, i) => {
+      if(i < 4) {
+        new CartItemAdd(name, src, alt, price).render();
+      }
+    });
+
     updateCounters();
     return data;
   })
@@ -180,7 +221,7 @@ fetch('http://localhost:3000/menu')
     document.querySelector('.menu__pos').click();
     return data;
   })
-  .then((data) => {
+  .then(() => {
     // свайпер в меню
     const swiperMenu = new Swiper('.swiper-container',  {
       loop: true,
@@ -205,7 +246,6 @@ fetch('http://localhost:3000/menu')
         pauseOnMouseEnter: true
       }
     });
-    return data;
   });
 
 
@@ -303,6 +343,8 @@ function updateCartItem(name) {
   });
 }
 
+// function
+
 // Корзина товаров
 
 let cart = {};
@@ -340,8 +382,15 @@ document.addEventListener('click', e => {
     delete cart[e.target.dataset.id];
     updateCounters();
   }
+
+  if(e.target.classList.contains('cart__add_btn_t')) {
+    addFunc(e);
+    updateCounters();
+    updateCartItem(e.target.dataset.id);
+  }
 });
 
+// Создание нового элемента в корзине или его увеличение
 function addFunc(e) {
   if(!cart[e.target.dataset.id]) {
     cart[e.target.dataset.id] = 1;
@@ -351,6 +400,7 @@ function addFunc(e) {
   }
 }
 
+// Удаление элемента в корзине или его уменьшение
 function removeFunc(e) {
   if(cart[e.target.dataset.id] - 1 <= 0) {
     delete cart[e.target.dataset.id];
@@ -361,6 +411,8 @@ function removeFunc(e) {
     cart[e.target.dataset.id] --;
   }
 }
+
+// Счетчики в кнопке "Корзина" и над карточками
 
 const cartBtn = document.querySelector('.header__cart-counter');
 const cartBtnCounter = document.querySelector('.header__cart-counter-nums');
@@ -388,6 +440,54 @@ function updateCounters() {
       counter.style.display = 'flex';
     }
   });
+
+  // subtitle в разделе Корзина
+  const cartSubtitleNum = document.querySelector('.cart__title p:last-child span');
+  cartSubtitleNum.textContent = Object.keys(cart).length;
+
+  // Поле "Итого" в корзине
+  const cartPrice = document.querySelector('.cart__total_price span:nth-child(2)');
+  const cartDelivery = document.querySelector('.cart__total_delivery-price');
+  const cartDeliveryChange = cartDelivery.querySelector('span');
+  const cartDeliveryMinSum = document.querySelector('.cart__total_sum');
+  const cartTotalBtn = document.querySelector('.cart__total_btn');
+
+  fetch('http://localhost:3000/menu')
+    .then(data => data.json())
+    .then(data => {
+      let sum = 0;
+      for(let product in cart) {
+        for(let key in data) {
+          if(data[key].find(item => item.name == product)) {
+            sum += data[key].find(item => item.name == product).price * cart[product];
+          }
+        }
+      }
+      cartPrice.textContent = sum;
+    })
+    .then(() => {
+      if(Number(cartPrice.textContent) == 0) {
+        cartDeliveryMinSum.classList.remove('none');
+        cartDelivery.classList.add('none');
+        cartTotalBtn.classList.add('disabled');
+      } else {
+        cartDeliveryMinSum.classList.add('none');
+        cartDelivery.classList.remove('none');
+        cartTotalBtn.classList.remove('disabled');
+      }
+
+      if(Number(cartPrice.textContent) < 1000) {
+        cartDeliveryChange.textContent = 1000 - Number(cartPrice.textContent);
+      }
+
+      if (Number(cartPrice.textContent) >= 1000) {
+        cartDelivery.innerHTML = `
+          Доставка будет <span>бесплатной</span>
+        `;
+      }
+
+    });
+
 
 }
 
@@ -423,7 +523,7 @@ let select = function () {
 select();
 
 
-// Counter
+// Counter в форме по оформлению заказа
 
 const counter = document.querySelector('.order__fieldset-times-persons-counter');
 const counterNums = document.querySelector('.order__fieldset-times-persons-nums');
