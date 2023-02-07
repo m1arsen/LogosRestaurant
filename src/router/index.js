@@ -3,10 +3,18 @@ import Route from "route-parser";
 
 import MainPage from '../pages/main.template';
 import CartPage from '../pages/cart.template';
+import DeliveryPage from '../pages/delivery.template';
+import PromotionsPage from '../pages/promotions.template';
+import ProductPage from '../pages/product.template';
+import OrderPage from '../pages/order.template';
 
 export const routes = {
   Main: new Route(appConstants.routes.index),
   Cart: new Route(appConstants.routes.cart),
+  Delivery: new Route(appConstants.routes.delivery),
+  Promotios: new Route(appConstants.routes.promotions),
+  Product: new Route(appConstants.routes.product),
+  Order: new Route(appConstants.routes.order),
 };
 
 export const render = (path) => {
@@ -16,6 +24,14 @@ export const render = (path) => {
     result = MainPage();
   } else if(routes.Cart.match(path)){
     result = CartPage();
+  } else if(routes.Delivery.match(path)){
+    result = DeliveryPage();
+  } else if(routes.Promotios.match(path)){
+    result = PromotionsPage();
+  } else if(routes.Product.match(path)){
+    result = ProductPage();
+  } else if(routes.Order.match(path)){
+    result = OrderPage();
   }
 
   document.querySelector('.content').innerHTML = result;

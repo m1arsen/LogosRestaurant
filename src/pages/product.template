@@ -1,0 +1,85 @@
+<section class="menu">
+  <div class="menu__top">
+    <div class="menu__top-container container"></div>
+  </div>
+
+  <div class="menu__pos-container container"></div>
+</section>
+
+<section class="product">
+  <div class="product__container container">
+
+    <a href="/" class="product__link">
+      <img src="./img/product/back-icon.svg" alt="back">
+      <p>Вернуться назад</p>
+    </a>
+
+    <div class="product__card">
+
+      <div class="product__card_img">
+        <img src="./img/product/product-img.jpg" alt="product image">
+      </div>
+
+      <div class="product__info">
+
+        <h1 class="product__title">Ягненок</h1>
+
+        <p class="product__descr">помидор, сыр фета, масло подсолнечное, капуста пекинская,
+          перец сладкий красный, огурцы, оливки без косточек</p>
+
+        <div class="product__btns">
+
+          <div class="product__btns_price"><span>250</span> ₽</div>
+
+          <div class="product__btns_container">
+            <div class="product__btns_remove">
+              <img src="./img/product/remove-icon.svg" alt="remove">
+            </div>
+
+            <div class="product__btns_add">
+              <img src="./img/product/add-icon.svg" alt="add">
+            </div>
+          </div>
+
+        </div>
+
+        <table class="product__table">
+
+          <tr>
+            <td>Белки</td>
+            <td>Жиры</td>
+            <td>Углеводы</td>
+            <td>Ккал</td>
+            <td>Вес</td>
+          </tr>
+
+          <tr>
+            <td>17.23</td>
+            <td>7.63</td>
+            <td>22.35</td>
+            <td>234</td>
+            <td>210 г</td>
+          </tr>
+        </table>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="product__line"></div>
+
+  <div class="product__others-container container">
+    <h2 class="product__others_title title">С этим товаром покупают</h2>
+
+    <div class="product__others_cards swiper">
+
+        <div class="product__others_wrapper swiper-wrapper">
+
+        </div>
+
+    </div>
+
+  </div>
+</section>

@@ -1,7 +1,15 @@
+<section class="menu">
+  <div class="menu__top">
+    <div class="menu__top-container container"></div>
+  </div>
+
+  <div class="menu__pos-container container"></div>
+</section>
+
 <section class="cart">
   <div class="cart__container container">
 
-    <a href="#!" class="cart__link">
+    <a href="/" class="cart__link">
       <img src="./img/cart/back-icon.svg" alt="back">
       к выбору блюда
     </a>
@@ -37,7 +45,7 @@
 
       </div>
 
-      <button class="cart__total_btn disabled">Оформить заказ</button>
+      <a href='/order' class="cart__total_btn disabled">Оформить заказ</a>
 
     </div>
 
