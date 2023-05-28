@@ -1,21 +1,21 @@
 @import '../../styles/base/vars.scss';
 
 .menu {
-  &__top {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    background: rgba(255, 255, 255, 0.01);
-  }
+  // &__top {
+  //   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  //   background: rgba(255, 255, 255, 0.01);
+  // }
 
-  &__top-container {
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: space-between;
+  // &__top-container {
+    // display: flex;
+    // flex-wrap: nowrap;
+    // justify-content: space-between;
 
-    font-family: 'Gilroy Regular';
-    font-size: 18px;
-    line-height: 21px;
-    color: $secondary-text-color;
-  }
+    // font-family: 'Gilroy Regular';
+    // font-size: 18px;
+    // line-height: 21px;
+    // color: $secondary-text-color;
+  // }
 
   &__pos {
     padding: 28px 0;
@@ -50,10 +50,6 @@
 
     &:hover:after {
       opacity: 1;
-    }
-
-    &-container {
-      padding: 0;
     }
 
     &-section {

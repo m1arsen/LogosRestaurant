@@ -1,194 +1,194 @@
-.item-card {
-  max-width: 330px;
-  width: 100%;
+// .item-card {
+//   // max-width: 330px;
+//   // width: 100%;
 
-  border-radius: 10px;
-  background: linear-gradient(90deg, #494544 0%, #504B4A 100%);
-  position: relative;
+//   // border-radius: 10px;
+//   // background: linear-gradient(90deg, #494544 0%, #504B4A 100%);
+//   // position: relative;
 
-  cursor: pointer;
-  transition: .2s linear;
+//   // cursor: pointer;
+//   // transition: .2s linear;
 
-  &__img-container {
-    padding-bottom: 227px;
-    width: 100%;
+//   // &__img-container {
+//   //   padding-bottom: 227px;
+//   //   width: 100%;
 
-    border-radius: 10px 10px 0 0;
+//   //   border-radius: 10px 10px 0 0;
 
-    overflow: hidden;
-    position: relative;
-  }
+//   //   overflow: hidden;
+//   //   position: relative;
+//   // }
 
-  &__img {
-    min-width: 100%;
-    min-height: 100%;
+//   // &__img {
+//   //   min-width: 100%;
+//   //   min-height: 100%;
 
-    position: absolute;
-    top: 50%;
-    left: 50%;
+//   //   position: absolute;
+//   //   top: 50%;
+//   //   left: 50%;
 
-    transform: translate(-50%, -50%);
-  }
+//   //   transform: translate(-50%, -50%);
+//   // }
 
-  &__info {
-    padding: 18px 20px;
-    max-height: 158px;
-    height: 100%;
+//   &__info {
+//     // padding: 18px 20px;
+//     // max-height: 158px;
+//     // height: 100%;
 
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+//     // display: flex;
+//     // flex-direction: column;
+//     // justify-content: space-between;
 
-    border-radius: 10px;
-    background: linear-gradient(90deg, #494544 0%, #504B4A 100%);
+//     // border-radius: 10px;
+//     // background: linear-gradient(90deg, #494544 0%, #504B4A 100%);
 
-    &-block {
-      width: 100%;
+//     // &-block {
+//     //   width: 100%;
 
-      &-container {
-        margin-bottom: 5px;
+//     //   &-container {
+//     //     margin-bottom: 5px;
 
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-      }
-    }
+//     //     display: flex;
+//     //     justify-content: space-around;
+//     //     align-items: center;
+//     //   }
+//     // }
 
-  }
+//   }
 
-  &__title {
-    font-family: 'Gilroy Bold';
-    font-size: 22px;
-    line-height: 27px;
-  }
+//   // &__title {
+//   //   font-family: 'Gilroy Bold';
+//   //   font-size: 22px;
+//   //   line-height: 27px;
+//   // }
 
-  &__weight {
-    font-family: 'Gilroy Regular';
-    font-size: 12px;
-    line-height: 14px;
+//   // &__weight {
+//   //   font-family: 'Gilroy Regular';
+//   //   font-size: 12px;
+//   //   line-height: 14px;
 
-    margin-left: auto;
-  }
+//   //   margin-left: auto;
+//   // }
 
-  &__descr {
-    font-family: 'Gilroy Regular';
-    font-size: 13px;
-    line-height: 17px;
-    color: $secondary-text-color;
-  }
+//   // &__descr {
+//   //   font-family: 'Gilroy Regular';
+//   //   font-size: 13px;
+//   //   line-height: 17px;
+//   //   color: $secondary-text-color;
+//   // }
 
-  &:hover {
-    box-shadow: 0px 30px 45px rgba(43, 40, 40, 0.9);
-  }
+//   // &:hover {
+//   //   box-shadow: 0px 30px 45px rgba(43, 40, 40, 0.9);
+//   // }
 
-  &:hover &__price {
-    position: absolute;
-    right: 50%;
-    transform: translate(50%, 0);
-  }
+//   // &:hover &__price {
+//   //   position: absolute;
+//   //   right: 50%;
+//   //   transform: translate(50%, 0);
+//   // }
 
-  &:hover &__cart {
-    opacity: 0;
-  }
+//   // &:hover &__cart {
+//   //   opacity: 0;
+//   // }
 
-  &:hover &__add,
-  &:hover &__remove {
-    transform: translateY(0);
-    opacity: 1;
-  }
+//   &:hover &__add,
+//   &:hover &__remove {
+//     transform: translateY(0);
+//     opacity: 1;
+//   }
 
-  &__btns {
-    width: 100%;
+//   // &__btns {
+//   //   width: 100%;
 
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+//   //   display: flex;
+//   //   align-items: center;
+//   //   justify-content: space-between;
 
-    position: relative;
-  }
+//   //   position: relative;
+//   // }
 
-  &__price {
-    font-size: 20px;
-    line-height: 24px;
-    font-family: 'Gilroy Semibold';
+//   // &__price {
+//   //   font-size: 20px;
+//   //   line-height: 24px;
+//   //   font-family: 'Gilroy Semibold';
 
-    transition: .2s linear;
-  }
+//   //   transition: .2s linear;
+//   // }
 
-  &__cart {
-    padding: 14px 18px;
+//   &__cart {
+//     padding: 14px 18px;
 
-    font-size: 14px;
-    line-height: 17px;
-    font-family: 'Gilroy Semibold';
+//     font-size: 14px;
+//     line-height: 17px;
+//     font-family: 'Gilroy Semibold';
 
-    display: flex;
-    align-items: center;
-    column-gap: 12px;
+//     display: flex;
+//     align-items: center;
+//     column-gap: 12px;
 
-    background: linear-gradient(114.93deg, #618967 5.11%, #72A479 94%);
-    border-radius: 10px;
+//     background: linear-gradient(114.93deg, #618967 5.11%, #72A479 94%);
+//     border-radius: 10px;
 
-    & img {
-      max-width: 18.5px;
-    }
-  }
+//     & img {
+//       max-width: 18.5px;
+//     }
+//   }
 
-  &__add,
-  &__remove {
-    padding: 0;
+//   &__add,
+//   &__remove {
+//     padding: 0;
 
-    position: absolute;
-    bottom: 0;
+//     position: absolute;
+//     bottom: 0;
 
-    background-color: #618967;
-    border-radius: 10px;
+//     background-color: #618967;
+//     border-radius: 10px;
 
-    transform: translateY(10px);
-    opacity: 0;
+//     transform: translateY(10px);
+//     opacity: 0;
 
-    transition: .3s linear;
+//     transition: .3s linear;
 
-    &:hover {
-      background-color: #72A479;
-    }
-  }
+//     &:hover {
+//       background-color: #72A479;
+//     }
+//   }
 
-  &__add {
-    right: 0;
+//   &__add {
+//     right: 0;
 
-    img {
-      padding: 13px 22px;
-    }
-  }
+//     img {
+//       padding: 13px 22px;
+//     }
+//   }
 
-  &__remove {
-    left: 0;
+//   &__remove {
+//     left: 0;
 
-    img {
-      padding: 20px 22px;
-    }
-  }
+//     img {
+//       padding: 20px 22px;
+//     }
+//   }
 
-  &__counter {
-    font-family: 'Gilroy Bold';
-    font-size: 20px;
-    line-height: 24px;
+//   &__counter {
+//     font-family: 'Gilroy Bold';
+//     font-size: 20px;
+//     line-height: 24px;
 
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
+//     width: 50px;
+//     height: 50px;
+//     border-radius: 50%;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
 
-    background: #79B382;
+//     background: #79B382;
 
-    position: absolute;
-    z-index: 1;
-    top: -25px;
-    right: -25px;
-  }
+//     position: absolute;
+//     z-index: 1;
+//     top: -25px;
+//     right: -25px;
+//   }
 
-}
+// }

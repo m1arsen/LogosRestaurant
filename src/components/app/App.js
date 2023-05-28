@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 import Header from '../header/Header';
 import Main from '../main/Main';
 import Menu from '../menu/Menu';
@@ -13,13 +15,13 @@ import '../../styles/main.scss';
 const App = () => {
   return (
     <div className="App">
-      {/* <Header/>
+      <Header/>
       <Main/>
       <Menu/>
       <OurCafe/>
       <Location/>
-      <Footer/> */}
-      <Cart/>
+      <Footer/>
+      {/* <Cart/> */}
       {/* <DeliveryTerms/> */}
     </div>
   )

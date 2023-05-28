@@ -22,7 +22,7 @@ const Cart = () => {
 
         <CartTitle>
           <p>Корзина</p>
-          <p>(в корзине товаров: <span></span>)</p>
+          <p>(в корзине товаров: <span>0</span>)</p>
         </CartTitle>
 
         <CartItems></CartItems>
