@@ -140,8 +140,9 @@ export const ItemCardImgContainer = styled.div`
   position: relative;
 
   & img {
-    min-width: 100%;
-    min-height: 100%;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
 
     position: absolute;
     top: 50%;
@@ -185,13 +186,14 @@ export const ItemCardInfoBlock = styled.div`
     margin-bottom: 5px;
 
     display: flex;
-    justify-content: space-around;
+    column-gap: 10px;
+    justify-content: space-between;
     align-items: center;
 
     h2 {
       font-family: 'Gilroy Bold';
-      font-size: 22px;
-      line-height: 27px;
+      font-size: 18px;
+      line-height: 23px;
     }
 
     p {

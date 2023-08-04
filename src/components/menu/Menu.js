@@ -13,18 +13,9 @@ import Spinner from '../spinner/Spinner';
 import { MenuTopContainer, MenuPosContainer, MenuPosTitle, MenuTop, MenuPos } from './menu-style';
 import {ItemCard, ItemCardImgContainer, ItemCardInfo, ItemCardInfoBlock, ItemCardBtns, ItemCardPrice, ItemCardCart, ItemCardAddBtn, ItemCardRemoveBtn, ItemCardCounter } from './card-style';
 
-import './menu.scss'
-
-const Menu = () => {
+const Menu = ({menu, loading, error, cartItems, setCartItems}) => {
   const [openedTab, setopenedTab] = useState(0), // id открытого таба меню
-        [menu, setMenu] = useState({}), // Объект со всем меню
-        [tabs, setTabs] = useState([]), // Табы для отображения в виде объекта с id и названием
-        [onPosLoaded, setOnPosLoaded] = useState(false);
-  const {loading, error, getMenu} = useLogosService();
-
-  useEffect(() => {
-    getMenu().then(setMenu);
-  }, [])
+        [tabs, setTabs] = useState([]); // Табы для отображения в виде объекта с id и названием
 
   useEffect(() => {
     setTabs(getTabsNames(menu))
@@ -56,6 +47,33 @@ const Menu = () => {
     })
   }
 
+  const addToCart = (posId, cardId) => {
+    // console.log(`${posId} / ${cardId}`)
+    console.log(cartItems.indexOf(item => item.posId == posId))
+
+    // if(cartItems.find(item => item.posId == posId && item.cardId == cardId) == undefined) {
+    //   setCartItems([...cartItems, {posId: posId, cardId: cardId, count: 0}])
+    // } else {
+    //   setCartItems(cartItems.map(item => {
+    //     if(item.posId == posId && item.cardId == cardId) {
+    //       return {posId, cardId, count: item.count + 1}
+    //     }
+    //   }))
+    // }
+
+    // Увеличение кол-ва предмета, который уже есть в корзине
+    // Перебор всех предметов и поиск того на который нажал пользователь
+    // const newItems =
+
+    // Добавление нового предмета
+    // if(cartItems.length < 1) {
+    //   setCartItems([...cartItems, {posId: posId, cardId: cardId, count: 0}])
+    // } else {
+    //   setCartItems(newItems);
+    // }
+
+  }
+
   const renderTabPos = (id) => {
     let cards = [];
     let posName = '';
@@ -67,43 +85,49 @@ const Menu = () => {
       }
     }
 
-    let cardsHTML = cards.map(({name, weight, description, price, src, alt}) => (
-      <ItemCard className='swiper-slide'>
-        <ItemCardImgContainer>
-          <img src={src} alt={alt}/>
-        </ItemCardImgContainer>
+    let cardsHTML = cards.map(({name, weight, description, price, src, alt}, i) => {
 
-        <ItemCardInfo>
-          <ItemCardInfoBlock>
-            <div>
-              <h2>{name}</h2>
-              <p>Вес: <span>{weight}</span>г</p>
-            </div>
-            <p>{description}</p>
-          </ItemCardInfoBlock>
+      name = name.length >= 15 ? name.slice(0, 12) + '...' : name;
+      description = description.length >= 60 ? description.slice(0, 57) + '...' : description;
 
-          <ItemCardBtns>
-            <ItemCardPrice>{price} ₽</ItemCardPrice>
-            <ItemCardCart>
-              <p>В корзину</p>
-              <img src={cartIcon} alt="cart icon"/>
-            </ItemCardCart>
+      return (
+        <ItemCard className='swiper-slide'>
+          <ItemCardImgContainer>
+            <img src={src} alt={alt}/>
+          </ItemCardImgContainer>
 
-            <ItemCardAddBtn>
-              <img src={addIcon} alt="add" data-id={name}/>
-            </ItemCardAddBtn>
+          <ItemCardInfo>
+            <ItemCardInfoBlock>
+              <div>
+                <h2>{name}</h2>
+                <p>Вес: <span>{weight}</span>г</p>
+              </div>
+              <p>{description}</p>
+            </ItemCardInfoBlock>
 
-            <ItemCardRemoveBtn>
-              <img src={removeIcon} alt="remove" data-id={name}/>
-            </ItemCardRemoveBtn>
+            <ItemCardBtns>
+              <ItemCardPrice>{price} ₽</ItemCardPrice>
+              <ItemCardCart>
+                <p>В корзину</p>
+                <img src={cartIcon} alt="cart icon"/>
+              </ItemCardCart>
 
-          </ItemCardBtns>
+              <ItemCardAddBtn onClick={() => addToCart(openedTab, i)}>
+                <img src={addIcon} alt="add" data-id={name}/>
+              </ItemCardAddBtn>
 
-        </ItemCardInfo>
+              <ItemCardRemoveBtn>
+                <img src={removeIcon} alt="remove" data-id={name}/>
+              </ItemCardRemoveBtn>
 
-        <ItemCardCounter data-id={name}>1</ItemCardCounter>
-      </ItemCard>
-    ))
+            </ItemCardBtns>
+
+          </ItemCardInfo>
+
+          {/* <ItemCardCounter data-id={name}>1</ItemCardCounter> */}
+        </ItemCard>
+      )
+    })
 
     return (
       <>
