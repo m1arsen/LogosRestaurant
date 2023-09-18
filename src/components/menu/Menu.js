@@ -13,7 +13,7 @@ import Spinner from '../spinner/Spinner';
 import { MenuTopContainer, MenuPosContainer, MenuPosTitle, MenuTop, MenuPos } from './menu-style';
 import {ItemCard, ItemCardImgContainer, ItemCardInfo, ItemCardInfoBlock, ItemCardBtns, ItemCardPrice, ItemCardCart, ItemCardAddBtn, ItemCardRemoveBtn, ItemCardCounter } from './card-style';
 
-const Menu = ({menu, loading, error, cartItems, setCartItems}) => {
+const Menu = ({menu, loading, error, addToCart, removeToCart}) => {
   const [openedTab, setopenedTab] = useState(0), // id открытого таба меню
         [tabs, setTabs] = useState([]); // Табы для отображения в виде объекта с id и названием
 
@@ -47,32 +47,49 @@ const Menu = ({menu, loading, error, cartItems, setCartItems}) => {
     })
   }
 
-  const addToCart = (posId, cardId) => {
-    // console.log(`${posId} / ${cardId}`)
-    console.log(cartItems.indexOf(item => item.posId == posId))
 
-    // if(cartItems.find(item => item.posId == posId && item.cardId == cardId) == undefined) {
-    //   setCartItems([...cartItems, {posId: posId, cardId: cardId, count: 0}])
-    // } else {
-    //   setCartItems(cartItems.map(item => {
-    //     if(item.posId == posId && item.cardId == cardId) {
-    //       return {posId, cardId, count: item.count + 1}
-    //     }
-    //   }))
-    // }
+  // const addToCart = (id) => {
 
-    // Увеличение кол-ва предмета, который уже есть в корзине
-    // Перебор всех предметов и поиск того на который нажал пользователь
-    // const newItems =
+  //   // Есть ли товар в корзине ?
+  //   if(cartItems.hasOwnProperty(id)) {
 
-    // Добавление нового предмета
-    // if(cartItems.length < 1) {
-    //   setCartItems([...cartItems, {posId: posId, cardId: cardId, count: 0}])
-    // } else {
-    //   setCartItems(newItems);
-    // }
+  //     setCartItems({
+  //       ...cartItems,
+  //       [id]: cartItems[id] += 1
+  //     });
 
-  }
+  //   } else {
+
+  //     setCartItems({
+  //       ...cartItems,
+  //       [id]: 1
+  //     });
+
+  //   }
+  //   console.log(cartItems);
+
+  // }
+
+  // const removeToCart = (id) => {
+
+  //   // Есть ли товар в корзине ?
+  //   if(cartItems.hasOwnProperty(id)) {
+  //     if(cartItems[id] == 1) {
+
+  //       const newCartItems = { ...cartItems }
+  //       delete newCartItems[id]
+  //       setCartItems({...newCartItems});
+
+  //     } else {
+
+  //       setCartItems({
+  //         ...cartItems,
+  //         [id]: cartItems[id] -= 1
+  //       });
+
+  //     }
+  //   } // else если нет то ничего не происходит
+  // }
 
   const renderTabPos = (id) => {
     let cards = [];
@@ -85,7 +102,7 @@ const Menu = ({menu, loading, error, cartItems, setCartItems}) => {
       }
     }
 
-    let cardsHTML = cards.map(({name, weight, description, price, src, alt}, i) => {
+    let cardsHTML = cards.map(({id, name, weight, description, price, src, alt}, i) => {
 
       name = name.length >= 15 ? name.slice(0, 12) + '...' : name;
       description = description.length >= 60 ? description.slice(0, 57) + '...' : description;
@@ -112,12 +129,12 @@ const Menu = ({menu, loading, error, cartItems, setCartItems}) => {
                 <img src={cartIcon} alt="cart icon"/>
               </ItemCardCart>
 
-              <ItemCardAddBtn onClick={() => addToCart(openedTab, i)}>
-                <img src={addIcon} alt="add" data-id={name}/>
+              <ItemCardAddBtn onClick={(e) => addToCart(e.target.attributes['data-id'].value)}>
+                <img src={addIcon} alt="add" data-id={id}/>
               </ItemCardAddBtn>
 
-              <ItemCardRemoveBtn>
-                <img src={removeIcon} alt="remove" data-id={name}/>
+              <ItemCardRemoveBtn onClick={(e) => removeToCart(e.target.attributes['data-id'].value)}>
+                <img src={removeIcon} alt="remove" data-id={id}/>
               </ItemCardRemoveBtn>
 
             </ItemCardBtns>

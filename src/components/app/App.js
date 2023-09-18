@@ -23,18 +23,61 @@ import { ProductLine } from '../product/product-style';
 const App = () => {
 
   const [menu, setMenu] = useState({}),
-        [cartItems, setCartItems] = useState([{posId: 0, cardId: 0, count: 0}]);
+        [cartItems, setCartItems] = useState({2: 1, 3: 30, 1: 2});
   const {loading, error, getMenu} = useLogosService();
 
   useEffect(() => {
     getMenu().then(setMenu);
   }, [])
 
+  const addToCart = (id) => {
+
+    // Есть ли товар в корзине ?
+    if(cartItems.hasOwnProperty(id)) {
+
+      setCartItems({
+        ...cartItems,
+        [id]: cartItems[id] += 1
+      });
+
+    } else {
+
+      setCartItems({
+        ...cartItems,
+        [id]: 1
+      });
+
+    }
+    console.log(cartItems);
+
+  }
+
+  const removeToCart = (id) => {
+
+    // Есть ли товар в корзине ?
+    if(cartItems.hasOwnProperty(id)) {
+      if(cartItems[id] == 1) {
+
+        const newCartItems = { ...cartItems }
+        delete newCartItems[id]
+        setCartItems({...newCartItems});
+
+      } else {
+
+        setCartItems({
+          ...cartItems,
+          [id]: cartItems[id] -= 1
+        });
+
+      }
+    } // else если нет то ничего не происходит
+  }
+
   return (
     <div className="App">
       {/* <Header/>
       <Main/> */}
-      <Menu menu={menu} loading={loading} error={error} cartItems={cartItems} setCartItems={setCartItems}/>
+      {/* <Menu menu={menu} loading={loading} error={error} addToCart={addToCart} removeToCart={removeToCart}/> */}
       {/* <OurCafe/>
       <Location/>
       <Footer/> */}
