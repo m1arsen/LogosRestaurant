@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
-import useLogosService from '../../services/LogosService';
+// import useLogosService from '../../services/LogosService';
 
-import {Swiper, SwiperSlide} from 'swiper/react';
+import {Swiper} from 'swiper/react';
 import 'swiper/css';
 
 import cartIcon from "../../resources/item_cards/cart-icon.svg";
@@ -47,50 +47,6 @@ const Menu = ({menu, loading, error, addToCart, removeToCart}) => {
     })
   }
 
-
-  // const addToCart = (id) => {
-
-  //   // Есть ли товар в корзине ?
-  //   if(cartItems.hasOwnProperty(id)) {
-
-  //     setCartItems({
-  //       ...cartItems,
-  //       [id]: cartItems[id] += 1
-  //     });
-
-  //   } else {
-
-  //     setCartItems({
-  //       ...cartItems,
-  //       [id]: 1
-  //     });
-
-  //   }
-  //   console.log(cartItems);
-
-  // }
-
-  // const removeToCart = (id) => {
-
-  //   // Есть ли товар в корзине ?
-  //   if(cartItems.hasOwnProperty(id)) {
-  //     if(cartItems[id] == 1) {
-
-  //       const newCartItems = { ...cartItems }
-  //       delete newCartItems[id]
-  //       setCartItems({...newCartItems});
-
-  //     } else {
-
-  //       setCartItems({
-  //         ...cartItems,
-  //         [id]: cartItems[id] -= 1
-  //       });
-
-  //     }
-  //   } // else если нет то ничего не происходит
-  // }
-
   const renderTabPos = (id) => {
     let cards = [];
     let posName = '';
@@ -102,13 +58,13 @@ const Menu = ({menu, loading, error, addToCart, removeToCart}) => {
       }
     }
 
-    let cardsHTML = cards.map(({id, name, weight, description, price, src, alt}, i) => {
+    let cardsHTML = cards.map(({id, name, weight, description, price, src, alt}) => {
 
       name = name.length >= 15 ? name.slice(0, 12) + '...' : name;
       description = description.length >= 60 ? description.slice(0, 57) + '...' : description;
 
       return (
-        <ItemCard className='swiper-slide'>
+        <ItemCard className='swiper-slide' key={id}>
           <ItemCardImgContainer>
             <img src={src} alt={alt}/>
           </ItemCardImgContainer>
@@ -182,7 +138,7 @@ const View = ({tabsNames, posSection}) => {
 
 
   return (
-    <section class="menu">
+    <section className="menu">
       <MenuTop>
         <MenuTopContainer>
           {tabsNames}

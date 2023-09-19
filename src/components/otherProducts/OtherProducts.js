@@ -6,9 +6,9 @@ const OtherProducts = () => {
     <Container>
       <OtherProductsTitle>С этим товаром покупают</OtherProductsTitle>
 
-      <div class="product__others_cards swiper">
+      <div className="product__others_cards swiper">
 
-          <div class="product__others_wrapper swiper-wrapper">
+          <div className="product__others_wrapper swiper-wrapper">
 
           </div>
 

@@ -3,9 +3,9 @@ import mainTitle from '../../resources/main-title.svg';
 
 const Main = () => {
   return (
-    <main class="main">
-      <div class="main__container container">
-        <img src={mainTitle} alt="title" class="main__title"/>
+    <main className="main">
+      <div className="main__container container">
+        <img src={mainTitle} alt="title" className="main__title"/>
       </div>
     </main>
   )

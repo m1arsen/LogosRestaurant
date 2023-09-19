@@ -1,20 +1,22 @@
 import { useState, useEffect } from 'react';
 
+// Роутер
+import { Route, Routes, BrowserRouter as Router  } from 'react-router-dom';
+
 // Хук
 import useLogosService from '../../services/LogosService';
 
+// Страницы
+import MainPage from '../pages/MainPage';
+import CartPage from '../pages/CartPage';
+import DeliveryPage from '../pages/DeliveryPage';
+import ProductPage from '../pages/ProductPage';
+
 // Компоненты
-import Header from '../header/Header';
-import Main from '../main/Main';
-import Menu from '../menu/Menu';
-import OurCafe from '../ourCafe/OurCafe';
-import Location from '../location/Location';
-import Footer from '../footer/Footer';
+
 import Product from '../product/Product';
 import OtherProducts from '../otherProducts/OtherProducts';
 
-import Cart from '../cart/Cart';
-import DeliveryTerms from '../deliveryTerms/DeliveryTerms';
 
 // Стили
 import '../../styles/main.scss';
@@ -74,21 +76,21 @@ const App = () => {
   }
 
   return (
-    <div className="App">
-      {/* <Header/>
-      <Main/> */}
-      {/* <Menu menu={menu} loading={loading} error={error} addToCart={addToCart} removeToCart={removeToCart}/> */}
-      {/* <OurCafe/>
-      <Location/>
-      <Footer/> */}
+    <Router>
+      <div className="App">
+        <Routes>
 
-      {/* <Cart menu={menu}/>
-      <DeliveryTerms/> */}
+          <Route path='/' element={<MainPage menu={menu} loading={loading} error={error} addToCart={addToCart} removeToCart={removeToCart}/>}/>
 
-      <Product/>
-      <ProductLine/>
-      <OtherProducts/>
-    </div>
+          <Route path='/cart' element={<CartPage menu={menu}/>}/>
+
+          <Route path='/delivery' element={<DeliveryPage/>}/>
+
+          <Route path='/product' element={<ProductPage/>}/>
+
+        </Routes>
+      </div>
+    </Router>
   )
 }
 
