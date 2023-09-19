@@ -11,6 +11,8 @@ import MainPage from '../pages/MainPage';
 import CartPage from '../pages/CartPage';
 import DeliveryPage from '../pages/DeliveryPage';
 import ProductPage from '../pages/ProductPage';
+import OrderPage from '../pages/OrderPage';
+import PromotionsPage from '../pages/PromotionsPage';
 
 // Компоненты
 
@@ -84,9 +86,13 @@ const App = () => {
 
           <Route path='/cart' element={<CartPage menu={menu}/>}/>
 
+          <Route path='/cart/order' element={<OrderPage/>}/>
+
           <Route path='/delivery' element={<DeliveryPage/>}/>
 
           <Route path='/product' element={<ProductPage/>}/>
+
+          <Route path='/promotions' element={<PromotionsPage/>}/>
 
         </Routes>
       </div>

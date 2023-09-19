@@ -1,20 +1,24 @@
+.active {
+  display: block;
+}
+
 .order {
-  padding: 50px 0 90px;
+  // padding: 50px 0 90px;
 
-  font-size: 16px;
-  line-height: 19px;
-  font-family: 'Gilroy Regular';
+  // font-size: 16px;
+  // line-height: 19px;
+  // font-family: 'Gilroy Regular';
 
-  input:focus::placeholder {
-    opacity: 0;
-  }
+  // input:focus::placeholder {
+  //   opacity: 0;
+  // }
 
-  &__container {
-    margin: 0 auto;
+  // &__container {
+  //   margin: 0 auto;
 
-    width: 100%;
-    max-width: 800px;
-  }
+  //   width: 100%;
+  //   max-width: 800px;
+  // }
 
   &__link {
     margin-bottom: 35px;
@@ -35,49 +39,49 @@
   }
 
   &__stop-list {
-    width: 100%;
-    padding: 43px 30px;
-    margin-bottom: 20px;
+    // width: 100%;
+    // padding: 43px 30px;
+    // margin-bottom: 20px;
 
-    background: #2B2829;
-    border-radius: 10px;
+    // background: #2B2829;
+    // border-radius: 10px;
 
-    position: relative;
+    // position: relative;
 
-    display: none;
+    // display: none;
 
-    &.active {
+    .active {
       display: block;
     }
 
-    &-title {
-      margin-bottom: 20px;
+    // &-title {
+    //   margin-bottom: 20px;
 
-      font-size: 22px;
-      line-height: 27px;
-      font-family: 'Gilroy Bold';
-    }
+    //   font-size: 22px;
+    //   line-height: 27px;
+    //   font-family: 'Gilroy Bold';
+    // }
 
-    &-subtitle {
-      font-size: 18px;
-      line-height: 21px;
-    }
+    // &-subtitle {
+    //   font-size: 18px;
+    //   line-height: 21px;
+    // }
 
-    &-img {
-      width: 154.72px;
-      height: 131.5px;
+    // &-img {
+    //   width: 154.72px;
+    //   height: 131.5px;
 
-      position: absolute;
-      bottom: 0;
-      right: 55px;
-    }
+    //   position: absolute;
+    //   bottom: 0;
+    //   right: 55px;
+    // }
 
 
   }
 
-  &__title {
-    margin-bottom: 54px;
-  }
+  // &__title {
+  //   margin-bottom: 54px;
+  // }
 
   &__subtitle {
     margin-bottom: 31px;
@@ -280,7 +284,7 @@
 
           width: 16px;
           height: 16px;
-          background: url('../img/order/clock-icon.svg');
+          background: url('../../resources/order/clock-icon.svg');
         }
       }
     }
@@ -586,11 +590,11 @@
       }
 
       &-minus {
-        background: url('../img/order/minus-icon.svg') center no-repeat;
+        background: url('../../resources/order/minus-icon.svg') center no-repeat;
       }
 
       &-plus {
-        background: url('../img/order/plus-icon.svg') center no-repeat;
+        background: url('../../resources/order/plus-icon.svg') center no-repeat;
       }
 
     }
@@ -653,7 +657,7 @@
         top: 50%;
         left: 50%;
         transform: translate(-50%,-50%);
-        background-image: url('../img/order/checked-icon.svg');
+        background-image: url('../../resources/order/checked-icon.svg');
         opacity: 0;
         transition: .1s linear;
       }
