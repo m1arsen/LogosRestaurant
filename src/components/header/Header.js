@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 // Стилизация
 import { HeaderContainer } from './header-style';
@@ -42,7 +43,7 @@ const Header = () => {
         </div>
       </div>
 
-      <a href="/cart" className="header__cart">
+      <Link to={'cart'} className="header__cart">
         <div className="header__cart-head">
           Корзина
         </div>
@@ -54,7 +55,7 @@ const Header = () => {
         </div> :
         <img className="header__cart-img" src={cartIcon} alt="cart icon"></img>}
 
-      </a>
+      </Link>
 
       </HeaderContainer>
     </header>

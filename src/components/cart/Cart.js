@@ -5,6 +5,8 @@ import {CartWrapper,
         CartItems,
         CartItem} from './cart-style';
 
+import { Link } from 'react-router-dom';
+
 import './cart.scss';
 
 import backIcon from '../../resources/cart/back-icon.svg';
@@ -15,7 +17,7 @@ const Cart = () => {
     <CartWrapper>
       <CartContainer>
 
-        <BackBtn href="/" className="cart__link">
+        <BackBtn to={'/'} className="cart__link">
           <img src={backIcon} alt="back"/>
           <p>к выбору блюда</p>
         </BackBtn>
@@ -51,7 +53,7 @@ const Cart = () => {
 
           </div>
 
-          <a href='/order' className="cart__total_btn disabled">Оформить заказ</a>
+          <Link to={'order'} className="cart__total_btn disabled">Оформить заказ</Link>
 
         </div>
 

@@ -5,6 +5,8 @@ import backtocartIcon from '../../resources/order/backtocart-icon.svg';
 import nightWindow from '../../resources/order/night-window.svg';
 import dropdownIcon from '../../resources/delivery/dropdown-icon.svg';
 
+import { Link } from 'react-router-dom';
+
 const OrderStopList = () => {
   return (
     <OrderStopL>
@@ -24,10 +26,10 @@ const Order = () => {
     <OrderSection>
       <OrderContainer>
 
-        <a href="/cart" className="order__link">
+        <Link to={'/cart'} className="order__link">
           <img src={backtocartIcon} alt="back"/>
           в корзину
-        </a>
+        </Link>
 
         <OrderTitle>Оформление заказа</OrderTitle>
 

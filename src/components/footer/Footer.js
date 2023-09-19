@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 import {Container} from '../../styles/styles';
 
+import { Link } from 'react-router-dom';
+
 import Nav from '../nav/Nav';
 
 import './footer.scss';
@@ -25,7 +27,7 @@ const Footer = () => {
         </a>
 
         <div className="footer__links">
-          <a href="#!" className="footer__logo logo">LOGOS</a>
+          <Link to={'/'} className="footer__logo logo">LOGOS</Link>
 
           <p className="footer__ooo">
             © ООО СК «АПШЕРОН» <br/>

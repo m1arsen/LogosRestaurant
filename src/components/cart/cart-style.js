@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import {Container, Title} from '../../styles/styles';
 
+import { Link } from "react-router-dom";
+
 export const CartWrapper = styled.section`
   padding: 35px 0 90px;
 `;
@@ -27,7 +29,7 @@ export const CartTitle = styled(Title)`
   }
 `;
 
-export const BackBtn = styled.a`
+export const BackBtn = styled(Link)`
   margin-bottom: 20px;
   padding-left: 12px;
 
