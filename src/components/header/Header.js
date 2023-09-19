@@ -43,7 +43,7 @@ const Header = () => {
         </div>
       </div>
 
-      <Link to={'cart'} className="header__cart">
+      <Link to={'/cart'} className="header__cart">
         <div className="header__cart-head">
           Корзина
         </div>

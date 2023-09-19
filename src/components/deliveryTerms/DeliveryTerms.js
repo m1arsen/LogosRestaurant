@@ -1,25 +1,22 @@
 import styled from 'styled-components';
 import {Title} from '../../styles/styles';
+import { Container } from '../../styles/styles';
+import { DeliveryTermsContainer, DeliveryTermsTitle, DeliveryTermsAccordion, DeliveryTermsMap, DeliveryTermsInfo, DeliveryTermsInfoSchedule, DeliveryTermsOrder } from './deliveryTerms-style';
 
 import './deliveryTerms.scss';
 
 import accordionIcon from '../../resources/delivery-terms/accordion-icon.svg';
 
 const DeliveryTerms = () => {
-
-  const DeliveryTermsTitle = styled(Title)`
-    margin: 50px 0 42px;
-  `;
-
   return (
     <section className="delivery-terms">
-      <div className="container">
+      <Container>
 
         <DeliveryTermsTitle>Условия доставки</DeliveryTermsTitle>
 
-        <div className="delivery-terms__container">
+        <DeliveryTermsContainer>
 
-          <div className="delivery-terms__accordion">
+          <DeliveryTermsAccordion>
 
             <div className="delivery-terms__accordion_item" data-tab="#accordion-tab_1">
 
@@ -99,33 +96,33 @@ const DeliveryTerms = () => {
 
             </div>
 
-          </div>
+          </DeliveryTermsAccordion>
 
-          <div className="delivery-terms__map">
+          <DeliveryTermsMap>
             <iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A491d52300c2b47c73b9cbf7145ac2911619a4561cfe5e1e1790d4e4c998bcd00&amp;source=constructor" width="672px" height="584px" frameborder="0"></iframe>
-          </div>
+          </DeliveryTermsMap>
 
-        </div>
+        </DeliveryTermsContainer>
 
-        <div className="delivery-terms__info">
-          <div className="delivery-terms__info_delivery">
+        <DeliveryTermsInfo>
+          <DeliveryTermsInfoSchedule>
             <h2>График работы доставки:</h2>
             <p>с 10:00-21:00</p>
-          </div>
-          <div className="delivery-terms__info_cafe">
+          </DeliveryTermsInfoSchedule>
+          <DeliveryTermsInfoSchedule>
             <h2>График работы кафе:</h2>
             <p>с 08:00-21:00</p>
-          </div>
-        </div>
+          </DeliveryTermsInfoSchedule>
+        </DeliveryTermsInfo>
 
-        <div className="delivery-terms__order">
+        <DeliveryTermsOrder>
           <h2>Минимальный заказ:</h2>
           <p>Бесплатная доставка пешим курьером при сумме заказа от <span>1000</span> ₽
             Доставка оператором такси от любой суммы заказа - по тарифам
             перевозчика.</p>
-        </div>
+        </DeliveryTermsOrder>
 
-      </div>
+      </Container>
     </section>
   )
 }
