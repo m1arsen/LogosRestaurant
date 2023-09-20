@@ -1,9 +1,7 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
 
 // Стилизация
-import { HeaderContainer, HeaderSearch } from './header-style';
-import './header.scss';
+import { HeaderSection, HeaderContainer, HeaderSearch, HeaderLocationIcon, HeaderSearchIcon, HeaderContacts, HeaderContactsBg, HeaderContactsIcon, HeaderContactsNum, HeaderCart, HeaderCartHead, HeaderCartCounter, HeaderCartImg } from './header-style';
 
 // Компоненты
 import Logo from '../logo/Logo';
@@ -17,47 +15,47 @@ import cartIcon from '../../resources/header/cart-icon.svg';
 
 const Header = () => {
 
-  const [counter, setCounter] = useState(false);
+  const [counter, setCounter] = useState(0);
 
   return (
-    <header id="top" className="header">
+    <HeaderSection id="top">
     <HeaderContainer>
       <Logo/>
 
-      <div className="header__search">
-        <img src={locationIcon} alt="location" className="header__location-icon"></img>
+      <HeaderSearch>
+        <HeaderLocationIcon src={locationIcon} alt="location"></HeaderLocationIcon>
         <input type="text" placeholder="Введите адрес доставки"></input>
         <a href="#!">
-          <img src={searchIcon} alt="search" className="header__search-icon"></img>
+          <HeaderSearchIcon src={searchIcon} alt="search" className="header__search-icon"></HeaderSearchIcon>
         </a>
-      </div>
+      </HeaderSearch>
 
-      <div className="header__contacts">
-        <div className="header__contacts-bg">
-          <img src={phoneIcon} alt="phone" className="header__contacts-icon"></img>
-        </div>
-        <div className="header__contacts-numbers">
+      <HeaderContacts>
+        <HeaderContactsBg>
+          <HeaderContactsIcon src={phoneIcon} alt="phone"></HeaderContactsIcon>
+        </HeaderContactsBg>
+        <HeaderContactsNum>
           <p>Контакты:</p>
           <a href="tel:+79175105759">+7 (917) 510-57-59</a>
-        </div>
-      </div>
+        </HeaderContactsNum>
+      </HeaderContacts>
 
-      <Link to={'/cart'} className="header__cart">
-        <div className="header__cart-head">
+      <HeaderCart to={'/cart'}>
+        <HeaderCartHead>
           Корзина
-        </div>
+        </HeaderCartHead>
 
         {counter ?
-        <div className="header__cart-counter">
+        <HeaderCartCounter>
           <img src={counterIcon} alt="counter-bg"></img>
-          <div className="header__cart-counter-nums"></div>
-        </div> :
-        <img className="header__cart-img" src={cartIcon} alt="cart icon"></img>}
+          <div className="header__cart-counter-nums">{counter}</div>
+        </HeaderCartCounter> :
+        <HeaderCartImg src={cartIcon} alt="cart icon"></HeaderCartImg>}
 
-      </Link>
+      </HeaderCart>
 
       </HeaderContainer>
-    </header>
+    </HeaderSection>
   )
 }
 
