@@ -1,13 +1,14 @@
-import './main.scss';
 import mainTitle from '../../resources/main-title.svg';
+
+import { MainStyle, MainContainer, MainTitle } from './main-style';
 
 const Main = () => {
   return (
-    <main className="main">
-      <div className="main__container container">
-        <img src={mainTitle} alt="title" className="main__title"/>
-      </div>
-    </main>
+    <MainStyle>
+      <MainContainer>
+        <MainTitle src={mainTitle} alt="title" className="main__title"/>
+      </MainContainer>
+    </MainStyle>
   )
 }
 
