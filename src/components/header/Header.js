@@ -2,7 +2,8 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 // Стилизация
-import { HeaderContainer } from './header-style';
+import { HeaderContainer, HeaderSearch } from './header-style';
+import './header.scss';
 
 // Компоненты
 import Logo from '../logo/Logo';
@@ -13,8 +14,6 @@ import searchIcon from '../../resources/search-icon.svg';
 import phoneIcon from '../../resources/phone-icon.svg';
 import counterIcon from '../../resources/counter-icon.svg';
 import cartIcon from '../../resources/header/cart-icon.svg';
-
-import './header.scss';
 
 const Header = () => {
 

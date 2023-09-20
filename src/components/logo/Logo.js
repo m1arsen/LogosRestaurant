@@ -1,10 +1,8 @@
-import './logo.scss';
-
-import { Link } from 'react-router-dom';
+import { LogoStyle } from '../../styles/styles';
 
 const Logo = () => {
   return (
-    <Link to={'/'} class="logo">LOGOS</Link>
+    <LogoStyle to={'/'} class="logo">LOGOS</LogoStyle>
   )
 }
 

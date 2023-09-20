@@ -1,13 +1,13 @@
-import './nav.scss';
+import { Navigation } from "./nav-style";
 
 const Nav = () => {
   return (
-    <nav className="nav">
-      <a href="#!" className="nav__link">О ресторане</a>
-      <a href="#!" className="nav__link">Условия доставки</a>
-      <a href="#!" className="nav__link">Возврат товара</a>
-      <a href="#!" className="nav__link">Акции</a>
-    </nav>
+    <Navigation>
+      <a href="#!">О ресторане</a>
+      <a href="#!">Условия доставки</a>
+      <a href="#!">Возврат товара</a>
+      <a href="#!">Акции</a>
+    </Navigation>
   )
 }
 

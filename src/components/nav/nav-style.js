@@ -1,4 +1,6 @@
-.nav {
+import styled from "styled-components";
+
+export const Navigation = styled.nav`
   width: 100%;
   max-width: 641px;
 
@@ -6,7 +8,7 @@
   justify-content: space-between;
   align-items: center;
 
-  &__link {
+  a {
     font-family: 'Gilroy Medium';
     font-size: 20px;
     line-height: 24px;
@@ -18,5 +20,4 @@
       color: rgba(255, 255, 255, 0.8);
     }
   }
-
-}
+`;
