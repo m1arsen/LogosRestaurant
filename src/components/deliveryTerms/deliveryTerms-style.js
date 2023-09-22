@@ -8,21 +8,18 @@ export const DeliveryTermsTitle = styled(Title)`
 export const DeliveryTermsContainer = styled.div`
   margin-bottom: 30px;
   max-height: 584px;
+  width: 100%;
 
   display: flex;
   flex-wrap: wrap;
+  justify-content: end;
   column-gap: 20px;
-`;
-// DeliveryTerms
-export const DeliveryTermsAccordion = styled.div`
-  width: 100%;
-  max-width: 672px;
-  height: min-content;
 `;
 
 export const DeliveryTermsMap = styled.div`
   width: 100%;
   height: 100%;
+  // align-items: end;
   max-width: 672px;
   border-radius: 10px;
   overflow: hidden;

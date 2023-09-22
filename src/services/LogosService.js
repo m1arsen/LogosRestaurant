@@ -12,7 +12,11 @@ const useLogosService = () => {
     return await request('http://localhost:3000/promotions');
   }
 
-  return {loading, error, getMenu, getPromotions}
+  const getFAQ = async () => {
+    return await request('http://localhost:3000/FAQ');
+  }
+
+  return {loading, error, getMenu, getPromotions, getFAQ}
 }
 
 export default useLogosService;

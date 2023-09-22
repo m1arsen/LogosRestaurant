@@ -1,12 +1,13 @@
 import { Navigation } from "./nav-style";
+import { Link } from "react-router-dom";
 
 const Nav = () => {
   return (
     <Navigation>
       <a href="#!">О ресторане</a>
-      <a href="#!">Условия доставки</a>
+      <Link to={'/delivery'}>Условия доставки</Link>
       <a href="#!">Возврат товара</a>
-      <a href="#!">Акции</a>
+      <Link to={'/promotions'}>Акции</Link>
     </Navigation>
   )
 }
