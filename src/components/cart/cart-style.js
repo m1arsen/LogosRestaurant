@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import {Container, Title} from '../../styles/styles';
+import { CartItemStyles } from "../cartItem/cartItem-style";
 
 import { Link } from "react-router-dom";
 
@@ -32,12 +33,18 @@ export const CartTitle = styled(Title)`
 export const BackBtn = styled(Link)`
   margin-bottom: 20px;
   padding-left: 12px;
+  max-width: 135px;
 
   display: flex;
   align-items: center;
   font-family: 'Gilroy Bold';
 
   position: relative;
+  transition: 0.2s;
+
+  &:hover {
+    opacity: 0.7;
+  }
 
   img {
     position: absolute;
@@ -53,134 +60,42 @@ export const CartItems = styled.div`
   background: linear-gradient(90deg, #494544 0%, #504B4A 100%);
   border-radius: 10px;
   overflow: hidden;
+
+  ${CartItemStyles} + ${CartItemStyles} {
+    border-image: linear-gradient(90deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 100%);
+    border-image-slice: 1;
+    border-top: 1px solid;
+  }
 `;
 
-export const CartItem = styled.div`
-  padding: 20px;
+export const CartAddTitle = styled.h2`
+  margin-bottom: 30px;
+
+  font-size: 25px;
+  line-height: 30px;
+  font-family: 'Gilroy Bold';
+  text-transform: uppercase;
+`;
+
+export const CartAddItems = styled.div`
+  margin: 0 auto 80px;
+  background: linear-gradient(90deg, #494544 0%, #504B4A 100%);
+  border-radius: 10px;
 
   display: grid;
-  align-items: center;
-  grid-template-columns: 2fr 4fr 2fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: repeat(4, 1fr);
 
-  &:hover {
-    background-image: linear-gradient(90deg, #423f3e 0%, #4a4544 100%);
-  }
+  position: relative;
 
-  &_img {
-    max-width: 117px;
-    max-height: 86px;
-    overflow: hidden;
-    cursor: pointer;
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -30px;
+    left: 50%;
+    transform: translateX(-50%);
 
-    &:hover img {
-      transform: scale(1.05);
-    }
-
-    img {
-      width: 100%;
-      height: 100%;
-      transition: 3s linear;
-    }
-
-  }
-
-  &_info {
-    max-width: 270px;
-
-    h3 {
-      margin-bottom: 4px;
-
-      font-size: 18px;
-      line-height: 22px;
-      color: #FFFFFF;
-      font-family: 'Gilroy Bold';
-      text-transform: uppercase;
-    }
-
-    p {
-      font-size: 12px;
-      line-height: 14px;
-      color: #A6A7AB;
-      font-family: 'Gilroy Regular';
-    }
-
-  }
-
-  &_counter {
-    grid-column-start: 4;
-
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    width: 90px;
-
-    input {
-
-      &::-webkit-outer-spin-button,
-      &::-webkit-inner-spin-button {
-        display: none;
-        -webkit-appearance: none;
-        margin: 0;
-      }
-
-      background: 0;
-      width: 40px;
-
-      padding: 0;
-      text-align: center;
-      border: 0;
-      border-radius: 0;
-
-      font-size: 20px;
-      line-height: 26px;
-      font-family: 'Gilroy Bold';
-      color: #fff;
-    }
-  }
-
-  &_minus {
-    padding: 11.5px 7.5px;
-    background-color: #72A479;
-    border-radius: 50%;
-
-    transition: .1s ease-in-out;
-
-    &:hover {
-      background-color: #86bf8d;
-    }
-  }
-
-  &_plus {
-
-    padding: 7.5px;
-    background-color: #72A479;
-    border-radius: 50%;
-
-    transition: .1s ease-in-out;
-
-    &:hover {
-      background-color: #86bf8d;
-    }
-  }
-
-  &_price {
-    grid-column-start: 6;
-
-    font-size: 20px;
-    line-height: 24px;
-    font-family: 'Gilroy Bold';
-  }
-
-  &_delete {
-    padding: 8.5px 9px;
-    background-color: #72A479;
-    border-radius: 50%;
-
-    transition: .2s ease-in-out;
-
-    &:hover {
-      background-color: #86bf8d;
-    }
+    width: 1050px;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.1);
   }
 `;

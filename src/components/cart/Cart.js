@@ -3,13 +3,16 @@ import {CartWrapper,
         CartTitle,
         BackBtn,
         CartItems,
-        CartItem} from './cart-style';
+        CartAddTitle,
+        CartAddItems
+      } from './cart-style';
 
 import { Link } from 'react-router-dom';
-
-import './cart.scss';
+import CartItem from '../cartItem/CartItem';
+import CartAddItem from '../cartAddItem/CartAddItem';
 
 import backIcon from '../../resources/cart/back-icon.svg';
+import './cart.scss';
 
 const Cart = () => {
 
@@ -27,11 +30,24 @@ const Cart = () => {
           <p>(в корзине товаров: <span>0</span>)</p>
         </CartTitle>
 
-        <CartItems></CartItems>
+        <CartItems>
 
-        <h2 className="cart__add_title">Добавить к заказу</h2>
+          <CartItem/>
+          <CartItem/>
+          <CartItem/>
 
-        <div className="cart__add_items"></div>
+        </CartItems>
+
+        <CartAddTitle>Добавить к заказу</CartAddTitle>
+
+        <CartAddItems>
+
+          <CartAddItem/>
+          <CartAddItem/>
+          <CartAddItem/>
+          <CartAddItem/>
+
+        </CartAddItems>
 
         <div className="cart__total">
 
