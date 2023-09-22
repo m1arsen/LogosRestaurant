@@ -4,15 +4,18 @@ import {CartWrapper,
         BackBtn,
         CartItems,
         CartAddTitle,
-        CartAddItems
+        CartAddItems,
+        CartTotal,
+        CartPrice,
+        CartDeliveryPrice,
+        CartTotalSum,
+        CartTotalBtn
       } from './cart-style';
 
-import { Link } from 'react-router-dom';
 import CartItem from '../cartItem/CartItem';
 import CartAddItem from '../cartAddItem/CartAddItem';
 
 import backIcon from '../../resources/cart/back-icon.svg';
-import './cart.scss';
 
 const Cart = () => {
 
@@ -49,29 +52,30 @@ const Cart = () => {
 
         </CartAddItems>
 
-        <div className="cart__total">
+        <CartTotal>
 
-          <div className="cart__total_info">
+          <div>
+            <CartPrice><span>Итого:</span> 500 ₽</CartPrice>
 
-            <div className="cart__total_price">
-              <span>Итого: </span>
-              <span>0</span>
-              <span> ₽</span>
-            </div>
-
-            <p className="cart__total_delivery-price none">
+            {/* Рендерится в случае нехватки до бесплатной доставки */}
+            <CartDeliveryPrice>
               До бесплатной доставки не хватет: <span></span> <span>₽</span>
-            </p>
+            </CartDeliveryPrice>
 
-            <p className="cart__total_sum">
+            <CartTotalSum>
               Минимальная сумма заказа 500 ₽
-            </p>
+            </CartTotalSum>
 
           </div>
 
-          <Link to={'order'} className="cart__total_btn disabled">Оформить заказ</Link>
+          {/* Кнопка в пассивном состоянии имеет другие стили, они ниже */}
+          {/*  {
+                  background: #433f3e;
+                  cursor: not-allowed;
+                } */}
+          <CartTotalBtn to={'order'}>Оформить заказ</CartTotalBtn>
 
-        </div>
+        </CartTotal>
 
       </CartContainer>
     </CartWrapper>

@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import {Container, Title} from '../../styles/styles';
 import { CartItemStyles } from "../cartItem/cartItem-style";
+import { CartAddItemStyles } from "../cartAddItem/cartAddItem-style";
 
 import { Link } from "react-router-dom";
 
@@ -97,5 +98,75 @@ export const CartAddItems = styled.div`
     width: 1050px;
     height: 1px;
     background-color: rgba(255, 255, 255, 0.1);
+  }
+
+  ${CartAddItemStyles} + ${CartAddItemStyles} {
+    border-image: linear-gradient(rgba(255,255,255,0) 0%, rgba(255,255,255,0.1) 100%);
+    border-image-slice: 1;
+    border-left: 1px solid;
+  }
+`;
+
+export const CartTotal = styled.div`
+  margin: 0 auto;
+  padding: 20px 32px;
+  max-width: 760px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background: linear-gradient(90deg, #494544 0%, #504B4A 100%);
+  border-radius: 10px;
+`;
+
+export const CartPrice = styled.p`
+  margin-bottom: 5px;
+
+  font-size: 25px;
+  line-height: 30px;
+  font-family: 'Gilroy Bold';
+
+  span:first-child {
+    font-size: 18px;
+    line-height: 21px;
+    color: #A6A7AB;
+    font-family: 'Gilroy Regular';
+  }
+`;
+
+export const CartDeliveryPrice = styled.p`
+  margin-bottom: 11px;
+
+  font-size: 12px;
+  line-height: 14px;
+  font-family: 'Gilroy Medium';
+
+  span {
+    color: #72A479;
+  }
+`;
+
+export const CartTotalSum = styled.p`
+  font-size: 12px;
+  line-height: 14px;
+  font-family: 'Gilroy Regular';
+`;
+
+export const CartTotalBtn = styled(Link)`
+  padding: 17px 50px;
+
+  font-size: 14px;
+  line-height: 17px;
+  font-family: 'Gilroy Bold';
+  color: #fff;
+
+  background: #618967;
+  border-radius: 10px;
+
+  transition: .2s linear;
+
+  &:hover {
+    background: #587d5e;
   }
 `;
