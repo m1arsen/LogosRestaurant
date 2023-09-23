@@ -24,6 +24,8 @@ import OtherProducts from '../otherProducts/OtherProducts';
 import '../../styles/main.scss';
 import { ProductLine } from '../product/product-style';
 
+import ScrollToTop from '../ScrollToTop';
+
 const App = () => {
 
   const [menu, setMenu] = useState({}),
@@ -79,6 +81,7 @@ const App = () => {
 
   return (
     <Router>
+      <ScrollToTop/>
       <div className="App">
         <Routes>
 
@@ -90,7 +93,7 @@ const App = () => {
 
           <Route path='/delivery' element={<DeliveryPage/>}/>
 
-          <Route path='/product' element={<ProductPage/>}/>
+          <Route path='/product/:id' element={<ProductPage/>}/>
 
           <Route path='/promotions' element={<PromotionsPage/>}/>
 

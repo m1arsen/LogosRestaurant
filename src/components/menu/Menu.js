@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 // import useLogosService from '../../services/LogosService';
+import { Link } from 'react-router-dom';
 
 import {Swiper} from 'swiper/react';
 import 'swiper/css';
@@ -64,41 +65,45 @@ const Menu = ({menu, loading, error, addToCart, removeToCart}) => {
       description = description.length >= 60 ? description.slice(0, 57) + '...' : description;
 
       return (
-        <ItemCard className='swiper-slide' key={id}>
-          <ItemCardImgContainer>
-            <img src={src} alt={alt}/>
-          </ItemCardImgContainer>
 
-          <ItemCardInfo>
-            <ItemCardInfoBlock>
-              <div>
-                <h2>{name}</h2>
-                <p>Вес: <span>{weight}</span>г</p>
-              </div>
-              <p>{description}</p>
-            </ItemCardInfoBlock>
+          <ItemCard className='swiper-slide' key={id}>
 
-            <ItemCardBtns>
-              <ItemCardPrice>{price} ₽</ItemCardPrice>
-              <ItemCardCart>
-                <p>В корзину</p>
-                <img src={cartIcon} alt="cart icon"/>
-              </ItemCardCart>
+            <Link to={`/product/${id}`}>
+              <ItemCardImgContainer>
+                <img src={src} alt={alt}/>
+              </ItemCardImgContainer>
+            </Link>
 
-              <ItemCardAddBtn onClick={(e) => addToCart(e.target.attributes['data-id'].value)}>
-                <img src={addIcon} alt="add" data-id={id}/>
-              </ItemCardAddBtn>
+            <ItemCardInfo>
+              <ItemCardInfoBlock>
+                <div>
+                  <h2>{name}</h2>
+                  <p>Вес: <span>{weight}</span>г</p>
+                </div>
+                <p>{description}</p>
+              </ItemCardInfoBlock>
 
-              <ItemCardRemoveBtn onClick={(e) => removeToCart(e.target.attributes['data-id'].value)}>
-                <img src={removeIcon} alt="remove" data-id={id}/>
-              </ItemCardRemoveBtn>
+              <ItemCardBtns>
+                <ItemCardPrice>{price} ₽</ItemCardPrice>
+                <ItemCardCart>
+                  <p>В корзину</p>
+                  <img src={cartIcon} alt="cart icon"/>
+                </ItemCardCart>
 
-            </ItemCardBtns>
+                <ItemCardAddBtn onClick={(e) => addToCart(e.target.attributes['data-id'].value)}>
+                  <img src={addIcon} alt="add" data-id={id}/>
+                </ItemCardAddBtn>
 
-          </ItemCardInfo>
+                <ItemCardRemoveBtn onClick={(e) => removeToCart(e.target.attributes['data-id'].value)}>
+                  <img src={removeIcon} alt="remove" data-id={id}/>
+                </ItemCardRemoveBtn>
 
-          {/* <ItemCardCounter data-id={name}>1</ItemCardCounter> */}
-        </ItemCard>
+              </ItemCardBtns>
+
+            </ItemCardInfo>
+
+            {/* <ItemCardCounter data-id={name}>1</ItemCardCounter> */}
+          </ItemCard>
       )
     })
 

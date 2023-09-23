@@ -86,7 +86,6 @@ export const ItemCard = styled(SwiperSlide)`
   background: linear-gradient(90deg, #494544 0%, #504B4A 100%);
   position: relative;
 
-  cursor: pointer;
   transition: .2s linear;
 
   &:hover {
