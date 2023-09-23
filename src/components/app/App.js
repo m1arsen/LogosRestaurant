@@ -22,9 +22,8 @@ import OtherProducts from '../otherProducts/OtherProducts';
 
 // Стили
 import '../../styles/main.scss';
-import { ProductLine } from '../product/product-style';
 
-import ScrollToTop from '../ScrollToTop';
+import {ScrollToTop} from '../Functions';
 
 const App = () => {
 
@@ -85,7 +84,7 @@ const App = () => {
       <div className="App">
         <Routes>
 
-          <Route path='/' element={<MainPage menu={menu} loading={loading} error={error} addToCart={addToCart} removeToCart={removeToCart}/>}/>
+          <Route path='/' element={<MainPage menu={menu} loading={loading} error={error} cartItems={cartItems} addToCart={addToCart} removeToCart={removeToCart}/>}/>
 
           <Route path='/cart' element={<CartPage menu={menu}/>}/>
 

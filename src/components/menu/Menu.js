@@ -14,7 +14,7 @@ import Spinner from '../spinner/Spinner';
 import { MenuTopContainer, MenuPosContainer, MenuPosTitle, MenuTop, MenuPos } from './menu-style';
 import {ItemCard, ItemCardImgContainer, ItemCardInfo, ItemCardInfoBlock, ItemCardBtns, ItemCardPrice, ItemCardCart, ItemCardAddBtn, ItemCardRemoveBtn, ItemCardCounter } from './card-style';
 
-const Menu = ({menu, loading, error, addToCart, removeToCart}) => {
+const Menu = ({menu, loading, error, cartItems, addToCart, removeToCart}) => {
   const [openedTab, setopenedTab] = useState(0), // id открытого таба меню
         [tabs, setTabs] = useState([]); // Табы для отображения в виде объекта с id и названием
 
@@ -64,6 +64,12 @@ const Menu = ({menu, loading, error, addToCart, removeToCart}) => {
       name = name.length >= 15 ? name.slice(0, 12) + '...' : name;
       description = description.length >= 60 ? description.slice(0, 57) + '...' : description;
 
+      let count = 0;
+
+      for(let key in cartItems) {
+        if(key == id) count = cartItems[key];
+      }
+
       return (
 
           <ItemCard className='swiper-slide' key={id}>
@@ -102,7 +108,7 @@ const Menu = ({menu, loading, error, addToCart, removeToCart}) => {
 
             </ItemCardInfo>
 
-            {/* <ItemCardCounter data-id={name}>1</ItemCardCounter> */}
+            {count ? <ItemCardCounter>{count}</ItemCardCounter> : null}
           </ItemCard>
       )
     })
