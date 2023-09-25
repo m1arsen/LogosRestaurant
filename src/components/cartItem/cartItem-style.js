@@ -30,7 +30,7 @@ export const CartItemImg = styled.div`
 `;
 
 export const CartItemInfo = styled.div`
-  max-width: 270px;
+  max-width: 340px;
 
   h3 {
     margin-bottom: 4px;
@@ -59,7 +59,7 @@ export const CartItemCounter = styled.div`
 
   width: 90px;
 
-  input {
+  p {
 
     &::-webkit-outer-spin-button,
     &::-webkit-inner-spin-button {

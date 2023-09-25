@@ -3,7 +3,7 @@ import { ProductCardStyles, ProductCardImg, ProductCardInfo, ProductCardBtns, Pr
 import removeIcon from '../../resources/product/remove-icon.svg';
 import addIcon from '../../resources/product/add-icon.svg';
 
-const ProductCard = ({cardData}) => {
+const ProductCard = ({cardData, cartItems, addToCart, removeToCart}) => {
 
   const {id, name, description, weight, proteins, fats, carbohydrates, calorie, price, src, alt} = cardData;
 
@@ -29,11 +29,15 @@ const ProductCard = ({cardData}) => {
             <ProductCardBtnsPrice><span>{price}</span> ₽</ProductCardBtnsPrice>
 
             <ProductCardBtnsContainer>
-              <ProductCardBtnsRemove>
+              <ProductCardBtnsRemove
+                data-id={id}
+                onClick={(e) => removeToCart(e.target.attributes['data-id'].value)}>
                 <img src={removeIcon} alt="remove"/>
               </ProductCardBtnsRemove>
 
-              <ProductCardBtnsAdd>
+              <ProductCardBtnsAdd
+                data-id={id}
+                onClick={(e) => addToCart(e.target.attributes['data-id'].value)}>
                 <img src={addIcon} alt="add"/>
               </ProductCardBtnsAdd>
             </ProductCardBtnsContainer>

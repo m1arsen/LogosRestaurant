@@ -16,30 +16,43 @@ import increaseIcon from '../../resources/cart/increase-icon.svg';
 import decreaseIcon from '../../resources/cart/decrease-icon.svg';
 import deleteIcon from '../../resources/cart/delete-icon.svg';
 
-const CartItem = () => {
+const CartItem = ({id, name, description, price, src, alt, count, addToCart, removeToCart, deleteToCart}) => {
   return (
     <CartItemStyles>
 
       <CartItemImg>
-        <img src={cartItemImg} alt="item image" />
+        <img src={src} alt={alt} />
       </CartItemImg>
 
       <CartItemInfo>
-        <h3>ПИЦЦА ДВОЙНАЯ ПЕППЕРОНИ</h3>
-        <p>Кальмары, мидии, креветки, сыр маасдам, красный лук, микс оливок, базилик, соус песто</p>
+        <h3>{name}</h3>
+        <p>{description}</p>
       </CartItemInfo>
 
       <CartItemCounter>
 
-        <CartItemDecreaseBtn src={decreaseIcon} alt="decrease" />
-        <input type="number" value={1}/>
-        <CartItemIncreaseBtn src={increaseIcon} alt="increase" />
+        <CartItemDecreaseBtn
+          src={decreaseIcon}
+          alt="decrease"
+          data-id={id}
+          data-deleteBtn={'notDeleteBtn'}
+          onClick={(e) => removeToCart(e.target.attributes['data-id'].value, e.target.attributes['data-deleteBtn'].value)}/>
+        <p>{count}</p>
+        <CartItemIncreaseBtn
+          src={increaseIcon}
+          alt="increase"
+          data-id={id}
+          onClick={(e) => addToCart(e.target.attributes['data-id'].value)}/>
 
       </CartItemCounter>
 
-      <CartItemPrice>1640 ₽</CartItemPrice>
+      <CartItemPrice>{price * count} ₽</CartItemPrice>
 
-      <CartItemDeleteBtn src={deleteIcon} alt='delete'/>
+      <CartItemDeleteBtn
+        src={deleteIcon}
+        alt='delete'
+        data-id={id}
+        onClick={(e) => deleteToCart(e.target.attributes['data-id'].value)}/>
 
     </CartItemStyles>
   )

@@ -5,11 +5,14 @@ import Footer from "../footer/Footer";
 
 import { ProductLine } from "../product/product-style";
 
-const ProductPage = () => {
+const ProductPage = ({cartItems, addToCart, removeToCart}) => {
   return (
     <>
       <Header/>
-      <Product/>
+      <Product
+        cartItems={cartItems}
+        addToCart={addToCart}
+        removeToCart={removeToCart}/>
       <ProductLine/>
       <OtherProducts/>
       <Footer/>

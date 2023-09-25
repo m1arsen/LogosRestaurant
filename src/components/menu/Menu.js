@@ -100,8 +100,8 @@ const Menu = ({menu, loading, error, cartItems, addToCart, removeToCart}) => {
                   <img src={addIcon} alt="add" data-id={id}/>
                 </ItemCardAddBtn>
 
-                <ItemCardRemoveBtn onClick={(e) => removeToCart(e.target.attributes['data-id'].value)}>
-                  <img src={removeIcon} alt="remove" data-id={id}/>
+                <ItemCardRemoveBtn onClick={(e) => removeToCart(e.target.attributes['data-id'].value, e.target.attributes['data-deleteBtn'].value)}>
+                  <img src={removeIcon} alt="remove" data-deleteBtn={'DeleteBtn'} data-id={id}/>
                 </ItemCardRemoveBtn>
 
               </ItemCardBtns>

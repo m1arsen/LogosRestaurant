@@ -11,7 +11,7 @@ import { Link, useNavigate } from "react-router-dom";
 import useLogosService from "../../services/LogosService";
 import Spinner from "../spinner/Spinner";
 
-const Product = () => {
+const Product = ({cartItems, addToCart, removeToCart}) => {
   const {id} = useParams();
   const [cardData, setCardData] = useState([]);
 
@@ -44,8 +44,11 @@ const Product = () => {
 
         {spinner}
         {errorMessage}
-        {!(loading && error) ? <ProductCard cardData={cardData}/> : null}
-
+        {!(loading && error) ? <ProductCard
+                                            cardData={cardData}
+                                            cartItems={cartItems}
+                                            addToCart={addToCart}
+                                            removeToCart={removeToCart}/> : null}
 
       </ProductContainer>
     </ProductSection>
