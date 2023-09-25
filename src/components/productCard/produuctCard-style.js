@@ -1,5 +1,8 @@
 import styled from "styled-components";
 
+import { vars } from "../../styles/styles";
+const {green} = vars;
+
 export const ProductCardStyles = styled.div`
   display: flex;
   height: 400px;
@@ -137,5 +140,16 @@ export const ProductCardTable = styled.table`
 
   td + td {
     padding-left: 50px;
+  }
+`;
+
+export const ProductCardCounter = styled.h2`
+  font-family: 'Gilroy Medium';
+  font-size: 18px;
+  line-height: 20px;
+
+  span {
+    font-family: 'Gilroy Bold';
+    color: ${green};
   }
 `;

@@ -1,13 +1,21 @@
-import { ProductCardStyles, ProductCardImg, ProductCardInfo, ProductCardBtns, ProductCardBtnsPrice, ProductCardBtnsContainer, ProductCardBtnsAdd, ProductCardBtnsRemove, ProductCardTable } from "./produuctCard-style"
+import { ProductCardStyles, ProductCardImg, ProductCardInfo, ProductCardBtns, ProductCardBtnsPrice, ProductCardBtnsContainer, ProductCardBtnsAdd, ProductCardBtnsRemove, ProductCardTable, ProductCardCounter } from "./produuctCard-style"
 
 import removeIcon from '../../resources/product/remove-icon.svg';
 import addIcon from '../../resources/product/add-icon.svg';
 
+import { ItemCardCounter } from "../menu/card-style";
+import { useState } from "react";
+import { useEffect } from "react";
+
 const ProductCard = ({cardData, cartItems, addToCart, removeToCart}) => {
 
-  const {id, name, description, weight, proteins, fats, carbohydrates, calorie, price, src, alt} = cardData;
+  const [count, setCount] = useState(0);
 
-  // console.log(cardData);
+  useEffect(() => {
+    setCount(cartItems[cardData.id]);
+  }, [cartItems])
+
+  const {id, name, description, weight, proteins, fats, carbohydrates, calorie, price, src, alt} = cardData;
 
   return (
     <ProductCardStyles>
@@ -31,16 +39,26 @@ const ProductCard = ({cardData, cartItems, addToCart, removeToCart}) => {
             <ProductCardBtnsContainer>
               <ProductCardBtnsRemove
                 data-id={id}
-                onClick={(e) => removeToCart(e.target.attributes['data-id'].value)}>
-                <img src={removeIcon} alt="remove"/>
+                data-deleteBtn={'DeleteBtn'}
+                onClick={(e) => removeToCart(e.target.attributes['data-id'].value, e.target.attributes['data-deleteBtn'].value)}>
+                <img
+                  data-id={id}
+                  data-deleteBtn={'DeleteBtn'}
+                  src={removeIcon}
+                  alt="remove"/>
               </ProductCardBtnsRemove>
 
               <ProductCardBtnsAdd
                 data-id={id}
                 onClick={(e) => addToCart(e.target.attributes['data-id'].value)}>
-                <img src={addIcon} alt="add"/>
+                <img
+                  data-id={id}
+                  src={addIcon}
+                  alt="add"/>
               </ProductCardBtnsAdd>
             </ProductCardBtnsContainer>
+
+            {count ? <ProductCardCounter>В корзине: <span>{count} шт.</span></ProductCardCounter> : null}
 
           </ProductCardBtns>
 

@@ -47,8 +47,6 @@ const App = () => {
       });
 
     }
-    console.log(cartItems);
-
   }
 
   const removeToCart = (id, deleteBtn) => {

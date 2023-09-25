@@ -60,7 +60,6 @@ const Cart = ({menu, cartItems, addToCart, removeToCart, deleteToCart}) => {
   }
 
   const renderCartItems = (items) => {
-    console.log(items)
     return items.map(({id, name, description, price, src, alt, count}) => {
       return (
         <CartItem id={id}

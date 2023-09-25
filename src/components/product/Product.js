@@ -45,10 +45,10 @@ const Product = ({cartItems, addToCart, removeToCart}) => {
         {spinner}
         {errorMessage}
         {!(loading && error) ? <ProductCard
-                                            cardData={cardData}
-                                            cartItems={cartItems}
-                                            addToCart={addToCart}
-                                            removeToCart={removeToCart}/> : null}
+          cardData={cardData}
+          cartItems={cartItems}
+          addToCart={addToCart}
+          removeToCart={removeToCart}/> : null}
 
       </ProductContainer>
     </ProductSection>
