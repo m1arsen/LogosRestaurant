@@ -5,7 +5,7 @@ import Footer from "../footer/Footer";
 const CartPage = ({menu, cartItems, addToCart, removeToCart, deleteToCart}) => {
   return (
     <>
-      <Header/>
+      <Header cartItems={cartItems}/>
       <Cart
         menu={menu}
         cartItems={cartItems}

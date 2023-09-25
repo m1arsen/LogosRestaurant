@@ -8,7 +8,7 @@ import { ProductLine } from "../product/product-style";
 const ProductPage = ({cartItems, addToCart, removeToCart}) => {
   return (
     <>
-      <Header/>
+      <Header cartItems={cartItems}/>
       <Product
         cartItems={cartItems}
         addToCart={addToCart}

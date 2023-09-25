@@ -8,7 +8,7 @@ import Footer from "../footer/Footer";
 const MainPage = ({menu, loading, error, cartItems, addToCart, removeToCart}) => {
   return (
     <>
-      <Header/>
+      <Header cartItems={cartItems}/>
       <Main/>
       <Menu menu={menu} loading={loading} error={error} cartItems={cartItems} addToCart={addToCart} removeToCart={removeToCart}/>
       <OurCafe/>

@@ -2,10 +2,10 @@ import Header from "../header/Header";
 import DeliveryTerms from "../deliveryTerms/DeliveryTerms";
 import Footer from "../footer/Footer";
 
-const DeliveryPage = () => {
+const DeliveryPage = ({cartItems}) => {
   return (
     <>
-      <Header/>
+      <Header cartItems={cartItems}/>
       <DeliveryTerms/>
       <Footer/>
     </>

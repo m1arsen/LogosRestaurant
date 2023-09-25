@@ -12,10 +12,15 @@ import searchIcon from '../../resources/search-icon.svg';
 import phoneIcon from '../../resources/phone-icon.svg';
 import counterIcon from '../../resources/counter-icon.svg';
 import cartIcon from '../../resources/header/cart-icon.svg';
+import { useEffect } from 'react';
 
-const Header = () => {
+const Header = ({cartItems}) => {
 
   const [counter, setCounter] = useState(0);
+
+  useEffect(() => {
+    setCounter(Object.keys(cartItems).length)
+  }, [cartItems])
 
   return (
     <HeaderSection id="top">

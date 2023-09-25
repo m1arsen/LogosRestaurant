@@ -14,9 +14,6 @@ import ProductPage from '../pages/ProductPage';
 import OrderPage from '../pages/OrderPage';
 import PromotionsPage from '../pages/PromotionsPage';
 
-// Компоненты
-import { addToCart, removeToCart, deleteToCart } from '../Functions';
-
 // Стили
 import '../../styles/main.scss';
 
@@ -32,53 +29,53 @@ const App = () => {
     getMenu().then(setMenu);
   }, [])
 
-  // const addToCart = (id) => {
+  const addToCart = (id) => {
 
-  //   // Есть ли товар в корзине ?
-  //   if(cartItems.hasOwnProperty(id)) {
+    // Есть ли товар в корзине ?
+    if(cartItems.hasOwnProperty(id)) {
 
-  //     setCartItems({
-  //       ...cartItems,
-  //       [id]: cartItems[id] += 1
-  //     });
+      setCartItems({
+        ...cartItems,
+        [id]: cartItems[id] += 1
+      });
 
-  //   } else {
+    } else {
 
-  //     setCartItems({
-  //       ...cartItems,
-  //       [id]: 1
-  //     });
+      setCartItems({
+        ...cartItems,
+        [id]: 1
+      });
 
-  //   }
-  //   console.log(cartItems);
+    }
+    console.log(cartItems);
 
-  // }
+  }
 
-  // const removeToCart = (id, deleteBtn) => {
-  //   // Есть ли товар в корзине ?
-  //   if(cartItems.hasOwnProperty(id)) {
-  //     if((cartItems[id] == 1) && (deleteBtn == 'DeleteBtn')) {
+  const removeToCart = (id, deleteBtn) => {
+    // Есть ли товар в корзине ?
+    if(cartItems.hasOwnProperty(id)) {
+      if((cartItems[id] == 1) && (deleteBtn == 'DeleteBtn')) {
 
-  //       const newCartItems = { ...cartItems }
-  //       delete newCartItems[id]
-  //       setCartItems({...newCartItems});
+        const newCartItems = { ...cartItems }
+        delete newCartItems[id]
+        setCartItems({...newCartItems});
 
-  //     } else if(cartItems[id] > 1) {
+      } else if(cartItems[id] > 1) {
 
-  //       setCartItems({
-  //         ...cartItems,
-  //         [id]: cartItems[id] -= 1
-  //       });
+        setCartItems({
+          ...cartItems,
+          [id]: cartItems[id] -= 1
+        });
 
-  //     }
-  //   } // else если нет то ничего не происходит
-  // }
+      }
+    } // else если нет то ничего не происходит
+  }
 
-  // const deleteToCart = (id) => {
-  //   const newCartItems = { ...cartItems }
-  //   delete newCartItems[id]
-  //   setCartItems({...newCartItems});
-  // }
+  const deleteToCart = (id) => {
+    const newCartItems = { ...cartItems }
+    delete newCartItems[id]
+    setCartItems({...newCartItems});
+  }
 
   return (
     <Router>
@@ -88,33 +85,44 @@ const App = () => {
 
           <Route
             path='/'
-            element={<MainPage menu={menu}
-            loading={loading}
-            error={error}
-            cartItems={cartItems}
-            addToCart={addToCart}
-            removeToCart={removeToCart}/>}/>
+            element={<MainPage
+              menu={menu}
+              loading={loading}
+              error={error}
+              cartItems={cartItems}
+              addToCart={addToCart}
+              removeToCart={removeToCart}/>}/>
 
           <Route
             path='/cart'
-            element={<CartPage menu={menu}
-            cartItems={cartItems}
-            addToCart={addToCart}
-            removeToCart={removeToCart}
-            deleteToCart={deleteToCart}/>}/>
+            element={<CartPage
+              menu={menu}
+              cartItems={cartItems}
+              addToCart={addToCart}
+              removeToCart={removeToCart}
+              deleteToCart={deleteToCart}/>}/>
 
-          <Route path='/cart/order' element={<OrderPage/>}/>
+          <Route
+            path='/cart/order'
+            element={<OrderPage
+              cartItems={cartItems}/>}/>
 
-          <Route path='/delivery' element={<DeliveryPage/>}/>
+          <Route
+            path='/delivery'
+            element={<DeliveryPage
+              cartItems={cartItems}/>}/>
 
           <Route
             path='/product/:id'
-            element={<ProductPage/>}
-            cartItems={cartItems}
-            addToCart={addToCart}
-            removeToCart={removeToCart}/>
+            element={<ProductPage
+              cartItems={cartItems}
+              addToCart={addToCart}
+              removeToCart={removeToCart}/>}/>
 
-          <Route path='/promotions' element={<PromotionsPage/>}/>
+          <Route
+            path='/promotions'
+            element={<PromotionsPage
+              cartItems={cartItems}/>}/>
 
         </Routes>
       </div>

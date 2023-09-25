@@ -18,50 +18,50 @@ export const randomInteger = (min, max) => {
 
 // Проблема  в том что функции не универсальные
 
-export const addToCart = (id) => {
+// export const addToCart = (id) => {
 
-  // Есть ли товар в корзине ?
-  if(cartItems.hasOwnProperty(id)) {
+//   // Есть ли товар в корзине ?
+//   if(cartItems.hasOwnProperty(id)) {
 
-    setCartItems({
-      ...cartItems,
-      [id]: cartItems[id] += 1
-    });
+//     setCartItems({
+//       ...cartItems,
+//       [id]: cartItems[id] += 1
+//     });
 
-  } else {
+//   } else {
 
-    setCartItems({
-      ...cartItems,
-      [id]: 1
-    });
+//     setCartItems({
+//       ...cartItems,
+//       [id]: 1
+//     });
 
-  }
-  console.log(cartItems);
+//   }
+//   console.log(cartItems);
 
-}
+// }
 
-export const removeToCart = (id, deleteBtn) => {
-  // Есть ли товар в корзине ?
-  if(cartItems.hasOwnProperty(id)) {
-    if((cartItems[id] == 1) && (deleteBtn == 'DeleteBtn')) {
+// export const removeToCart = (id, deleteBtn) => {
+//   // Есть ли товар в корзине ?
+//   if(cartItems.hasOwnProperty(id)) {
+//     if((cartItems[id] == 1) && (deleteBtn == 'DeleteBtn')) {
 
-      const newCartItems = { ...cartItems }
-      delete newCartItems[id]
-      setCartItems({...newCartItems});
+//       const newCartItems = { ...cartItems }
+//       delete newCartItems[id]
+//       setCartItems({...newCartItems});
 
-    } else if(cartItems[id] > 1) {
+//     } else if(cartItems[id] > 1) {
 
-      setCartItems({
-        ...cartItems,
-        [id]: cartItems[id] -= 1
-      });
+//       setCartItems({
+//         ...cartItems,
+//         [id]: cartItems[id] -= 1
+//       });
 
-    }
-  } // else если нет то ничего не происходит
-}
+//     }
+//   } // else если нет то ничего не происходит
+// }
 
-export const deleteToCart = (id) => {
-  const newCartItems = { ...cartItems }
-  delete newCartItems[id]
-  setCartItems({...newCartItems});
-}
+// export const deleteToCart = (id) => {
+//   const newCartItems = { ...cartItems }
+//   delete newCartItems[id]
+//   setCartItems({...newCartItems});
+// }

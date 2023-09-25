@@ -2,10 +2,10 @@ import Header from "../header/Header";
 import Order from "../order/Order";
 import Footer from "../footer/Footer";
 
-const OrderPage = () => {
+const OrderPage = ({cartItems}) => {
   return (
     <>
-      <Header/>
+      <Header cartItems={cartItems}/>
       <Order/>
       <Footer/>
     </>

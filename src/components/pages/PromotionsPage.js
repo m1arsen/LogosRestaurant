@@ -3,10 +3,10 @@ import Promotions from "../promotions/Promotions";
 import Location from '../location/Location';
 import Footer from "../footer/Footer";
 
-const PromotionsPage = () => {
+const PromotionsPage = ({cartItems}) => {
   return (
     <>
-      <Header/>
+      <Header cartItems={cartItems}/>
       <Promotions/>
       <Location/>
       <Footer/>
