@@ -143,6 +143,20 @@ export const CartDeliveryPrice = styled.p`
   font-family: 'Gilroy Medium';
 
   span {
+    font-family: 'Gilroy Bold';
+    color: #72A479;
+  }
+`;
+
+export const CartDeliveryFreePrice = styled.p`
+  margin-bottom: 11px;
+
+  font-size: 12px;
+  line-height: 14px;
+  font-family: 'Gilroy Medium';
+
+  span {
+    font-family: 'Gilroy Bold';
     color: #72A479;
   }
 `;
@@ -151,6 +165,11 @@ export const CartTotalSum = styled.p`
   font-size: 12px;
   line-height: 14px;
   font-family: 'Gilroy Regular';
+
+  span {
+    font-family: 'Gilroy Bold';
+    color: #72A479;
+  }
 `;
 
 export const CartTotalBtn = styled(Link)`
@@ -171,5 +190,13 @@ export const CartTotalBtn = styled(Link)`
   }
 `;
 
+export const CartTotalBtnDisabled = styled(CartTotalBtn)`
+  background: #433f3e;
+  cursor: not-allowed;
+
+  &:hover {
+    background: #433f3e;
+  }
+`;
 
 

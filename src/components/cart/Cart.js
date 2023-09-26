@@ -11,8 +11,10 @@ import {CartWrapper,
         CartTotal,
         CartPrice,
         CartDeliveryPrice,
+        CartDeliveryFreePrice,
         CartTotalSum,
-        CartTotalBtn
+        CartTotalBtn,
+        CartTotalBtnDisabled
       } from './cart-style';
 
 // Компоненты
@@ -155,22 +157,35 @@ const Cart = ({cartItems, addToCart, removeToCart, deleteToCart}) => {
             <CartPrice><span>Итого:</span> {cartItemsPrice} ₽</CartPrice>
 
             {/* Рендерится в случае нехватки до бесплатной доставки */}
-            <CartDeliveryPrice>
-              До бесплатной доставки не хватет: <span></span> <span>₽</span>
-            </CartDeliveryPrice>
 
-            <CartTotalSum>
-              Минимальная сумма заказа 500 ₽
-            </CartTotalSum>
+            {totalPrice < 2500 && totalPrice > 0 ?
+              <>
+                <CartDeliveryFreePrice>
+                  До бесплатной доставки не хватет: <span>{2500 - totalPrice}</span> ₽
+                </CartDeliveryFreePrice>
+
+                <CartDeliveryPrice>
+                  Доставка стоит <span>500</span> руб
+                </CartDeliveryPrice>
+              </>
+
+              : null
+            }
+
+            {totalPrice < 500 && totalPrice > 0 ?
+              <CartTotalSum>
+                Минимальная сумма заказа <span>500</span> ₽
+              </CartTotalSum>
+              : null
+            }
+
 
           </div>
 
-          {/* Кнопка в пассивном состоянии имеет другие стили, они ниже */}
-          {/*  {
-                  background: #433f3e;
-                  cursor: not-allowed;
-                } */}
-          <CartTotalBtn to={'order'}>Оформить заказ</CartTotalBtn>
+          {totalPrice > 500 ?
+            <CartTotalBtn to={'order'}>Оформить заказ</CartTotalBtn> :
+            <CartTotalBtnDisabled>Оформить заказ</CartTotalBtnDisabled>
+          }
 
         </CartTotal>
 
