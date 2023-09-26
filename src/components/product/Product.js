@@ -24,7 +24,6 @@ const Product = ({cartItems, addToCart, removeToCart}) => {
       .then(setCardData);
   }, [id]);
 
-
   const spinner = loading ? <Spinner/> : null;
   const errorMessage = error ? <h1>Error</h1> : null;
 

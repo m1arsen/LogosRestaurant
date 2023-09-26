@@ -100,7 +100,7 @@ export const HeaderContactsNum = styled.div`
   }
 `;
 
-export const HeaderCart = styled(Link)`
+export const HeaderCart = styled.button`
   margin-left: auto;
   padding: 7px 0;
   display: flex;
@@ -108,6 +108,7 @@ export const HeaderCart = styled(Link)`
   flex-wrap: nowrap;
 
   background-color: ${green};
+  cursor: pointer;
   border-radius: 10px;
 
   font-family: 'Gilroy Semibold';
