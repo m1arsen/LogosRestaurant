@@ -1,3 +1,6 @@
+import { useEffect, useState } from 'react';
+
+// Стилизация
 import {CartWrapper,
         CartContainer,
         CartTitle,
@@ -12,13 +15,16 @@ import {CartWrapper,
         CartTotalBtn
       } from './cart-style';
 
+// Компоненты
 import CartItem from '../cartItem/CartItem';
 import CartAddItem from '../cartAddItem/CartAddItem';
+import CartNoItems from '../cartNoItems/CartNoItems';
 import Spinner from '../spinner/Spinner';
 
-import { useEffect, useState } from 'react';
-
+// Изображения
 import backIcon from '../../resources/cart/back-icon.svg';
+
+// Сервисы
 import useLogosService from '../../services/LogosService';
 
 const Cart = ({menu, cartItems, addToCart, removeToCart, deleteToCart}) => {
@@ -96,13 +102,13 @@ const Cart = ({menu, cartItems, addToCart, removeToCart, deleteToCart}) => {
           <p>(в корзине товаров: {Object.keys(cartItems).length})</p>
         </CartTitle>
 
-        <CartItems>
+        {Object.keys(cartItems).length == 0 ? <CartNoItems/> : <CartItems>
 
           {spinner}
           {errorMessage}
           {cartItemsLayout}
 
-        </CartItems>
+          </CartItems>}
 
         <CartAddTitle>Добавить к заказу</CartAddTitle>
 

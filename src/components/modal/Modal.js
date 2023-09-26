@@ -1,9 +1,20 @@
-import { ModalStyles, ModalContent, ModalCloseBtn, ModalEmptyCartPic, ModalTitle, ModalMenuBtn, ModalOverlay } from './modal-style';
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+
+// Стилизация
+import {  ModalStyles,
+          ModalContent,
+          ModalCloseBtn,
+          ModalEmptyCartPic,
+          ModalTitle,
+          ModalOverlay } from './modal-style';
+
+// Изображения
 import closeIcon from '../../resources/close-icon.svg';
 import emptyCartIcon from '../../resources/cart-is-empty-icon.svg';
-import { useEffect } from 'react';
 
-import { useNavigate } from 'react-router-dom';
+// Компоненты
+import { Button } from '../../styles/styles';
 
 const Modal = ({modalVisible, setModalVisible}) => {
 
@@ -44,9 +55,9 @@ const Modal = ({modalVisible, setModalVisible}) => {
 
           <ModalTitle>Корзина пустая</ModalTitle>
 
-          <ModalMenuBtn onClick={handleMenuClick}>
+          <Button onClick={handleMenuClick}>
             Посмотреть меню
-          </ModalMenuBtn>
+          </Button>
 
         </ModalContent>
       </ModalStyles>

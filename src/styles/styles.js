@@ -43,3 +43,26 @@ export const LogoStyle = styled(Link)`
     color: ${secondaryTextColor};
   }
 `;
+
+export const Button = styled.button`
+  padding: 17px 35px;
+  margin-top: auto;
+
+  font-size: 14px;
+  line-height: 17px;
+  font-family: 'Gilroy Semibold';
+  color: #fff;
+
+  display: flex;
+  align-items: center;
+  column-gap: 12px;
+
+  background: linear-gradient(114.93deg, #618967 5.11%, #72A479 94%);
+  border-radius: 10px;
+
+  transition: 0.2s linear;
+
+  &:hover {
+    box-shadow: 0px 5px 10px rgba(114, 163, 121, 0.3);
+  }
+`;

@@ -170,3 +170,6 @@ export const CartTotalBtn = styled(Link)`
     background: #587d5e;
   }
 `;
+
+
+

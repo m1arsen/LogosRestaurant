@@ -53,23 +53,6 @@ export const ModalTitle = styled(Title)`
   padding-left: unset;
 `;
 
-export const ModalMenuBtn = styled.button`
-  padding: 17px 35px;
-  margin-top: auto;
-
-  font-size: 14px;
-  line-height: 17px;
-  font-family: 'Gilroy Semibold';
-  color: #fff;
-
-  display: flex;
-  align-items: center;
-  column-gap: 12px;
-
-  background: linear-gradient(114.93deg, #618967 5.11%, #72A479 94%);
-  border-radius: 10px;
-`;
-
 export const ModalOverlay = styled.div`
   position: absolute;
   top: 0;
