@@ -3,9 +3,7 @@ import { ProductCardStyles, ProductCardImg, ProductCardInfo, ProductCardBtns, Pr
 import removeIcon from '../../resources/product/remove-icon.svg';
 import addIcon from '../../resources/product/add-icon.svg';
 
-import { ItemCardCounter } from "../menu/card-style";
-import { useState } from "react";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 
 const ProductCard = ({cardData, cartItems, addToCart, removeToCart}) => {
 

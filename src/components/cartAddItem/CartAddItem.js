@@ -4,25 +4,28 @@ import {  CartAddItemStyles,
           CartAddPrice
         } from "./cartAddItem-style";
 
-import cartAdd from '../../resources/cart/cart-add.jpg';
 import increaseIcon from '../../resources/cart/increase-icon.svg';
 
-const CartAddItem = () => {
+import { Link } from "react-router-dom";
+
+const CartAddItem = ({id, src, alt, name, price, addToCart}) => {
   return (
     <CartAddItemStyles>
 
-      <CartAddImg>
-        <img src={cartAdd} alt="image" />
-      </CartAddImg>
+        <CartAddImg>
+          <Link to={`/product/${id}`}>
+            <img src={src} alt={alt}/>
+          </Link>
+        </CartAddImg>
 
-      <h3>КВАС АНАНАСОВЫЙ</h3>
+      <h3>{name}</h3>
 
-      <CartAddBtn>
-        <p>Добавить</p>
-        <img src={increaseIcon} alt="increase" />
+      <CartAddBtn data-id={id} onClick={(e) => addToCart(e.target.attributes['data-id'].value)}>
+        <p data-id={id}>Добавить</p>
+        <img data-id={id} src={increaseIcon} alt="increase" />
       </CartAddBtn>
 
-      <CartAddPrice>1640 ₽</CartAddPrice>
+      <CartAddPrice>{price} ₽</CartAddPrice>
 
     </CartAddItemStyles>
   )

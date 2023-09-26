@@ -16,8 +16,8 @@ const useLogosService = () => {
     return await request('http://localhost:3000/FAQ');
   }
 
-  const getProductById = async (id) => {
-    return await getMenu().then((menu) => {
+  const getProductInfo = async (id) => {
+    return await getMenu().then(menu => {
       let cardData;
       for(let position in menu) {
 
@@ -34,7 +34,7 @@ const useLogosService = () => {
     })
   }
 
-  return {loading, error, getMenu, getPromotions, getFAQ, getProductById}
+  return {loading, error, getMenu, getPromotions, getFAQ, getProductInfo}
 }
 
 export default useLogosService;

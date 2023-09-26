@@ -113,6 +113,7 @@ const App = () => {
           <Route
             path='/product/:id'
             element={<ProductPage
+              menu={menu}
               cartItems={cartItems}
               addToCart={addToCart}
               removeToCart={removeToCart}/>}/>

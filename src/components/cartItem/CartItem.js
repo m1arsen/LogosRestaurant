@@ -11,17 +11,21 @@ import {
 } from './cartItem-style';
 
 // Изображения
-import cartItemImg from '../../resources/cart/cart-item.jpg';
 import increaseIcon from '../../resources/cart/increase-icon.svg';
 import decreaseIcon from '../../resources/cart/decrease-icon.svg';
 import deleteIcon from '../../resources/cart/delete-icon.svg';
+
+// Компненты
+import { Link } from 'react-router-dom';
 
 const CartItem = ({id, name, description, price, src, alt, count, addToCart, removeToCart, deleteToCart}) => {
   return (
     <CartItemStyles>
 
       <CartItemImg>
-        <img src={src} alt={alt} />
+        <Link to={`/product/${id}`}>
+          <img src={src} alt={alt} />
+        </Link>
       </CartItemImg>
 
       <CartItemInfo>

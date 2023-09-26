@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const CartAddItemStyles = styled.div`
-  padding: 20px 0;
+  padding: 20px;
 
   display: grid;
   grid-template-columns: 1fr;
@@ -50,7 +50,9 @@ export const CartAddImg = styled.div`
 `;
 
 export const CartAddBtn = styled.div`
+  margin: 0 auto;
   margin-bottom: 12px;
+  width: 78px;
 
   display: flex;
   align-items: center;

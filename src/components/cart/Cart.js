@@ -26,22 +26,35 @@ import backIcon from '../../resources/cart/back-icon.svg';
 
 // Сервисы
 import useLogosService from '../../services/LogosService';
+import { getRandomCartAddItems } from '../Functions';
 
-const Cart = ({menu, cartItems, addToCart, removeToCart, deleteToCart}) => {
-  const [cartItemsInfo, setCartItemsInfo] = useState([]),
-        [totalPrice, setTotalPrice] = useState(0);
-  const {loading, error} = useLogosService();
+const Cart = ({cartItems, addToCart, removeToCart, deleteToCart}) => {
+  const [menu, setMenu] = useState([]),
+        [cartItemsInfo, setCartItemsInfo] = useState([]), // информация по товарам в корзине
+        [totalPrice, setTotalPrice] = useState(0), // общая стоимость корзины
+        [randomCards, setRandomCards] = useState([]);
+
+  const {loading, error, getMenu} = useLogosService();
 
   useEffect(() => {
-    setCartItemsInfo(() => getItemsInfo());
+    getMenu()
+      .then((menu) => {
+        setMenu(menu);
+        setCartItemsInfo(() => getItemsInfo(menu, cartItems));
+        setRandomCards(() => getRandomCartAddItems(menu, 4));
+      })
+  }, [])
+
+  useEffect(() => {
+    setCartItemsInfo(() => getItemsInfo(menu, cartItems));
   }, [cartItems])
 
   useEffect(() => {
     setTotalPrice(() => calculatingTotalPrice(cartItemsInfo));
   }, [cartItemsInfo])
 
-  const getItemsInfo = () => {
-
+  // Получение информации по продуктам из коллекции id
+  const getItemsInfo = (menu, cartItems) => {
     let info = [];
     for(let itemId in cartItems) {
 
@@ -59,12 +72,28 @@ const Cart = ({menu, cartItems, addToCart, removeToCart, deleteToCart}) => {
     return info;
   }
 
+  // Вычисление общей стоимости корзины
   const calculatingTotalPrice = (items) => {
     let sum = 0;
     items.forEach(({price, count}) => sum += count * price)
     return sum;
   }
 
+  // Рендер верстки дополнительных карточек
+  const renderCartAddItems = (items) => {
+    return items.map(({id, src, alt, name, price}) => {
+      return (
+        <CartAddItem  id={id}
+                      src={src}
+                      alt={alt}
+                      name={name}
+                      price={price}
+                      addToCart={addToCart}/>
+      )
+    })
+  }
+
+  // Рендер верстки карточек в корзине
   const renderCartItems = (items) => {
     return items.map(({id, name, description, price, src, alt, count}) => {
       return (
@@ -114,10 +143,9 @@ const Cart = ({menu, cartItems, addToCart, removeToCart, deleteToCart}) => {
 
         <CartAddItems>
 
-          <CartAddItem/>
-          <CartAddItem/>
-          <CartAddItem/>
-          <CartAddItem/>
+          {spinner}
+          {errorMessage}
+          {renderCartAddItems(randomCards)}
 
         </CartAddItems>
 

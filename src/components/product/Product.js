@@ -6,7 +6,9 @@ import ProductCard from "../productCard/ProductCard";
 
 import backIcon from '../../resources/product/back-icon.svg';
 
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+
+// import { getProductInfo } from "../Functions";
 
 import useLogosService from "../../services/LogosService";
 import Spinner from "../spinner/Spinner";
@@ -15,14 +17,14 @@ const Product = ({cartItems, addToCart, removeToCart}) => {
   const {id} = useParams();
   const [cardData, setCardData] = useState([]);
 
+  // const {getMenu} = useLogosService();
   const navigate = useNavigate()
 
-  const {loading, error, getProductById} = useLogosService();
+  const {loading, error, getProductInfo} = useLogosService();
 
   useEffect(() => {
-    getProductById(id)
-      .then(setCardData);
-  }, [id]);
+    getProductInfo(id).then(setCardData);
+  }, [id])
 
   const spinner = loading ? <Spinner/> : null;
   const errorMessage = error ? <h1>Error</h1> : null;

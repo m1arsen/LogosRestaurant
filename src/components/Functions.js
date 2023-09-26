@@ -16,52 +16,42 @@ export const randomInteger = (min, max) => {
   return Math.floor(rand);
 }
 
-// Проблема  в том что функции не универсальные
+// Получение количества продуктов в меню
+export const countTotalProducts = (menu) => {
+  let count;
+  for(let position in menu) {
 
-// export const addToCart = (id) => {
+    let positionData = menu[position].items;
 
-//   // Есть ли товар в корзине ?
-//   if(cartItems.hasOwnProperty(id)) {
+    positionData.forEach(item => {
+      count = item.id
+    })
+  }
 
-//     setCartItems({
-//       ...cartItems,
-//       [id]: cartItems[id] += 1
-//     });
+  return count;
+}
 
-//   } else {
+// Получение рандомной коллекции дополнительных карточек
+export const getRandomCartAddItems = (menu, count) => {
+  let cartAddCollection = [];
 
-//     setCartItems({
-//       ...cartItems,
-//       [id]: 1
-//     });
+  for(let i = 0; i < count; i++) {
+    let randomId = randomInteger(0, countTotalProducts(menu));
+    let productInfo;
 
-//   }
-//   console.log(cartItems);
+    for(let position in menu) {
 
-// }
+      let positionData = menu[position].items;
 
-// export const removeToCart = (id, deleteBtn) => {
-//   // Есть ли товар в корзине ?
-//   if(cartItems.hasOwnProperty(id)) {
-//     if((cartItems[id] == 1) && (deleteBtn == 'DeleteBtn')) {
+      positionData.forEach(item => {
+        if(item.id == randomId) {
+          productInfo = item;
+        }
+      })
+    }
 
-//       const newCartItems = { ...cartItems }
-//       delete newCartItems[id]
-//       setCartItems({...newCartItems});
+    cartAddCollection.push(productInfo)
+  }
 
-//     } else if(cartItems[id] > 1) {
-
-//       setCartItems({
-//         ...cartItems,
-//         [id]: cartItems[id] -= 1
-//       });
-
-//     }
-//   } // else если нет то ничего не происходит
-// }
-
-// export const deleteToCart = (id) => {
-//   const newCartItems = { ...cartItems }
-//   delete newCartItems[id]
-//   setCartItems({...newCartItems});
-// }
+  return cartAddCollection;
+}
