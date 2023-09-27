@@ -94,7 +94,6 @@ const App = () => {
           <Route
             path='/cart'
             element={<CartPage
-              menu={menu}
               cartItems={cartItems}
               addToCart={addToCart}
               removeToCart={removeToCart}
@@ -113,7 +112,6 @@ const App = () => {
           <Route
             path='/product/:id'
             element={<ProductPage
-              menu={menu}
               cartItems={cartItems}
               addToCart={addToCart}
               removeToCart={removeToCart}/>}/>

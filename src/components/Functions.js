@@ -32,7 +32,7 @@ export const countTotalProducts = (menu) => {
 }
 
 // Получение рандомной коллекции дополнительных карточек
-export const getRandomCartAddItems = (menu, count) => {
+export const getRandomMenuItems = (menu, count) => {
   let cartAddCollection = [];
 
   for(let i = 0; i < count; i++) {

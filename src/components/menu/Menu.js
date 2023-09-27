@@ -1,18 +1,20 @@
 import { useState, useEffect } from 'react';
 // import useLogosService from '../../services/LogosService';
-import { Link } from 'react-router-dom';
 
 import {Swiper} from 'swiper/react';
 import 'swiper/css';
 
+import Spinner from '../spinner/Spinner';
+
+import { MenuTopContainer, MenuPosContainer, MenuPosTitle, MenuTop, MenuPos } from './menu-style';
+
+import {ItemCard, ItemCardImgContainer, ItemCardInfo, ItemCardInfoBlock, ItemCardBtns, ItemCardPrice, ItemCardCart, ItemCardAddBtn, ItemCardRemoveBtn, ItemCardCounter } from './card-style';
+import { Link } from 'react-router-dom';
 import cartIcon from "../../resources/item_cards/cart-icon.svg";
 import addIcon from "../../resources/item_cards/add-icon.svg";
 import removeIcon from "../../resources/item_cards/remove-icon.svg";
 
-import Spinner from '../spinner/Spinner';
-
-import { MenuTopContainer, MenuPosContainer, MenuPosTitle, MenuTop, MenuPos } from './menu-style';
-import {ItemCard, ItemCardImgContainer, ItemCardInfo, ItemCardInfoBlock, ItemCardBtns, ItemCardPrice, ItemCardCart, ItemCardAddBtn, ItemCardRemoveBtn, ItemCardCounter } from './card-style';
+import MenuCard from '../menuCard/MenuCard';
 
 const Menu = ({menu, loading, error, cartItems, addToCart, removeToCart}) => {
   const [openedTab, setopenedTab] = useState(0), // id открытого таба меню
@@ -110,8 +112,22 @@ const Menu = ({menu, loading, error, cartItems, addToCart, removeToCart}) => {
 
             {count ? <ItemCardCounter>{count}</ItemCardCounter> : null}
           </ItemCard>
+
+          // <MenuCard className='swiper-slide' key={id}
+          //           id={id}
+          //           src={src}
+          //           alt={alt}
+          //           name={name}
+          //           weight={weight}
+          //           description={description}
+          //           price={price}
+          //           count={count}
+          //           addToCart={addToCart}
+          //           removeToCart={removeToCart}/>
       )
     })
+
+    // По непонятным причинам при попытке выделить ItemCard в отдельный компонент - MenuCard swiper slider не хочет рендерить слайды в swiper wrapper, пока что решил оставил все как было и в OtherProduct компонент просто скопировать код слайда (ItemCard)
 
     return (
       <>

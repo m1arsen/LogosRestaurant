@@ -28,7 +28,7 @@ import backIcon from '../../resources/cart/back-icon.svg';
 
 // Сервисы
 import useLogosService from '../../services/LogosService';
-import { getRandomCartAddItems } from '../Functions';
+import { getRandomMenuItems } from '../Functions';
 
 const Cart = ({cartItems, addToCart, removeToCart, deleteToCart}) => {
   const [menu, setMenu] = useState([]),
@@ -43,7 +43,7 @@ const Cart = ({cartItems, addToCart, removeToCart, deleteToCart}) => {
       .then((menu) => {
         setMenu(menu);
         setCartItemsInfo(() => getItemsInfo(menu, cartItems));
-        setRandomCards(() => getRandomCartAddItems(menu, 4));
+        setRandomCards(() => getRandomMenuItems(menu, 4));
       })
   }, [])
 
@@ -159,17 +159,22 @@ const Cart = ({cartItems, addToCart, removeToCart, deleteToCart}) => {
             {/* Рендерится в случае нехватки до бесплатной доставки */}
 
             {totalPrice < 2500 && totalPrice > 0 ?
-              <>
-                <CartDeliveryFreePrice>
-                  До бесплатной доставки не хватет: <span>{2500 - totalPrice}</span> ₽
-                </CartDeliveryFreePrice>
-
-                <CartDeliveryPrice>
-                  Доставка стоит <span>500</span> руб
-                </CartDeliveryPrice>
-              </>
+              <CartDeliveryFreePrice>
+                До бесплатной доставки не хватет: <span>{2500 - totalPrice}</span> ₽
+              </CartDeliveryFreePrice>
 
               : null
+            }
+
+            {totalPrice < 2500 && totalPrice > 0 ?
+              <CartDeliveryPrice>
+                Доставка будет стоить <span>500</span> ₽
+              </CartDeliveryPrice>
+                : totalPrice >= 2500 ?
+              <CartDeliveryPrice>
+                Доставка будет <span>беслпатной</span>
+              </CartDeliveryPrice>
+                : null
             }
 
             {totalPrice < 500 && totalPrice > 0 ?

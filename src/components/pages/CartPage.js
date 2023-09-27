@@ -2,12 +2,11 @@ import Header from "../header/Header";
 import Cart from "../cart/Cart";
 import Footer from "../footer/Footer";
 
-const CartPage = ({menu, cartItems, addToCart, removeToCart, deleteToCart}) => {
+const CartPage = ({cartItems, addToCart, removeToCart, deleteToCart}) => {
   return (
     <>
       <Header cartItems={cartItems}/>
       <Cart
-        menu={menu}
         cartItems={cartItems}
         addToCart={addToCart}
         removeToCart={removeToCart}
