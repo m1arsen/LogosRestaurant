@@ -1,4 +1,4 @@
-import { OrderSection, OrderContainer, OrderTitle, OrderStopL } from './order-style';
+import { OrderSection, OrderContainer, OrderTitle, OrderStopL, OrderBtnsContainer } from './order-style';
 import '../../styles/blocks/_order.scss';
 
 import backtocartIcon from '../../resources/order/backtocart-icon.svg';
@@ -58,10 +58,10 @@ const Order = () => {
 
             <div className="order__fieldset-delivery-btns">
 
-              <div className="order__fieldset-delivery-btns-section">
+              <OrderBtnsContainer>
                 <input className="order__fieldset-delivery-btn active" data-tab="#delivery-tab_1" type="button" value="Доставка"/>
                 <input className="order__fieldset-delivery-btn" data-tab="#delivery-tab_2" type="button" value="Самовывоз"/>
-              </div>
+              </OrderBtnsContainer>
 
               <p>Доставим через  1 час 30 минут</p>
             </div>
@@ -113,9 +113,11 @@ const Order = () => {
             <h2 className="order__subtitle">3. Оплатить</h2>
 
             <div className="order__fieldset-pay-btns">
-              <input className="order__fieldset-pay-btn" type="button" value="Оплата онлайн"/>
-              <input className="order__fieldset-pay-btn" type="button" value="Курьеру картой"/>
-              <input className="order__fieldset-pay-btn active" data-tab="#pay-tab_3" type="button" value="Наличными"/>
+              <OrderBtnsContainer>
+                <input className="order__fieldset-pay-btn" type="button" value="Оплата онлайн"/>
+                <input className="order__fieldset-pay-btn" type="button" value="Курьеру картой"/>
+                <input className="order__fieldset-pay-btn active" data-tab="#pay-tab_3" type="button" value="Наличными"/>
+              </OrderBtnsContainer>
             </div>
 
             <div className="order__fieldset-pay-change active" id="pay-tab_3">
@@ -129,10 +131,11 @@ const Order = () => {
             <h2 className="order__subtitle">4. Когда доставить</h2>
 
             <div className="order__fieldset-times-time-btns">
-              <input className="order__fieldset-times-time-btn" type="button" value="В ближайшее время"/>
-              <input className="order__fieldset-times-time-btn active" data-tab="#times-tab_2" type="button" value="Ко времени"/>
-              <input className="order__fieldset-times-time-tab active" id="times-tab_2" type="text" placeholder="Укажите время"/>
-
+              <OrderBtnsContainer>
+                <input className="order__fieldset-times-time-btn" type="button" value="В ближайшее время"/>
+                <input className="order__fieldset-times-time-btn active" data-tab="#times-tab_2" type="button" value="Ко времени"/>
+                <input className="order__fieldset-times-time-tab active" id="times-tab_2" type="text" placeholder="Укажите время"/>
+              </OrderBtnsContainer>
             </div>
 
             <div className="order__fieldset-times-persons">

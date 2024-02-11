@@ -59,3 +59,7 @@ export const OrderStopL = styled.div`
     right: 55px;
   }
 `;
+
+export const OrderBtnsContainer = styled.div`
+  display: flex;
+`;
