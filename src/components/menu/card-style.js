@@ -1,9 +1,7 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-import { SwiperSlide } from "swiper/react";
-
-import { vars } from "../../styles/styles";
-const {secondaryTextColor} = vars;
+import { vars } from '../../styles/styles';
+const { secondaryTextColor } = vars;
 
 export const ItemCardBtns = styled.div`
   width: 100%;
@@ -20,7 +18,7 @@ export const ItemCardPrice = styled.p`
   line-height: 24px;
   font-family: 'Gilroy Semibold';
 
-  transition: .2s linear;
+  transition: 0.2s linear;
 `;
 
 export const ItemCardCart = styled.button`
@@ -35,7 +33,7 @@ export const ItemCardCart = styled.button`
   align-items: center;
   column-gap: 12px;
 
-  background: linear-gradient(114.93deg, #618967 5.11%, #72A479 94%);
+  background: linear-gradient(114.93deg, #618967 5.11%, #72a479 94%);
   border-radius: 10px;
 
   & img {
@@ -55,10 +53,10 @@ export const ItemCardAddBtn = styled.button`
   transform: translateY(10px);
   opacity: 0;
 
-  transition: .3s linear;
+  transition: 0.3s linear;
 
   &:hover {
-    background-color: #72A479;
+    background-color: #72a479;
   }
 
   right: 0;
@@ -77,16 +75,16 @@ export const ItemCardRemoveBtn = styled(ItemCardAddBtn)`
   }
 `;
 
-export const ItemCard = styled(SwiperSlide)`
+export const ItemCard = styled.div`
   max-width: 330px;
   height: 380px;
   width: 100%;
 
   border-radius: 10px;
-  background: linear-gradient(90deg, #494544 0%, #504B4A 100%);
+  background: linear-gradient(90deg, #494544 0%, #504b4a 100%);
   position: relative;
 
-  transition: .2s linear;
+  transition: 0.2s linear;
 
   &:hover {
     box-shadow: 0px 30px 45px rgba(43, 40, 40, 0.9);
@@ -102,8 +100,7 @@ export const ItemCard = styled(SwiperSlide)`
     opacity: 0;
   }
 
-  &:hover ${ItemCardAddBtn},
-  &:hover ${ItemCardRemoveBtn} {
+  &:hover ${ItemCardAddBtn}, &:hover ${ItemCardRemoveBtn} {
     transform: translateY(0);
     opacity: 1;
   }
@@ -122,7 +119,7 @@ export const ItemCardCounter = styled.div`
   justify-content: center;
   align-items: center;
 
-  background: #79B382;
+  background: #79b382;
 
   position: absolute;
   top: -20px;
@@ -163,7 +160,7 @@ export const ItemCardInfo = styled.div`
   background-color: red;
 
   border-radius: 10px;
-  background: linear-gradient(90deg, #494544 0%, #504B4A 100%);
+  background: linear-gradient(90deg, #494544 0%, #504b4a 100%);
 
   &-block {
     width: 100%;
@@ -212,7 +209,6 @@ export const ItemCardInfoBlock = styled.div`
     line-height: 17px;
     color: ${secondaryTextColor};
   }
-
 `;
 
 export const ItemCardTitle = styled.h2`
@@ -220,4 +216,3 @@ export const ItemCardTitle = styled.h2`
   font-size: 22px;
   line-height: 27px;
 `;
-
