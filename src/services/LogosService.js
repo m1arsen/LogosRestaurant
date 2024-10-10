@@ -11,10 +11,6 @@ const useLogosService = () => {
     return await request('http://localhost:3001/promotions');
   };
 
-  const getFAQ = async () => {
-    return await request('http://localhost:3001/FAQ');
-  };
-
   const getProductInfo = async (id) => {
     return await getMenu().then((menu) => {
       let cardData;
@@ -32,7 +28,7 @@ const useLogosService = () => {
     });
   };
 
-  return { loading, error, getMenu, getPromotions, getFAQ, getProductInfo };
+  return { loading, error, getMenu, getPromotions, getProductInfo };
 };
 
 export default useLogosService;
