@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { fetchItems } from '../../redux/items/asyncActions';
 
 // Роутер
-import { Route, Routes, BrowserRouter as Router  } from 'react-router-dom';
+import { Route, Routes, BrowserRouter as Router } from 'react-router-dom';
 
 // Хук
 import useLogosService from '../../services/LogosService';
@@ -17,114 +19,107 @@ import PromotionsPage from '../pages/PromotionsPage';
 // Стили
 import '../../styles/main.scss';
 
-import {ScrollToTop} from '../Functions';
+import { ScrollToTop } from '../Functions';
 
 const App = () => {
+  // const [menu, setMenu] = useState({});
+  const [cartItems, setCartItems] = useState({ 2: 1, 3: 2, 1: 3 });
 
-  const [menu, setMenu] = useState({}),
-        [cartItems, setCartItems] = useState({2: 1, 3: 2, 1: 3});
-  const {loading, error, getMenu} = useLogosService();
+  // const { loading, error, getMenu } = useLogosService();
+
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    getMenu().then(setMenu);
-  }, [])
+    dispatch(fetchItems());
+  }, []);
+
+  // useEffect(() => {
+  //   getMenu().then(setMenu);
+  // }, []);
 
   const addToCart = (id) => {
-
+    id = Number(id);
     // Есть ли товар в корзине ?
-    if(cartItems.hasOwnProperty(id)) {
-
+    if (cartItems.hasOwnProperty(id)) {
       setCartItems({
         ...cartItems,
-        [id]: cartItems[id] += 1
+        [id]: (cartItems[id] += 1),
       });
-
     } else {
-
       setCartItems({
         ...cartItems,
-        [id]: 1
+        [id]: 1,
       });
-
     }
-  }
+  };
 
   const removeToCart = (id, deleteBtn) => {
+    id = Number(id);
     // Есть ли товар в корзине ?
-    if(cartItems.hasOwnProperty(id)) {
-      if((cartItems[id] == 1) && (deleteBtn == 'DeleteBtn')) {
-
-        const newCartItems = { ...cartItems }
-        delete newCartItems[id]
-        setCartItems({...newCartItems});
-
-      } else if(cartItems[id] > 1) {
-
+    if (cartItems.hasOwnProperty(id)) {
+      if (cartItems[id] == 1 && deleteBtn == 'DeleteBtn') {
+        const newCartItems = { ...cartItems };
+        delete newCartItems[id];
+        setCartItems({ ...newCartItems });
+      } else if (cartItems[id] > 1) {
         setCartItems({
           ...cartItems,
-          [id]: cartItems[id] -= 1
+          [id]: (cartItems[id] -= 1),
         });
-
       }
     } // else если нет то ничего не происходит
-  }
+  };
 
   const deleteToCart = (id) => {
-    const newCartItems = { ...cartItems }
-    delete newCartItems[id]
-    setCartItems({...newCartItems});
-  }
+    const newCartItems = { ...cartItems };
+    delete newCartItems[id];
+    setCartItems({ ...newCartItems });
+  };
 
   return (
     <Router>
-      <ScrollToTop/>
+      <ScrollToTop />
       <div className="App">
         <Routes>
+          <Route
+            path="/"
+            element={
+              <MainPage cartItems={cartItems} addToCart={addToCart} removeToCart={removeToCart} />
+            }
+          />
 
           <Route
-            path='/'
-            element={<MainPage
-              menu={menu}
-              loading={loading}
-              error={error}
-              cartItems={cartItems}
-              addToCart={addToCart}
-              removeToCart={removeToCart}/>}/>
+            path="/cart"
+            element={
+              <CartPage
+                cartItems={cartItems}
+                addToCart={addToCart}
+                removeToCart={removeToCart}
+                deleteToCart={deleteToCart}
+              />
+            }
+          />
+
+          <Route path="/cart/order" element={<OrderPage cartItems={cartItems} />} />
+
+          <Route path="/delivery" element={<DeliveryPage cartItems={cartItems} />} />
 
           <Route
-            path='/cart'
-            element={<CartPage
-              cartItems={cartItems}
-              addToCart={addToCart}
-              removeToCart={removeToCart}
-              deleteToCart={deleteToCart}/>}/>
+            path="/product/:id"
+            element={
+              <ProductPage
+                cartItems={cartItems}
+                addToCart={addToCart}
+                removeToCart={removeToCart}
+              />
+            }
+          />
 
-          <Route
-            path='/cart/order'
-            element={<OrderPage
-              cartItems={cartItems}/>}/>
-
-          <Route
-            path='/delivery'
-            element={<DeliveryPage
-              cartItems={cartItems}/>}/>
-
-          <Route
-            path='/product/:id'
-            element={<ProductPage
-              cartItems={cartItems}
-              addToCart={addToCart}
-              removeToCart={removeToCart}/>}/>
-
-          <Route
-            path='/promotions'
-            element={<PromotionsPage
-              cartItems={cartItems}/>}/>
-
+          <Route path="/promotions" element={<PromotionsPage cartItems={cartItems} />} />
         </Routes>
       </div>
     </Router>
-  )
-}
+  );
+};
 
 export default App;

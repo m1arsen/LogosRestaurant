@@ -1,15 +1,10 @@
-import styled from "styled-components";
-import {Container, Title} from '../../styles/styles';
+import styled from 'styled-components';
+import { Container } from '../../styles/styles';
 
-import { vars } from "../../styles/styles";
+import { vars } from '../../styles/styles';
 const { green } = vars;
 
-export const MenuTop = styled.div`
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  background: rgba(255, 255, 255, 0.01);
-`;
-
-export const MenuTopContainer = styled(Container)`
+export const CategoriesContainer = styled(Container)`
   display: flex;
   flex-wrap: nowrap;
   justify-content: space-between;
@@ -17,16 +12,16 @@ export const MenuTopContainer = styled(Container)`
   font-family: 'Gilroy Regular';
   font-size: 18px;
   line-height: 21px;
-  color: #CFCFCF;
+  color: #cfcfcf;
 `;
 
-export const MenuPos = styled.div`
+export const CategoryItem = styled.div`
   padding: 28px 0;
   cursor: pointer;
 
   position: relative;
 
-  transition: .2s linear;
+  transition: 0.2s linear;
 
   &::after {
     content: '';
@@ -39,7 +34,7 @@ export const MenuPos = styled.div`
     background-color: ${green};
     box-shadow: 0px 5px 12px rgba(114, 164, 121, 0.3);
 
-    transition: opacity .2s linear;
+    transition: opacity 0.2s linear;
     opacity: 0;
   }
 
@@ -55,15 +50,3 @@ export const MenuPos = styled.div`
     opacity: 1;
   }
 `;
-
-export const MenuPosContainer = styled(Container)`
-  padding: 0;
-`;
-
-export const MenuPosTitle = styled(Title)`
-  margin: 50px 0 25px;
-  margin-left: 30px;
-`;
-
-
-
